@@ -1,32 +1,28 @@
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaQuoteLeft, FaMicrochip, FaCogs, FaCheckCircle, FaShieldAlt } from 'react-icons/fa';
-import profileImg from '../assets/images/profile_mohammed.jpg';
+import { FaGraduationCap, FaQuoteLeft, FaMicrochip, FaBolt, FaTools, FaCheck } from 'react-icons/fa';
+import profileCvImg from '../assets/images/profile_cv.png';
 
-const educationData = [
+const educationList = [
   {
     period: '2024 — 2027',
-    degree: 'Cycle Ingénieur d’État en Génie Électrique & Contrôle Industriel',
-    institution: 'Faculté des Sciences et Techniques (FST) de Mohammedia',
-    details: 'Systèmes embarqués temps réel, automatisme industriel avancé, SCADA, régulation & électronique de puissance.',
+    degree: 'State Engineering Degree in Electrical & Industrial Control Engineering (GECI)',
+    institution: 'Faculty of Sciences and Techniques (FST) — Mohammedia',
+    details: 'Specialization in Embedded Systems, Industrial Automation, SCADA Supervision, Power Electronics, Machine Learning & Robotics.',
     current: true,
   },
   {
-    period: '2023 — 2024',
-    degree: 'Licence ST — Informatique Industrielle & Instrumentation',
-    institution: 'Faculté des Sciences et Techniques (FST) d’Errachidia',
-    details: 'Acquisition de données, traitement du signal, capteurs intelligents, microcontrôleurs & réseaux industriels.',
+    period: '2022 — 2024',
+    degree: 'DEUST in Mathematics, Computer Science, Physics & Chemistry (MIP)',
+    institution: 'Faculty of Sciences and Techniques (FST) — Errachidia',
+    details: 'Intensive foundation in applied mathematics, signal processing, digital electronics, algorithms and physics.',
+    current: false,
   },
   {
-    period: '2021 — 2023',
-    degree: 'DEUST — Mathématiques, Informatique & Physique (MIP)',
-    institution: 'Faculté des Sciences et Techniques (FST) d’Errachidia',
-    details: 'Fondements scientifiques rigoureux en mathématiques appliquées, physique fondamentale, électronique et algorithmique.',
-  },
-  {
-    period: '2021',
-    degree: 'Baccalauréat en Sciences Physiques',
-    institution: 'Lycée Najib Mahfoud — Safi',
-    details: 'Mention Bien, spécialité sciences physiques et chimie.',
+    period: '2021 — 2022',
+    degree: 'Baccalauréat in Mathematical Sciences A',
+    institution: 'Lycée Qualifiant — Errachidia',
+    details: 'Graduated with Honors (Mention Bien). Rigorous analytical training in mathematics and physics.',
+    current: false,
   },
 ];
 
@@ -36,113 +32,148 @@ const About = () => {
       <div className="about-container">
         {/* Section Header */}
         <div className="section-header-centered">
-          <span className="section-tag">Profil Professionnel & Vision</span>
+          <span className="section-tag">Engineering Mindset & Trajectory</span>
           <h2 className="section-title-large">
-            Ingénierie & <span className="highlight-cyan">Excellence Technique</span>
+            Bridging Theory & <span className="highlight-cyan">Field Reality</span>
           </h2>
           <p className="section-subtitle">
-            Élève ingénieur rigoureux et proactif, combinant savoir-faire théorique et réalisations concrètes sur le terrain.
+            An engineering journey driven by curiosity, systematic debugging, and a relentless focus on reliable physical systems.
           </p>
         </div>
 
-        {/* Main Grid: Profile & Vision */}
-        <div className="profile-grid">
-          {/* Left Column: Photo + Quote + Focus Badges */}
+        {/* Quote Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="quote-banner"
+        >
+          <FaQuoteLeft className="quote-icon" />
+          <div className="quote-content">
+            <p className="quote-text">
+              "I have not failed. I've just found 10,000 ways that won't work."
+            </p>
+            <span className="quote-author">— Thomas A. Edison</span>
+          </div>
+        </motion.div>
+
+        {/* Main Grid: Bio + Profile + Philosophy */}
+        <div className="about-bio-grid">
+          {/* Bio text */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="profile-left"
+            className="about-bio-content"
           >
-            <div className="image-card-wrapper">
-              <div className="image-frame">
-                <img src={profileImg} alt="Mohammed HSINY" className="profile-portrait" />
-                <div className="image-overlay-glow"></div>
-                <div className="status-pill-floating">
-                  <span className="dot-active"></span>
-                  <span>FST Mohammedia</span>
+            <h3 className="bio-heading">
+              Engineering Student at <span className="highlight-cyan">FST Mohammedia</span>
+            </h3>
+            
+            <p className="bio-paragraph">
+              Currently in my engineering curriculum in <strong>Electrical Engineering & Industrial Control (GECI)</strong>, 
+              I develop a multidisciplinary approach at the crossroads of <strong>hardware electronics</strong>, 
+              <strong>embedded software</strong>, and <strong>industrial automation</strong>.
+            </p>
+
+            <p className="bio-paragraph">
+              My engineering philosophy revolves around <strong>rapid prototyping</strong>, <strong>physical testing</strong>, 
+              and <strong>rigorous field validation</strong>. Whether it is building custom drones from scratch, developing 
+              multi-robot fleets with ADAS capabilities, or programming industrial SCADA systems on Medium Voltage networks, 
+              I design systems built to withstand real-world operational constraints.
+            </p>
+
+            <div className="core-competencies-list">
+              <div className="comp-item">
+                <FaMicrochip className="comp-icon" />
+                <div>
+                  <strong>Critical Embedded Systems:</strong> Microcontrollers (STM32, ESP32, PIC), FreeRTOS, hardware timers, and communication buses (CAN, SPI, I2C, UART).
                 </div>
               </div>
-            </div>
-
-            {/* Inspiration Quote */}
-            <div className="quote-box">
-              <FaQuoteLeft className="quote-icon" />
-              <p className="quote-text">
-                « I have not failed. I've just found 10,000 ways that won't work. »
-              </p>
-              <span className="quote-author">— Thomas Edison</span>
-            </div>
-
-            {/* Core Pillars */}
-            <div className="pillars-grid">
-              <div className="pillar-item">
-                <FaMicrochip className="pillar-icon cyan" />
+              <div className="comp-item">
+                <FaBolt className="comp-icon" />
                 <div>
-                  <h4>Systèmes Embarqués</h4>
-                  <p>STM32, ESP32, FreeRTOS, protocoles CAN / Modbus / MAVLink.</p>
+                  <strong>Industrial Automation & SCADA:</strong> PLCs (Schneider M580/M340, Siemens S7-1200), Modbus TCP/IP, Ignition SCADA, Sepam 80 relays, and MV stations.
                 </div>
               </div>
-              <div className="pillar-item">
-                <FaShieldAlt className="pillar-icon blue" />
+              <div className="comp-item">
+                <FaTools className="comp-icon" />
                 <div>
-                  <h4>Défense & Autonomie</h4>
-                  <p>Drones d'inspection, navigation par IA, ADAS & sécurité.</p>
+                  <strong>Autonomous Robotics & Drones:</strong> CAD modeling under SolidWorks, custom CNC/carbon assembly, flight controllers (ArduPilot, Betaflight), and vision AI (YOLO).
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Bio + Education Timeline */}
+          {/* Portrait and Quick Info */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="profile-right"
+            className="about-portrait-wrapper"
           >
-            <div className="bio-block">
-              <h3 className="bio-title">
-                Concevoir, Prototyper & <span className="highlight-cyan">Innover</span>
-              </h3>
-              <p className="bio-paragraph">
-                Élève ingénieur en <strong>Génie Électrique et Contrôle Industriel</strong> à la <strong>FST de Mohammedia</strong>, 
-                je suis activement à la recherche d’un <strong>stage PFE de 6 mois à partir de Janvier 2027</strong> dans les domaines 
-                des <strong>systèmes embarqués</strong>, de la <strong>robotique</strong>, des <strong>drones</strong>, des <strong>systèmes autonomes</strong> ou de la <strong>défense</strong>.
-              </p>
-              <p className="bio-paragraph">
-                Curieux, autonome et doté d’un fort esprit d’initiative, je développe des projets personnels intégrant hardware et software de bout en bout : conception CAO, dimensionnement de puissance, routage électronique, firmware temps réel et interfaces de supervision. Mes distinctions dans plusieurs compétitions nationales témoignent de ma capacité à concrétiser des solutions novatrices.
-              </p>
+            <div className="portrait-inner-frame">
+              <img
+                src={profileCvImg}
+                alt="Mohammed HSINY"
+                className="about-profile-photo"
+              />
+              <div className="portrait-details-overlay">
+                <h4>Mohammed HSINY</h4>
+                <span>Élève Ingénieur GECI · FSTM</span>
+              </div>
             </div>
 
-            {/* Academic Formation Timeline */}
-            <div className="education-timeline-wrapper">
-              <div className="timeline-title-bar">
-                <FaGraduationCap className="edu-icon" />
-                <h3>Formation Académique</h3>
+            <div className="pfe-box">
+              <div className="pfe-box-header">
+                <span className="live-indicator"></span>
+                <strong>6-Month PFE Internship Search</strong>
               </div>
+              <p>
+                <strong>Availability:</strong> January 2027 – June 2027 (6 months)<br />
+                <strong>Target Fields:</strong> Embedded Systems, Robotics & Autonomous Systems, Drones & UAVs, Industrial Automation / SCADA, Defense & Energy R&D.<br />
+                <strong>Mobility:</strong> Morocco & International
+              </p>
+            </div>
+          </motion.div>
+        </div>
 
-              <div className="edu-timeline">
-                {educationData.map((edu, index) => (
-                  <div key={index} className={`edu-item ${edu.current ? 'current-edu' : ''}`}>
-                    <div className="edu-marker">
-                      <span className="edu-dot"></span>
-                    </div>
-                    <div className="edu-content">
-                      <div className="edu-header">
-                        <span className="edu-period">{edu.period}</span>
-                        {edu.current && <span className="current-badge">En cours</span>}
-                      </div>
-                      <h4 className="edu-degree">{edu.degree}</h4>
-                      <h5 className="edu-inst">{edu.institution}</h5>
-                      <p className="edu-details">{edu.details}</p>
-                    </div>
+        {/* Education Timeline */}
+        <div className="education-timeline-section">
+          <div className="timeline-title-wrap">
+            <FaGraduationCap className="timeline-header-icon" />
+            <h3 className="timeline-heading">Academic Path & Degrees</h3>
+          </div>
+
+          <div className="timeline-track">
+            {educationList.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                className={`timeline-item ${item.current ? 'current-phase' : ''}`}
+              >
+                <div className="timeline-marker">
+                  <div className="marker-dot"></div>
+                </div>
+
+                <div className="timeline-card">
+                  <div className="timeline-card-header">
+                    <span className="timeline-period-badge">{item.period}</span>
+                    {item.current && <span className="current-tag">In Progress</span>}
                   </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+                  <h4 className="timeline-degree">{item.degree}</h4>
+                  <h5 className="timeline-institution">{item.institution}</h5>
+                  <p className="timeline-details">{item.details}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -158,170 +189,61 @@ const About = () => {
           margin: 0 auto;
         }
 
-        .section-header-centered {
-          text-align: center;
-          max-width: 750px;
-          margin: 0 auto 4.5rem;
-        }
-
-        .profile-grid {
-          display: grid;
-          grid-template-columns: 420px 1fr;
-          gap: 4rem;
-          align-items: start;
-        }
-
-        .profile-left {
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-        }
-
-        .image-card-wrapper {
-          position: relative;
-        }
-
-        .image-frame {
-          position: relative;
-          width: 100%;
-          height: 480px;
-          border-radius: 20px;
-          overflow: hidden;
-          border: 1px solid var(--glass-border);
-          background: #0d121c;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .profile-portrait {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: top center;
-          transition: transform 0.5s ease;
-        }
-
-        .image-frame:hover .profile-portrait {
-          transform: scale(1.03);
-        }
-
-        .image-overlay-glow {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            to top,
-            rgba(6, 8, 13, 0.85) 0%,
-            rgba(6, 8, 13, 0.2) 50%,
-            transparent 100%
-          );
-          pointer-events: none;
-        }
-
-        .status-pill-floating {
-          position: absolute;
-          bottom: 1.25rem;
-          left: 1.25rem;
+        /* Quote Banner */
+        .quote-banner {
+          background: linear-gradient(135deg, rgba(0, 229, 255, 0.06), rgba(59, 130, 246, 0.04));
+          border: 1px solid rgba(0, 229, 255, 0.2);
+          border-radius: 16px;
+          padding: 2rem 2.5rem;
+          margin-bottom: 4.5rem;
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          padding: 0.4rem 0.9rem;
-          background: rgba(6, 8, 13, 0.85);
+          gap: 1.5rem;
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(0, 229, 255, 0.3);
-          border-radius: 100px;
-          font-family: var(--font-mono);
-          font-size: 0.8rem;
-          color: var(--accent-cyan);
-          font-weight: 600;
-        }
-
-        .dot-active {
-          width: 7px;
-          height: 7px;
-          border-radius: 50%;
-          background: var(--accent-cyan);
-          box-shadow: 0 0 8px var(--accent-cyan);
-        }
-
-        .quote-box {
-          background: rgba(255, 255, 255, 0.02);
-          border-left: 3px solid var(--accent-cyan);
-          padding: 1.25rem 1.5rem;
-          border-radius: 0 12px 12px 0;
-          border-top: 1px solid var(--glass-border);
-          border-right: 1px solid var(--glass-border);
-          border-bottom: 1px solid var(--glass-border);
         }
 
         .quote-icon {
+          font-size: 2.2rem;
           color: var(--accent-cyan);
-          font-size: 1.2rem;
-          margin-bottom: 0.5rem;
-          opacity: 0.7;
-        }
-
-        .quote-text {
-          font-style: italic;
-          color: var(--text-primary);
-          font-size: 0.95rem;
-          margin-bottom: 0.5rem;
-        }
-
-        .quote-author {
-          font-size: 0.8rem;
-          color: var(--text-muted);
-          font-family: var(--font-mono);
-          font-weight: 600;
-        }
-
-        .pillars-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .pillar-item {
-          display: flex;
-          gap: 1rem;
-          align-items: flex-start;
-          padding: 1rem;
-          background: var(--bg-card);
-          border: 1px solid var(--glass-border);
-          border-radius: 12px;
-        }
-
-        .pillar-icon {
-          font-size: 1.5rem;
-          margin-top: 0.2rem;
           flex-shrink: 0;
         }
 
-        .pillar-icon.cyan { color: var(--accent-cyan); }
-        .pillar-icon.blue { color: var(--accent-blue); }
-
-        .pillar-item h4 {
-          font-size: 0.95rem;
-          margin-bottom: 0.25rem;
+        .quote-text {
+          font-family: var(--font-heading);
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: var(--text-primary);
+          line-height: 1.5;
+          margin-bottom: 0.35rem;
+          font-style: italic;
         }
 
-        .pillar-item p {
-          font-size: 0.82rem;
-          color: var(--text-secondary);
-          line-height: 1.4;
+        .quote-author {
+          font-family: var(--font-mono);
+          font-size: 0.85rem;
+          color: var(--accent-cyan);
+          letter-spacing: 0.05em;
         }
 
-        .bio-block {
-          margin-bottom: 3rem;
+        /* Bio Grid */
+        .about-bio-grid {
+          display: grid;
+          grid-template-columns: 1fr 380px;
+          gap: 3.5rem;
+          align-items: start;
+          margin-bottom: 5rem;
         }
 
-        .bio-title {
+        .bio-heading {
           font-size: 1.8rem;
+          font-weight: 700;
           margin-bottom: 1.25rem;
         }
 
         .bio-paragraph {
-          font-size: 1.05rem;
+          font-size: 1.02rem;
           color: var(--text-secondary);
-          line-height: 1.8;
+          line-height: 1.75;
           margin-bottom: 1.25rem;
         }
 
@@ -329,140 +251,239 @@ const About = () => {
           color: var(--text-primary);
         }
 
-        .education-timeline-wrapper {
+        .core-competencies-list {
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+          margin-top: 2rem;
+          padding-top: 1.5rem;
+          border-top: 1px solid var(--glass-border);
+        }
+
+        .comp-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 1rem;
+          font-size: 0.92rem;
+          color: var(--text-secondary);
+          line-height: 1.55;
+        }
+
+        .comp-item strong {
+          color: var(--text-primary);
+        }
+
+        .comp-icon {
+          font-size: 1.25rem;
+          color: var(--accent-cyan);
+          flex-shrink: 0;
+          margin-top: 0.2rem;
+        }
+
+        /* Portrait & PFE Box */
+        .about-portrait-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 1.75rem;
+        }
+
+        .portrait-inner-frame {
+          position: relative;
+          width: 100%;
+          height: 380px;
+          border-radius: 20px;
+          overflow: hidden;
+          background: #090e18;
+          border: 1px solid var(--glass-border);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .about-profile-photo {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: top center;
+          transition: transform 0.6s ease;
+        }
+
+        .portrait-inner-frame:hover .about-profile-photo {
+          transform: scale(1.03);
+        }
+
+        .portrait-details-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 1.25rem 1.5rem;
+          background: linear-gradient(to top, rgba(6, 8, 13, 0.92) 0%, transparent 100%);
+        }
+
+        .portrait-details-overlay h4 {
+          font-size: 1.15rem;
+          margin-bottom: 0.15rem;
+        }
+
+        .portrait-details-overlay span {
+          font-size: 0.82rem;
+          color: var(--accent-cyan);
+          font-family: var(--font-mono);
+        }
+
+        .pfe-box {
+          background: var(--bg-card);
+          border: 1px solid rgba(16, 185, 129, 0.35);
+          border-radius: 16px;
+          padding: 1.5rem;
+          font-size: 0.88rem;
+          color: var(--text-secondary);
+          line-height: 1.6;
+        }
+
+        .pfe-box-header {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          margin-bottom: 0.75rem;
+          color: #34d399;
+          font-family: var(--font-heading);
+          font-size: 0.95rem;
+        }
+
+        .live-indicator {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #10b981;
+          box-shadow: 0 0 8px #10b981;
+        }
+
+        .pfe-box strong {
+          color: var(--text-primary);
+        }
+
+        /* Education Timeline */
+        .education-timeline-section {
           background: var(--bg-card);
           border: 1px solid var(--glass-border);
-          border-radius: 16px;
-          padding: 2rem;
+          border-radius: 24px;
+          padding: 3rem;
           backdrop-filter: blur(10px);
         }
 
-        .timeline-title-bar {
+        .timeline-title-wrap {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
-          margin-bottom: 2rem;
-          padding-bottom: 1rem;
+          gap: 0.9rem;
+          margin-bottom: 2.5rem;
+          padding-bottom: 1.25rem;
           border-bottom: 1px solid var(--glass-border);
         }
 
-        .edu-icon {
-          font-size: 1.5rem;
+        .timeline-header-icon {
+          font-size: 1.8rem;
           color: var(--accent-cyan);
         }
 
-        .timeline-title-bar h3 {
-          font-size: 1.3rem;
+        .timeline-heading {
+          font-size: 1.4rem;
         }
 
-        .edu-timeline {
+        .timeline-track {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
           position: relative;
-          padding-left: 1.5rem;
+          padding-left: 2rem;
+          border-left: 2px solid rgba(0, 229, 255, 0.2);
         }
 
-        .edu-timeline::before {
-          content: '';
-          position: absolute;
-          left: 5px;
-          top: 8px;
-          bottom: 8px;
-          width: 2px;
-          background: rgba(255, 255, 255, 0.1);
-        }
-
-        .edu-item {
+        .timeline-item {
           position: relative;
-          margin-bottom: 2rem;
         }
 
-        .edu-item:last-child {
-          margin-bottom: 0;
-        }
-
-        .edu-marker {
+        .timeline-marker {
           position: absolute;
-          left: -1.5rem;
-          top: 4px;
+          left: calc(-2rem - 6px);
+          top: 6px;
         }
 
-        .edu-dot {
-          display: block;
-          width: 12px;
-          height: 12px;
+        .marker-dot {
+          width: 10px;
+          height: 10px;
           border-radius: 50%;
-          background: var(--bg-deep);
-          border: 2px solid var(--text-muted);
-        }
-
-        .current-edu .edu-dot {
-          border-color: var(--accent-cyan);
           background: var(--accent-cyan);
           box-shadow: 0 0 10px var(--accent-cyan);
         }
 
-        .edu-content {
+        .timeline-item.current-phase .marker-dot {
+          background: #10b981;
+          box-shadow: 0 0 12px #10b981;
+        }
+
+        .timeline-card {
           background: rgba(255, 255, 255, 0.02);
           border: 1px solid var(--glass-border);
-          border-radius: 12px;
-          padding: 1.25rem;
+          border-radius: 14px;
+          padding: 1.5rem;
           transition: var(--transition-fast);
         }
 
-        .edu-content:hover {
+        .timeline-card:hover {
+          border-color: rgba(0, 229, 255, 0.3);
           background: rgba(255, 255, 255, 0.04);
-          border-color: rgba(255, 255, 255, 0.18);
         }
 
-        .edu-header {
+        .timeline-card-header {
           display: flex;
           align-items: center;
           gap: 0.75rem;
-          margin-bottom: 0.4rem;
+          margin-bottom: 0.6rem;
         }
 
-        .edu-period {
+        .timeline-period-badge {
           font-family: var(--font-mono);
-          font-size: 0.82rem;
+          font-size: 0.8rem;
           color: var(--accent-cyan);
           font-weight: 700;
         }
 
-        .current-badge {
-          font-size: 0.65rem;
+        .current-tag {
+          font-size: 0.7rem;
+          padding: 0.15rem 0.5rem;
           background: rgba(16, 185, 129, 0.15);
           color: #34d399;
           border: 1px solid rgba(16, 185, 129, 0.4);
-          padding: 0.1rem 0.4rem;
-          border-radius: 4px;
-          font-family: var(--font-mono);
-          font-weight: 600;
+          border-radius: 100px;
+          font-weight: 700;
+          text-transform: uppercase;
         }
 
-        .edu-degree {
-          font-size: 1.05rem;
+        .timeline-degree {
+          font-size: 1.15rem;
           margin-bottom: 0.25rem;
         }
 
-        .edu-inst {
+        .timeline-institution {
           font-size: 0.9rem;
-          color: var(--text-secondary);
+          color: var(--text-muted);
           font-weight: 500;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.75rem;
         }
 
-        .edu-details {
-          font-size: 0.85rem;
-          color: var(--text-muted);
+        .timeline-details {
+          font-size: 0.88rem;
+          color: var(--text-secondary);
           line-height: 1.5;
         }
 
         @media (max-width: 1024px) {
-          .profile-grid {
+          .about-bio-grid {
             grid-template-columns: 1fr;
-            gap: 3rem;
           }
-          .image-frame {
-            height: 400px;
+          .about-portrait-wrapper {
+            max-width: 450px;
+            margin: 0 auto;
           }
         }
       `}</style>

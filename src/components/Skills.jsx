@@ -2,112 +2,72 @@ import { motion } from 'framer-motion';
 import {
   FaMicrochip,
   FaIndustry,
-  FaCubes,
+  FaCogs,
   FaCode,
   FaLanguage,
-  FaCheckCircle,
-  FaBolt,
-  FaLaptopCode,
+  FaTerminal,
+  FaServer,
+  FaDraftingCompass,
 } from 'react-icons/fa';
 
 const skillCategories = [
   {
     id: 'embedded',
-    title: 'Systèmes Embarqués & Robotique',
-    icon: <FaMicrochip className="cat-icon cyan" />,
-    description: 'Conception hardware/software, temps réel, communication et navigation autonome.',
-    competences: [
-      'Programmation embarquée C/C++',
-      'Protocoles de communication (CAN, Modbus, UART, I2C, SPI, MAVLink, ESP-NOW)',
-      'Systèmes temps réel & FreeRTOS',
-      'Vision par ordinateur & Machine Learning (OpenCV, YOLO)',
-      'Lois de commande avancées & Asservissement PID',
-      'Navigation autonome, guidage & télémétrie',
-    ],
-    tools: [
-      'STM32 / STM32CubeIDE',
-      'ESP32 / Arduino IDE',
-      'Raspberry Pi',
-      'Betaflight / INAV',
-      'ArduPilot / QGroundControl',
-      'Mission Planner',
-      'ROS',
-      'KiCad (PCB Design)',
-      'VS Code',
+    title: 'Embedded Systems & Electronics',
+    icon: <FaMicrochip />,
+    color: 'cyan',
+    skills: [
+      { name: 'Microcontrollers', level: 'STM32 (ARM Cortex-M), ESP32, ESP8266, PIC, Arduino' },
+      { name: 'Hardware Communication Buses', level: 'CAN Bus, SPI, I2C, UART, RS-485, Modbus' },
+      { name: 'Embedded RTOS & Firmware', level: 'FreeRTOS, Embedded C/C++, Bare-Metal Registers' },
+      { name: 'PCB & Circuit Design', level: 'KiCad, Proteus ISIS/ARES, SPICE, Oscilloscope Validation' },
+      { name: 'Power Electronics & Drivers', level: 'MOSFET H-Bridges, Buck/Boost DC-DC Converters, Motor Drivers' },
     ],
   },
   {
-    id: 'automation',
-    title: 'Automatisme & Contrôle Industriel',
-    icon: <FaIndustry className="cat-icon blue" />,
-    description: 'Automatisation d’installations critiques, supervision SCADA et réseaux de terrain.',
-    competences: [
-      'Automates Programmables Industriels (PLC)',
-      'Supervision SCADA & Télégouvernance',
-      'Instrumentation process & Métrologie (PT100, capteurs de pression, gaz, vibration)',
-      'Réseaux industriels (Modbus TCP/IP, Profibus, Ethernet IP)',
-      'Installations CFO / CFA & Électrotechnique',
-      'Électronique de puissance & Alimentation embarquée',
-    ],
-    tools: [
-      'Schneider Control Expert',
-      'Siemens STEP 7 & TIA Portal',
-      'Ignition SCADA',
-      'Relais Sepam Series 80',
-      'Schneider Modicon M580',
-      'CANECO BT / HT',
-      'AutoCAD',
-      'GMAO',
-      'Norme NF C 15-100',
+    id: 'scada',
+    title: 'Industrial Automation & SCADA',
+    icon: <FaIndustry />,
+    color: 'blue',
+    skills: [
+      { name: 'Industrial PLCs', level: 'Schneider Modicon M580 / M340, Siemens S7-1200 / S7-300' },
+      { name: 'SCADA & Supervision', level: 'Ignition SCADA, Siemens WinCC, Intouch Wonderware' },
+      { name: 'Protection & Medium Voltage', level: 'Schneider Sepam Series 80 relays, MV/LV Substation Architecture' },
+      { name: 'Industrial Communication Protocols', level: 'Modbus TCP/IP, Modbus RTU, Profinet, OPC-UA, MQTT' },
+      { name: 'Industrial Electrical Engineering', level: 'Motor starting (Soft-starters, VFDs, Liquid Rheostat), Industrial Safety' },
     ],
   },
   {
-    id: 'mechanical',
-    title: 'Conception Mécanique & Simulation',
-    icon: <FaCubes className="cat-icon emerald" />,
-    description: 'Modélisation 3D, cinématique, prototypage rapide et validation numérique.',
-    competences: [
-      'Conception mécanique 3D & Assemblage vissé',
-      'Cinématique directe et inverse de mécanismes articulés',
-      'Impression 3D (FDM) & Fabrication assistée',
-      'Câblage haute puissance, soudage & bancs de test',
-      'Modélisation et simulation physique multiphysique',
-    ],
-    tools: [
-      'SolidWorks (CAO 3D)',
-      'MATLAB / Simulink',
-      'Gazebo Simulator',
-      'Factory I/O',
+    id: 'robotics',
+    title: 'Robotics, Drones & CAD',
+    icon: <FaCogs />,
+    color: 'emerald',
+    skills: [
+      { name: 'UAV & Flight Controllers', level: 'ArduPilot, Pixhawk, Mission Planner, QGroundControl, Betaflight' },
+      { name: '3D Mechanical CAD', level: 'SolidWorks (3D Parts, Assemblies, Motion Study, Technical Drawings)' },
+      { name: 'Robotics Kinematics & Control', level: 'Analytical Forward/Inverse Kinematics (FK/IK), PID Closed-Loop Regulation' },
+      { name: 'Hardware Prototyping', level: '3D Printing (FDM), Carbon-Fiber Assembly, Soldering & Wiring Harnesses' },
+      { name: 'Simulation & Modeling', level: 'MATLAB / Simulink, Electronic Circuit SPICE Simulators' },
     ],
   },
   {
-    id: 'dev-ai',
-    title: 'Développement & Intelligence Artificielle',
-    icon: <FaCode className="cat-icon gold" />,
-    description: 'Développement logiciel robuste, traitement d’images et modèles d’IA.',
-    competences: [
-      'Architecture logicielle modulaire',
-      'Traitement d’images temps réel & détection d’objets',
-      'Modélisation mathématique & physique',
-      'Gestion de versions & collaboration Git',
-      'Intégration d’outils d’IA & LLMs (Codex, Claude, etc.)',
-    ],
-    tools: [
-      'Python',
-      'C / C++',
-      'OpenCV',
-      'YOLOv8',
-      'Git / GitHub',
-      'Pascal',
-      'SQLite',
+    id: 'software',
+    title: 'AI, Vision & Software Development',
+    icon: <FaCode />,
+    color: 'gold',
+    skills: [
+      { name: 'Programming Languages', level: 'C, C++, Python, JavaScript (ES6+), Structured Text (ST), Ladder (LD)' },
+      { name: 'Computer Vision & AI', level: 'YOLOv8, OpenCV, Real-time Object Detection & Tracking' },
+      { name: 'Web & IoT Dashboarding', level: 'React, Node.js, HTML5/CSS3, RESTful APIs, SQLite' },
+      { name: 'Developer Tools', level: 'Git, GitHub, VS Code, STM32CubeIDE, Linux / Shell, PlatformIO' },
     ],
   },
 ];
 
-const languagesData = [
-  { name: 'Arabe', level: 'Langue maternelle', badge: 'Natif' },
-  { name: 'Français', level: 'Maîtrise professionnelle', badge: 'C1' },
-  { name: 'Anglais', level: 'Niveau professionnel', badge: 'B1 / B2' },
+const languages = [
+  { name: 'Arabic', level: 'Native / Bilingual', flag: '🇲🇦' },
+  { name: 'French', level: 'Full Professional Proficiency (C1)', flag: '🇫🇷' },
+  { name: 'English', level: 'Professional Working Proficiency (B1 / B2 Technical)', flag: '🇬🇧' },
 ];
 
 const Skills = () => {
@@ -116,17 +76,17 @@ const Skills = () => {
       <div className="skills-container">
         {/* Section Header */}
         <div className="section-header-centered">
-          <span className="section-tag">Arsenal Technique</span>
+          <span className="section-tag">Technical Arsenal</span>
           <h2 className="section-title-large">
-            Compétences & <span className="highlight-cyan">Outils Maîtrisés</span>
+            Multidisciplinary <span className="highlight-cyan">Engineering Skills</span>
           </h2>
           <p className="section-subtitle">
-            Une double compétence forte entre l'ingénierie matérielle (électronique, automatismes, mécanique) et le développement logiciel temps réel / IA.
+            A comprehensive matrix of proven competencies across hardware electronics, real-time firmware, industrial automation, and modern software architectures.
           </p>
         </div>
 
-        {/* 4 Category Cards Grid */}
-        <div className="skills-grid">
+        {/* 4-Category Technical Skills Grid */}
+        <div className="skills-categories-grid">
           {skillCategories.map((cat, index) => (
             <motion.div
               key={cat.id}
@@ -134,70 +94,58 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="skill-card"
+              className={`skill-category-card ${cat.color}`}
             >
-              <div className="card-top">
-                <div className="icon-wrapper">{cat.icon}</div>
-                <div>
-                  <h3 className="skill-card-title">{cat.title}</h3>
-                  <p className="skill-card-desc">{cat.description}</p>
-                </div>
+              <div className="cat-card-header">
+                <div className={`cat-icon-badge ${cat.color}`}>{cat.icon}</div>
+                <h3 className="cat-title">{cat.title}</h3>
               </div>
 
-              <div className="competence-block">
-                <h4 className="block-label">Domaines de Compétences</h4>
-                <ul className="comp-list">
-                  {cat.competences.map((c, i) => (
-                    <li key={i}>
-                      <FaCheckCircle className="check-bullet" />
-                      <span>{c}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="tools-block">
-                <h4 className="block-label">Outils & Technologies</h4>
-                <div className="tools-pills">
-                  {cat.tools.map((t, i) => (
-                    <span key={i} className="tool-pill">
-                      {t}
-                    </span>
-                  ))}
-                </div>
+              <div className="cat-skills-list">
+                {cat.skills.map((skill, i) => (
+                  <div key={i} className="skill-item-row">
+                    <div className="skill-bullet"></div>
+                    <div className="skill-text-wrap">
+                      <strong className="skill-name">{skill.name}</strong>
+                      <span className="skill-level">{skill.level}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Languages & Soft Skills Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="languages-bar-card"
-        >
-          <div className="lang-header">
-            <FaLanguage className="lang-icon" />
-            <div>
-              <h3>Langues & Communication</h3>
-              <p>Facilité d'intégration dans des équipes pluridisciplinaires et internationales.</p>
+        {/* Languages & Soft Skills Footer Row */}
+        <div className="extra-skills-row">
+          <div className="languages-card">
+            <div className="extra-card-header">
+              <FaLanguage className="extra-icon" />
+              <h3>Languages</h3>
+            </div>
+            <div className="languages-list">
+              {languages.map((lang) => (
+                <div key={lang.name} className="lang-pill">
+                  <span className="lang-flag">{lang.flag}</span>
+                  <div>
+                    <strong>{lang.name}:</strong>
+                    <span> {lang.level}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="lang-items-grid">
-            {languagesData.map((lang, index) => (
-              <div key={index} className="lang-item">
-                <div className="lang-meta">
-                  <span className="lang-name">{lang.name}</span>
-                  <span className="lang-badge">{lang.badge}</span>
-                </div>
-                <span className="lang-level">{lang.level}</span>
-              </div>
-            ))}
+          <div className="mindset-card">
+            <div className="extra-card-header">
+              <FaTerminal className="extra-icon" />
+              <h3>Engineering Approach</h3>
+            </div>
+            <p className="mindset-text">
+              <strong>Agile Prototyping & Field Testing:</strong> From schematic design and PCB layout to embedded C/C++ firmware, bench testing with oscilloscopes, and harsh environment deployment.
+            </p>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <style>{`
@@ -212,211 +160,193 @@ const Skills = () => {
           margin: 0 auto;
         }
 
-        .skills-grid {
+        .skills-categories-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
           gap: 2rem;
           margin-bottom: 3.5rem;
         }
 
-        .skill-card {
+        .skill-category-card {
           background: var(--bg-card);
           border: 1px solid var(--glass-border);
           border-radius: 20px;
           padding: 2rem;
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
           backdrop-filter: blur(10px);
           transition: var(--transition-smooth);
+          display: flex;
+          flex-direction: column;
         }
 
-        .skill-card:hover {
+        .skill-category-card:hover {
           background: var(--bg-card-hover);
-          border-color: rgba(0, 229, 255, 0.35);
           transform: translateY(-5px);
           box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
         }
 
-        .card-top {
-          display: flex;
-          align-items: flex-start;
-          gap: 1.25rem;
-        }
+        .skill-category-card.cyan:hover { border-color: rgba(0, 229, 255, 0.4); }
+        .skill-category-card.blue:hover { border-color: rgba(59, 130, 246, 0.4); }
+        .skill-category-card.emerald:hover { border-color: rgba(16, 185, 129, 0.4); }
+        .skill-category-card.gold:hover { border-color: rgba(245, 158, 11, 0.4); }
 
-        .icon-wrapper {
-          width: 52px;
-          height: 52px;
-          border-radius: 14px;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid var(--glass-border);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          font-size: 1.6rem;
-        }
-
-        .cat-icon.cyan { color: var(--accent-cyan); }
-        .cat-icon.blue { color: var(--accent-blue); }
-        .cat-icon.emerald { color: var(--accent-emerald); }
-        .cat-icon.gold { color: var(--accent-gold); }
-
-        .skill-card-title {
-          font-size: 1.2rem;
-          font-weight: 700;
-          margin-bottom: 0.35rem;
-        }
-
-        .skill-card-desc {
-          font-size: 0.84rem;
-          color: var(--text-muted);
-          line-height: 1.4;
-        }
-
-        .block-label {
-          font-size: 0.8rem;
-          font-family: var(--font-mono);
-          color: var(--accent-cyan);
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          margin-bottom: 0.85rem;
-        }
-
-        .comp-list {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 0.55rem;
-        }
-
-        .comp-list li {
-          display: flex;
-          align-items: flex-start;
-          gap: 0.6rem;
-          font-size: 0.86rem;
-          color: var(--text-secondary);
-          line-height: 1.4;
-        }
-
-        .check-bullet {
-          color: var(--accent-cyan);
-          font-size: 0.75rem;
-          margin-top: 0.25rem;
-          flex-shrink: 0;
-        }
-
-        .tools-pills {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.45rem;
-        }
-
-        .tool-pill {
-          padding: 0.3rem 0.65rem;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid var(--glass-border);
-          border-radius: 6px;
-          font-size: 0.76rem;
-          font-family: var(--font-mono);
-          color: var(--text-primary);
-          transition: var(--transition-fast);
-        }
-
-        .tool-pill:hover {
-          background: rgba(0, 229, 255, 0.1);
-          border-color: rgba(0, 229, 255, 0.4);
-          color: var(--accent-cyan);
-        }
-
-        .languages-bar-card {
-          background: var(--bg-card);
-          border: 1px solid var(--glass-border);
-          border-radius: 20px;
-          padding: 2rem 2.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex-wrap: wrap;
-          gap: 2rem;
-          backdrop-filter: blur(10px);
-        }
-
-        .lang-header {
+        .cat-card-header {
           display: flex;
           align-items: center;
           gap: 1rem;
+          margin-bottom: 1.5rem;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid var(--glass-border);
         }
 
-        .lang-icon {
-          font-size: 2.2rem;
-          color: var(--accent-cyan);
-        }
-
-        .lang-header h3 {
-          font-size: 1.25rem;
-          margin-bottom: 0.25rem;
-        }
-
-        .lang-header p {
-          font-size: 0.85rem;
-          color: var(--text-muted);
-        }
-
-        .lang-items-grid {
+        .cat-icon-badge {
+          width: 44px;
+          height: 44px;
+          border-radius: 10px;
           display: flex;
-          gap: 1.5rem;
-          flex-wrap: wrap;
-        }
-
-        .lang-item {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid var(--glass-border);
-          border-radius: 12px;
-          padding: 0.9rem 1.25rem;
-          min-width: 180px;
-        }
-
-        .lang-meta {
-          display: flex;
-          justify-content: space-between;
           align-items: center;
-          margin-bottom: 0.25rem;
+          justify-content: center;
+          font-size: 1.3rem;
+          flex-shrink: 0;
         }
 
-        .lang-name {
-          font-size: 0.95rem;
+        .cat-icon-badge.cyan {
+          background: rgba(0, 229, 255, 0.1);
+          color: var(--accent-cyan);
+          border: 1px solid rgba(0, 229, 255, 0.3);
+        }
+
+        .cat-icon-badge.blue {
+          background: rgba(59, 130, 246, 0.1);
+          color: var(--accent-blue);
+          border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .cat-icon-badge.emerald {
+          background: rgba(16, 185, 129, 0.1);
+          color: var(--accent-emerald);
+          border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .cat-icon-badge.gold {
+          background: rgba(245, 158, 11, 0.1);
+          color: var(--accent-gold);
+          border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .cat-title {
+          font-size: 1.15rem;
           font-weight: 700;
           color: var(--text-primary);
         }
 
-        .lang-badge {
-          font-family: var(--font-mono);
-          font-size: 0.7rem;
-          padding: 0.15rem 0.45rem;
-          border-radius: 4px;
-          background: rgba(0, 229, 255, 0.15);
+        .cat-skills-list {
+          display: flex;
+          flex-direction: column;
+          gap: 1.1rem;
+          flex-grow: 1;
+        }
+
+        .skill-item-row {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.75rem;
+        }
+
+        .skill-bullet {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: var(--accent-cyan);
+          margin-top: 0.45rem;
+          flex-shrink: 0;
+        }
+
+        .skill-text-wrap {
+          display: flex;
+          flex-direction: column;
+          gap: 0.15rem;
+        }
+
+        .skill-name {
+          font-size: 0.9rem;
+          color: var(--text-primary);
+        }
+
+        .skill-level {
+          font-size: 0.8rem;
+          color: var(--text-muted);
+          line-height: 1.4;
+        }
+
+        /* Languages & Mindset Row */
+        .extra-skills-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
+
+        .languages-card, .mindset-card {
+          background: var(--bg-card);
+          border: 1px solid var(--glass-border);
+          border-radius: 18px;
+          padding: 1.75rem 2rem;
+          backdrop-filter: blur(10px);
+        }
+
+        .extra-card-header {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          margin-bottom: 1.25rem;
+          padding-bottom: 0.75rem;
+          border-bottom: 1px solid var(--glass-border);
+        }
+
+        .extra-icon {
+          font-size: 1.3rem;
           color: var(--accent-cyan);
-          border: 1px solid rgba(0, 229, 255, 0.3);
+        }
+
+        .extra-card-header h3 {
+          font-size: 1.1rem;
           font-weight: 700;
         }
 
-        .lang-level {
-          font-size: 0.78rem;
+        .languages-list {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .lang-pill {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          font-size: 0.88rem;
           color: var(--text-secondary);
         }
 
-        @media (max-width: 768px) {
-          .languages-bar-card {
-            flex-direction: column;
-            align-items: flex-start;
-          }
-          .lang-items-grid {
-            width: 100%;
-            flex-direction: column;
-          }
-          .lang-item {
-            width: 100%;
+        .lang-flag {
+          font-size: 1.2rem;
+        }
+
+        .lang-pill strong {
+          color: var(--text-primary);
+        }
+
+        .mindset-text {
+          font-size: 0.9rem;
+          color: var(--text-secondary);
+          line-height: 1.6;
+        }
+
+        .mindset-text strong {
+          color: var(--text-primary);
+        }
+
+        @media (max-width: 900px) {
+          .extra-skills-row {
+            grid-template-columns: 1fr;
           }
         }
       `}</style>

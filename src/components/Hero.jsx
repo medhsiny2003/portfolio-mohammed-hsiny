@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaFileDownload, FaArrowRight, FaAward, FaIndustry, FaRobot, FaUsers } from 'react-icons/fa';
+import profileCvImg from '../assets/images/profile_cv.png';
 
 const Hero = () => {
   const canvasRef = useRef(null);
@@ -102,132 +103,158 @@ const Hero = () => {
       <canvas ref={canvasRef} className="hero-canvas" />
 
       <div className="hero-container">
-        <div className="hero-content">
-          {/* Status Badge */}
+        <div className="hero-main-grid">
+          {/* Left Column: Text and CTA */}
+          <div className="hero-content">
+            {/* Status Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="pfe-status-badge"
+            >
+              <span className="pulse-dot"></span>
+              <span>SEEKING 6-MONTH PFE INTERNSHIP · JAN 2027</span>
+            </motion.div>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="hero-role-tag"
+            >
+              Engineering Student · FST Mohammedia
+            </motion.p>
+
+            {/* Main Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="hero-main-title"
+            >
+              MOHAMMED <span className="highlight-cyan">HSINY</span>
+              <span className="hero-subheading">
+                Electrical & <span className="text-gradient">Industrial Control</span> Engineer
+              </span>
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="hero-description"
+            >
+              Passionate about <strong>hardware & software integration</strong>, <strong>critical embedded systems</strong>, 
+              <strong>autonomous robotics</strong>, <strong>drones</strong>, and <strong>SCADA / PLC automation</strong>. 
+              Designing, prototyping, and deploying innovative and reliable engineering solutions.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="hero-cta-group"
+            >
+              <a href="#projects" className="btn-primary-tech">
+                <span>View Projects</span>
+                <FaArrowRight />
+              </a>
+
+              <a
+                href="/docs/CV_Mohammed_HSINY.pdf"
+                download="CV_Mohammed_HSINY.pdf"
+                className="btn-secondary-tech"
+              >
+                <FaFileDownload />
+                <span>Download Resume (PDF)</span>
+              </a>
+
+              <a
+                href="/docs/Portfolio_Mohammed_HSINY.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary-tech outline-glow"
+              >
+                <span>Full Portfolio (8p)</span>
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Hero Profile Card */}
           <motion.div
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="pfe-status-badge"
-          >
-            <span className="pulse-dot"></span>
-            <span>RECHERCHE DE STAGE PFE (6 MOIS) · JANVIER 2027</span>
-          </motion.div>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="hero-role-tag"
-          >
-            Élève Ingénieur · FST Mohammedia
-          </motion.p>
-
-          {/* Main Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hero-main-title"
-          >
-            MOHAMMED <span className="highlight-cyan">HSINY</span>
-            <span className="hero-subheading">
-              Génie Électrique & <span className="text-gradient">Contrôle Industriel</span>
-            </span>
-          </motion.h1>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hero-description"
+            className="hero-portrait-col"
           >
-            Passionné par l'intégration <strong>hardware & software</strong>, les <strong>systèmes embarqués critiques</strong>, 
-            la <strong>robotique autonome</strong>, les <strong>drones</strong> et l'<strong>automatisation SCADA / PLC</strong>. 
-            Je conçois et prototype des solutions fiables et innovantes pour l'industrie et la R&D.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="hero-cta-group"
-          >
-            <a href="#projects" className="btn-primary-tech">
-              <span>Voir les Projets</span>
-              <FaArrowRight />
-            </a>
-
-            <a
-              href="/docs/CV_Mohammed_HSINY.pdf"
-              download="CV_Mohammed_HSINY.pdf"
-              className="btn-secondary-tech"
-            >
-              <FaFileDownload />
-              <span>Télécharger CV (PDF)</span>
-            </a>
-
-            <a
-              href="/docs/Portfolio_Mohammed_HSINY.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary-tech outline-glow"
-            >
-              <span>Portfolio Complet (8p)</span>
-            </a>
-          </motion.div>
-
-          {/* Metrics Quick Highlights */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="hero-metrics-grid"
-          >
-            <div className="metric-card">
-              <div className="metric-icon-box">
-                <FaIndustry className="icon cyan" />
+            <div className="portrait-glass-card">
+              <div className="portrait-image-wrapper">
+                <img
+                  src={profileCvImg}
+                  alt="Mohammed HSINY"
+                  className="hero-profile-avatar"
+                />
+                <div className="portrait-ambient-glow"></div>
               </div>
-              <div className="metric-info">
-                <span className="metric-value">3+ Stages</span>
-                <span className="metric-label">OCP, Ciments du Maroc, Marsa Maroc</span>
-              </div>
-            </div>
-
-            <div className="metric-card">
-              <div className="metric-icon-box">
-                <FaRobot className="icon blue" />
-              </div>
-              <div className="metric-info">
-                <span className="metric-value">8+ Projets</span>
-                <span className="metric-label">Drones HT/FPV, ADAS, Bras 6-DOF</span>
-              </div>
-            </div>
-
-            <div className="metric-card">
-              <div className="metric-icon-box">
-                <FaAward className="icon gold" />
-              </div>
-              <div className="metric-info">
-                <span className="metric-value">3 Prix</span>
-                <span className="metric-label">Compétitions Nationales & Summer School</span>
-              </div>
-            </div>
-
-            <div className="metric-card">
-              <div className="metric-icon-box">
-                <FaUsers className="icon emerald" />
-              </div>
-              <div className="metric-info">
-                <span className="metric-value">Président</span>
-                <span className="metric-label">Club RoboThings & Fondateur RoboDays</span>
+              <div className="portrait-badge-row">
+                <span className="badge-item cyan">Robotics & Embedded</span>
+                <span className="badge-item blue">SCADA & PLC</span>
               </div>
             </div>
           </motion.div>
         </div>
+
+        {/* Metrics Quick Highlights */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="hero-metrics-grid"
+        >
+          <div className="metric-card">
+            <div className="metric-icon-box">
+              <FaIndustry className="icon cyan" />
+            </div>
+            <div className="metric-info">
+              <span className="metric-value">3+ Internships</span>
+              <span className="metric-label">OCP Group, Ciments du Maroc, Marsa Maroc</span>
+            </div>
+          </div>
+
+          <div className="metric-card">
+            <div className="metric-icon-box">
+              <FaRobot className="icon blue" />
+            </div>
+            <div className="metric-info">
+              <span className="metric-value">8+ Projects</span>
+              <span className="metric-label">HV/FPV Drones, ADAS Fleet, 6-DOF Arm</span>
+            </div>
+          </div>
+
+          <div className="metric-card">
+            <div className="metric-icon-box">
+              <FaAward className="icon gold" />
+            </div>
+            <div className="metric-info">
+              <span className="metric-value">3 National Awards</span>
+              <span className="metric-label">Engineering & Robotics Competitions</span>
+            </div>
+          </div>
+
+          <div className="metric-card">
+            <div className="metric-icon-box">
+              <FaUsers className="icon emerald" />
+            </div>
+            <div className="metric-info">
+              <span className="metric-value">President</span>
+              <span className="metric-label">RoboThings Club & Founder of RoboDays</span>
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       <style>{`
@@ -259,8 +286,16 @@ const Hero = () => {
           width: 100%;
         }
 
+        .hero-main-grid {
+          display: grid;
+          grid-template-columns: 1fr 380px;
+          gap: 3.5rem;
+          align-items: center;
+          margin-bottom: 3.5rem;
+        }
+
         .hero-content {
-          max-width: 950px;
+          max-width: 850px;
         }
 
         .pfe-status-badge {
@@ -305,7 +340,7 @@ const Hero = () => {
         }
 
         .hero-main-title {
-          font-size: clamp(2.8rem, 6.5vw, 4.8rem);
+          font-size: clamp(2.6rem, 5.5vw, 4.4rem);
           line-height: 1.08;
           font-weight: 800;
           margin-bottom: 1.5rem;
@@ -314,7 +349,7 @@ const Hero = () => {
 
         .hero-subheading {
           display: block;
-          font-size: clamp(1.6rem, 3.8vw, 2.6rem);
+          font-size: clamp(1.4rem, 3.2vw, 2.3rem);
           font-weight: 600;
           color: var(--text-secondary);
           margin-top: 0.5rem;
@@ -327,10 +362,10 @@ const Hero = () => {
         }
 
         .hero-description {
-          font-size: 1.15rem;
+          font-size: 1.1rem;
           color: var(--text-secondary);
           line-height: 1.75;
-          max-width: 820px;
+          max-width: 800px;
           margin-bottom: 2.5rem;
         }
 
@@ -342,7 +377,6 @@ const Hero = () => {
           display: flex;
           flex-wrap: wrap;
           gap: 1rem;
-          margin-bottom: 4rem;
         }
 
         .outline-glow {
@@ -355,9 +389,86 @@ const Hero = () => {
           background: rgba(0, 229, 255, 0.1);
         }
 
+        /* Hero Portrait Card */
+        .hero-portrait-col {
+          display: flex;
+          justify-content: center;
+        }
+
+        .portrait-glass-card {
+          background: var(--bg-card);
+          border: 1px solid var(--glass-border);
+          border-radius: 24px;
+          padding: 1.25rem;
+          backdrop-filter: blur(12px);
+          width: 100%;
+          max-width: 360px;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+          transition: var(--transition-smooth);
+        }
+
+        .portrait-glass-card:hover {
+          border-color: rgba(0, 229, 255, 0.35);
+          transform: translateY(-5px);
+        }
+
+        .portrait-image-wrapper {
+          position: relative;
+          width: 100%;
+          height: 380px;
+          border-radius: 18px;
+          overflow: hidden;
+          background: #090e18;
+        }
+
+        .hero-profile-avatar {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: top center;
+        }
+
+        .portrait-ambient-glow {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to top,
+            rgba(6, 8, 13, 0.7) 0%,
+            transparent 40%
+          );
+          pointer-events: none;
+        }
+
+        .portrait-badge-row {
+          display: flex;
+          justify-content: center;
+          gap: 0.5rem;
+          margin-top: 1rem;
+        }
+
+        .badge-item {
+          font-family: var(--font-mono);
+          font-size: 0.75rem;
+          padding: 0.25rem 0.65rem;
+          border-radius: 100px;
+          font-weight: 600;
+        }
+
+        .badge-item.cyan {
+          background: rgba(0, 229, 255, 0.1);
+          color: var(--accent-cyan);
+          border: 1px solid rgba(0, 229, 255, 0.3);
+        }
+
+        .badge-item.blue {
+          background: rgba(59, 130, 246, 0.1);
+          color: var(--accent-blue);
+          border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
         .hero-metrics-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
           gap: 1.25rem;
           padding-top: 2rem;
           border-top: 1px solid var(--glass-border);
@@ -409,6 +520,15 @@ const Hero = () => {
           font-size: 0.78rem;
           color: var(--text-muted);
           line-height: 1.3;
+        }
+
+        @media (max-width: 1024px) {
+          .hero-main-grid {
+            grid-template-columns: 1fr;
+          }
+          .hero-portrait-col {
+            display: none;
+          }
         }
 
         @media (max-width: 768px) {

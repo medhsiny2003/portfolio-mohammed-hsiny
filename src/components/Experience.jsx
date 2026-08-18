@@ -1,65 +1,67 @@
 import { motion } from 'framer-motion';
-import { FaIndustry, FaBolt, FaWrench, FaShip, FaCheck, FaShieldAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaIndustry, FaBolt, FaCheck, FaShieldAlt, FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa';
 
-// Real Images uploaded by Mohammed
-import stageOcpImg from '../assets/images/stage_ocp_real.jpg';
-import stageCimarImg from '../assets/images/stage_cimar_real.jpg';
-import stageMarsaImg from '../assets/images/stage_marsa_real.jpg';
+// Real Logos & Industry Gallery Images uploaded by Mohammed
+import logoOcp from '../assets/images/logo_ocp.png';
+import logoCimar from '../assets/images/logo_cimar.jpg';
+import logoMarsa from '../assets/images/logo_marsa.png';
+import industrie1Img from '../assets/images/industrie1.jpg';
+import industrie2Img from '../assets/images/industrie2.jpg';
 
 const experiences = [
   {
     id: 'ocp',
-    company: 'Groupe OCP — Direction Maroc Chimie',
-    location: 'Plateforme Industrielle de Safi',
-    period: 'Juillet 2026 — Présent',
-    role: 'Stage Ingénieur — Supervision SCADA d’une Station Moyenne Tension (MT)',
-    image: stageOcpImg,
-    icon: <FaBolt />,
+    company: 'OCP Group — Maroc Chimie Division',
+    location: 'Safi Industrial Complex, Morocco',
+    period: 'July 2026 — Present',
+    role: 'Engineering Intern — SCADA Supervision of Medium Voltage (MV) Substation',
+    logo: logoOcp,
+    logoBg: 'white',
     badgeColor: 'cyan',
-    summary: 'Centralisation du contrôle-commande et sécurisation de l’alimentation électrique critique des stations de pompage.',
+    summary: 'Centralization of control-command architecture and securing critical power supply for seawater pumping stations and chemical units.',
     achievements: [
-      'Traitement de l’absence de supervision entre la station Moyenne Tension et la salle de contrôle pour sécuriser le pompage d’eau de mer et l’alimentation des ateliers.',
-      'Architecture d’automatisme et télégestion pour la centralisation du contrôle-commande des 12 cellules MT (9 moteurs/pompes, arrivées électriques).',
-      'Configuration des relais de protection Sepam Series 80, programmation du protocole Modbus TCP/IP sur automate Schneider Modicon M580.',
-      'Développement de la supervision SCADA sous Ignition : gestion des alarmes en temps réel, télécommandes sécurisées et monitoring des puissances I / U / P.',
+      'Engineered an automated supervision architecture to eliminate communication gaps between the Medium Voltage station and the main control room, safeguarding vital seawater pumping operations.',
+      'Designed PLC tele-management architecture to centralize control of 12 MV cubicles (9 pump/motor bays, incomers, busbars).',
+      'Configured Sepam Series 80 digital protection relays and programmed Modbus TCP/IP communication on Schneider Modicon M580 PLC.',
+      'Developed real-time SCADA supervision under Ignition: live fault alarming, secure remote tele-controls, and active electrical parameter monitoring (I / U / P / cos φ).',
     ],
-    tags: ['Modicon M580', 'Ignition SCADA', 'Sepam Series 80', 'Modbus TCP/IP', 'Moyenne Tension (MT)', 'Réseaux Industriels'],
+    tags: ['Modicon M580', 'Ignition SCADA', 'Sepam Series 80', 'Modbus TCP/IP', 'Medium Voltage (MT)', 'Industrial Networks'],
   },
   {
     id: 'cimar',
     company: 'Ciments du Maroc — Heidelberg Materials',
-    location: 'Usine de Safi',
-    period: 'Août — Septembre 2025',
-    role: 'Stage Technique — Maintenance Électrique & Instrumentation',
-    image: stageCimarImg,
-    icon: <FaWrench />,
+    location: 'Safi Cement Plant, Morocco',
+    period: 'August — September 2025',
+    role: 'Technical Intern — Electrical Maintenance & Process Instrumentation',
+    logo: logoCimar,
+    logoBg: 'white',
     badgeColor: 'blue',
-    summary: 'Maintenance des équipements lourds de broyage, instrumentation de process et analyse des entraînements de puissance.',
+    summary: 'Preventive and corrective maintenance of heavy grinding machinery, field instrumentation, and power drive systems.',
     achievements: [
-      'Opérations de maintenance préventive et corrective sur broyeurs à boules, compresseurs haute capacité et pompes de process.',
-      'Suivi et traçabilité des interventions techniques via la GMAO du site industriel.',
-      'Étalonnage et diagnostic d’instrumentation process : analyseurs de gaz, sondes de température PT100, capteurs de pression, vibration et proximité.',
-      'Étude technique approfondie du démarrage électrolytique (rhéostat à liquide) du moteur asynchrone à rotor bobiné du broyeur.',
+      'Executed preventive and curative maintenance on ball mills, heavy process compressors, and industrial slurry pumps.',
+      'Managed and logged all technical maintenance interventions through the plant Computerized Maintenance Management System (CMMS / GMAO).',
+      'Calibrated and diagnosed industrial process instrumentation: gas analyzers, PT100 temperature sensors, pressure transmitters, vibration sensors, and inductive proximity switches.',
+      'Conducted an in-depth electrical study of the electrolytic starter (liquid rheostat) for high-power wound-rotor induction motors driving the primary cement mill.',
     ],
-    tags: ['Instrumentation Process', 'GMAO', 'Sondes PT100', 'Rhéostat à Liquide', 'Moteurs Asynchrones', 'Sécurité Industrielle'],
+    tags: ['Process Instrumentation', 'CMMS / GMAO', 'PT100 Probes', 'Liquid Starter', 'Induction Motors', 'Industrial HSE'],
   },
   {
     id: 'marsa',
-    company: 'Marsa Maroc — Direction du Port de Safi',
-    location: 'Port de Safi',
-    period: 'Juillet 2025',
-    role: 'Stagiaire Ingénieur — Fiabilisation d’une Grue Portuaire',
-    image: stageMarsaImg,
-    icon: <FaShip />,
+    company: 'Marsa Maroc — Port of Safi Directorate',
+    location: 'Port of Safi, Morocco',
+    period: 'July 2025',
+    role: 'Engineering Intern — Reliability & Automation of Harbor Cranes',
+    logo: logoMarsa,
+    logoBg: 'white',
     badgeColor: 'emerald',
-    summary: 'Étude de sûreté de fonctionnement, automatisation du graissage et monitoring distant IoT/SCADA.',
+    summary: 'Operational safety study, automated preventive lubrication, and IoT remote monitoring for heavy port infrastructure.',
     achievements: [
-      'Étude de fiabilité de la grue portuaire G40T via l’analyse de l’historique des pannes et l’évaluation des indicateurs AMDEC, MTBF, MTTR et taux de disponibilité.',
-      'Automatisation du graissage préventif sans intervention humaine : pilotage asservi de pompe par compteur horaire.',
-      'Conception d’une solution IoT communicante à distance (routeur 4G industriel Teltonika).',
-      'Développement d’une IHM SCADA dédiée pour l’historisation temporelle et le contrôle du cycle de graissage.',
+      'Conducted an operational dependability study (FMECA / AMDEC) on the G40T harbor crane by analyzing failure logs and tracking MTBF, MTTR, and operational availability rates.',
+      'Automated preventive mechanical lubrication without human intervention: PLC/timer-driven pump sequencing based on crane running hours.',
+      'Designed a secure IoT remote monitoring architecture using Teltonika 4G industrial cellular gateways.',
+      'Developed a custom SCADA Human-Machine Interface (HMI) for automated lubrication cycle control and historical trend logging.',
     ],
-    tags: ['IoT Teltonika 4G', 'AMDEC & Sûreté', 'Indicateurs MTBF/MTTR', 'IHM SCADA', 'Automatisation', 'Maintenance Prédictive'],
+    tags: ['Teltonika 4G IoT', 'FMECA / AMDEC', 'MTBF & MTTR Metrics', 'SCADA HMI', 'Automation', 'Predictive Maintenance'],
   },
 ];
 
@@ -69,100 +71,134 @@ const Experience = () => {
       <div className="exp-container">
         {/* Section Header */}
         <div className="section-header-centered">
-          <span className="section-tag">Immersion Industrielle</span>
+          <span className="section-tag">Industrial Immersion</span>
           <h2 className="section-title-large">
-            L'Industrie comme <span className="highlight-cyan">Terrain d'Apprentissage</span>
+            Real-World <span className="highlight-cyan">Industrial Experience</span>
           </h2>
           <p className="section-subtitle">
-            Des expériences concrètes au sein de leaders industriels qui ont forgé ma rigueur technique, ma capacité de diagnostic d'urgence et ma maîtrise des installations critiques.
+            Hands-on technical engineering roles inside leading heavy industry players, shaping rigor, diagnostic methodology, and mastery of mission-critical systems.
           </p>
         </div>
 
-        {/* Industrial Highlights Banner */}
+        {/* Industrial Highlights 3-Column Banner */}
         <div className="industrial-banner">
           <div className="banner-item">
             <FaShieldAlt className="banner-icon" />
             <div>
-              <strong>Rigueur & Habilitations</strong>
-              <span>Respect strict des consignes HSE, consignations électriques et travail en milieu continu.</span>
+              <strong>Industrial Rigor & Safety</strong>
+              <span>Strict compliance with electrical lockout/tagout (LOTO), HSE protocols, and high-voltage operations.</span>
             </div>
           </div>
           <div className="banner-item">
             <FaBolt className="banner-icon" />
             <div>
-              <strong>Diagnostic Méthodique</strong>
-              <span>Analyse de pannes sur réseaux Modbus, bus de terrain, automates et capteurs industriels.</span>
+              <strong>Methodical Troubleshooting</strong>
+              <span>Fault isolation on Modbus networks, fieldbuses, PLC I/O modules, power drives, and process sensors.</span>
             </div>
           </div>
           <div className="banner-item">
             <FaIndustry className="banner-icon" />
             <div>
-              <strong>Intégration IoT & SCADA</strong>
-              <span>Supervision temps réel, télégestion et digitalisation des flux de maintenance.</span>
+              <strong>SCADA & IoT Modernization</strong>
+              <span>Real-time telemetry, remote supervision, predictive maintenance, and operational process digitalization.</span>
             </div>
           </div>
         </div>
 
-        {/* Experience Cards Stack */}
+        {/* 2-Photo Industrial Gallery Requested by User */}
+        <div className="industry-gallery-container">
+          <div className="gallery-header">
+            <span className="gallery-tag">Field Visuals</span>
+            <h3>Industrial Plants & Substation Facilities</h3>
+          </div>
+          <div className="gallery-grid-dual">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="gallery-photo-card"
+            >
+              <img
+                src={industrie1Img}
+                alt="Industrial Facility & Substation Overview 1"
+                className="gallery-img"
+              />
+              <div className="gallery-caption">
+                <span>Substation Architecture & Electrical Switchgear</span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="gallery-photo-card"
+            >
+              <img
+                src={industrie2Img}
+                alt="Industrial Facility & Substation Overview 2"
+                className="gallery-img"
+              />
+              <div className="gallery-caption">
+                <span>Heavy Process Installations & Power Infrastructure</span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Experience Cards Stack with Company Logos */}
         <div className="experience-cards-stack">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="experience-card"
             >
-              <div className="card-two-col-layout">
-                {/* Left Side: Content */}
-                <div className="card-main-content">
-                  <div className="card-top-bar">
-                    <div className="company-meta">
-                      <div className={`exp-icon-box ${exp.badgeColor}`}>
-                        {exp.icon}
-                      </div>
-                      <div>
-                        <h3 className="company-name">{exp.company}</h3>
-                        <span className="company-location">
-                          <FaMapMarkerAlt className="map-pin-icon" /> {exp.location}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="period-pill">{exp.period}</div>
+              <div className="card-top-bar">
+                <div className="company-meta">
+                  {/* Real Company Logo */}
+                  <div className="company-logo-container">
+                    <img
+                      src={exp.logo}
+                      alt={exp.company}
+                      className="company-logo-img"
+                    />
                   </div>
-
-                  <h4 className="role-title">{exp.role}</h4>
-                  <p className="summary-text">{exp.summary}</p>
-
-                  <div className="achievements-list">
-                    {exp.achievements.map((item, i) => (
-                      <div key={i} className="achievement-row">
-                        <FaCheck className="check-bullet" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="tags-wrapper">
-                    {exp.tags.map((tag) => (
-                      <span key={tag} className="tech-badge">
-                        {tag}
-                      </span>
-                    ))}
+                  <div>
+                    <h3 className="company-name">{exp.company}</h3>
+                    <span className="company-location">
+                      <FaMapMarkerAlt className="map-pin-icon" /> {exp.location}
+                    </span>
                   </div>
                 </div>
-
-                {/* Right Side: Real Photo */}
-                <div className="card-photo-panel">
-                  <img
-                    src={exp.image}
-                    alt={exp.company}
-                    className="stage-real-img"
-                    loading="lazy"
-                  />
-                  <div className="photo-panel-overlay"></div>
+                <div className="period-pill">
+                  <FaCalendarAlt className="cal-icon" /> {exp.period}
                 </div>
+              </div>
+
+              <h4 className="role-title">{exp.role}</h4>
+              <p className="summary-text">{exp.summary}</p>
+
+              <div className="achievements-list">
+                {exp.achievements.map((item, i) => (
+                  <div key={i} className="achievement-row">
+                    <FaCheck className="check-bullet" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="tags-wrapper">
+                {exp.tags.map((tag) => (
+                  <span key={tag} className="tech-badge">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </motion.div>
           ))}
@@ -219,47 +255,54 @@ const Experience = () => {
           line-height: 1.4;
         }
 
-        .experience-cards-stack {
-          display: flex;
-          flex-direction: column;
-          gap: 2.5rem;
-        }
-
-        .experience-card {
+        /* 2-Photo Industrial Gallery */
+        .industry-gallery-container {
           background: var(--bg-card);
           border: 1px solid var(--glass-border);
-          border-radius: 24px;
-          overflow: hidden;
+          border-radius: 20px;
+          padding: 2rem;
+          margin-bottom: 3.5rem;
           backdrop-filter: blur(10px);
-          transition: var(--transition-smooth);
         }
 
-        .experience-card:hover {
-          background: var(--bg-card-hover);
-          border-color: rgba(0, 229, 255, 0.35);
-          transform: translateY(-4px);
-          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+        .gallery-header {
+          margin-bottom: 1.5rem;
+          padding-bottom: 0.75rem;
+          border-bottom: 1px solid var(--glass-border);
         }
 
-        .card-two-col-layout {
+        .gallery-tag {
+          font-family: var(--font-mono);
+          font-size: 0.75rem;
+          color: var(--accent-cyan);
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          font-weight: 700;
+          display: block;
+          margin-bottom: 0.25rem;
+        }
+
+        .gallery-header h3 {
+          font-size: 1.25rem;
+          color: var(--text-primary);
+        }
+
+        .gallery-grid-dual {
           display: grid;
-          grid-template-columns: 1fr 340px;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.75rem;
         }
 
-        .card-main-content {
-          padding: 2.5rem;
-          display: flex;
-          flex-direction: column;
-        }
-
-        .card-photo-panel {
+        .gallery-photo-card {
           position: relative;
-          background: #080c14;
+          border-radius: 14px;
           overflow: hidden;
-          min-height: 280px;
+          background: #080c14;
+          border: 1px solid var(--glass-border);
+          height: 260px;
         }
 
-        .stage-real-img {
+        .gallery-img {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -267,18 +310,43 @@ const Experience = () => {
           transition: transform 0.6s ease;
         }
 
-        .experience-card:hover .stage-real-img {
-          transform: scale(1.05);
+        .gallery-photo-card:hover .gallery-img {
+          transform: scale(1.04);
         }
 
-        .photo-panel-overlay {
+        .gallery-caption {
           position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            to right,
-            rgba(16, 22, 32, 0.7) 0%,
-            transparent 40%
-          );
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 0.75rem 1.25rem;
+          background: linear-gradient(to top, rgba(6, 8, 13, 0.9) 0%, transparent 100%);
+          font-size: 0.82rem;
+          color: #f1f5f9;
+          font-weight: 500;
+        }
+
+        /* Experience Cards */
+        .experience-cards-stack {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        .experience-card {
+          background: var(--bg-card);
+          border: 1px solid var(--glass-border);
+          border-radius: 20px;
+          padding: 2.5rem;
+          backdrop-filter: blur(10px);
+          transition: var(--transition-smooth);
+        }
+
+        .experience-card:hover {
+          background: var(--bg-card-hover);
+          border-color: rgba(0, 229, 255, 0.35);
+          transform: translateY(-3px);
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
         }
 
         .card-top-bar {
@@ -287,42 +355,35 @@ const Experience = () => {
           align-items: flex-start;
           flex-wrap: wrap;
           gap: 1rem;
-          margin-bottom: 1.25rem;
+          margin-bottom: 1.5rem;
+          padding-bottom: 1.25rem;
+          border-bottom: 1px solid var(--glass-border);
         }
 
         .company-meta {
           display: flex;
           align-items: center;
-          gap: 1rem;
+          gap: 1.25rem;
         }
 
-        .exp-icon-box {
-          width: 48px;
-          height: 48px;
+        .company-logo-container {
+          width: 64px;
+          height: 64px;
           border-radius: 12px;
+          background: #ffffff;
+          padding: 0.4rem;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 1.4rem;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
           flex-shrink: 0;
+          overflow: hidden;
         }
 
-        .exp-icon-box.cyan {
-          background: rgba(0, 229, 255, 0.12);
-          color: var(--accent-cyan);
-          border: 1px solid rgba(0, 229, 255, 0.3);
-        }
-
-        .exp-icon-box.blue {
-          background: rgba(59, 130, 246, 0.12);
-          color: var(--accent-blue);
-          border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .exp-icon-box.emerald {
-          background: rgba(16, 185, 129, 0.12);
-          color: var(--accent-emerald);
-          border: 1px solid rgba(16, 185, 129, 0.3);
+        .company-logo-img {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
         }
 
         .company-name {
@@ -336,8 +397,8 @@ const Experience = () => {
           color: var(--text-muted);
           display: flex;
           align-items: center;
-          gap: 0.3rem;
-          margin-top: 0.15rem;
+          gap: 0.35rem;
+          margin-top: 0.2rem;
         }
 
         .map-pin-icon {
@@ -346,14 +407,21 @@ const Experience = () => {
         }
 
         .period-pill {
-          padding: 0.35rem 0.9rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          padding: 0.4rem 1rem;
           background: rgba(255, 255, 255, 0.05);
           border: 1px solid var(--glass-border);
           border-radius: 100px;
-          font-size: 0.8rem;
+          font-size: 0.82rem;
           font-family: var(--font-mono);
           color: var(--accent-cyan);
           font-weight: 600;
+        }
+
+        .cal-icon {
+          font-size: 0.75rem;
         }
 
         .role-title {
@@ -367,13 +435,14 @@ const Experience = () => {
           font-size: 0.95rem;
           color: var(--text-secondary);
           margin-bottom: 1.5rem;
+          line-height: 1.6;
           font-style: italic;
         }
 
         .achievements-list {
           display: flex;
           flex-direction: column;
-          gap: 0.75rem;
+          gap: 0.8rem;
           margin-bottom: 1.75rem;
         }
 
@@ -381,7 +450,7 @@ const Experience = () => {
           display: flex;
           align-items: flex-start;
           gap: 0.75rem;
-          font-size: 0.93rem;
+          font-size: 0.92rem;
           color: var(--text-secondary);
           line-height: 1.6;
         }
@@ -411,19 +480,15 @@ const Experience = () => {
           color: var(--text-primary);
         }
 
-        @media (max-width: 1024px) {
-          .card-two-col-layout {
+        @media (max-width: 900px) {
+          .gallery-grid-dual {
             grid-template-columns: 1fr;
           }
-          .card-photo-panel {
-            height: 240px;
+          .gallery-photo-card {
+            height: 220px;
           }
-          .photo-panel-overlay {
-            background: linear-gradient(
-              to top,
-              rgba(16, 22, 32, 0.8) 0%,
-              transparent 50%
-            );
+          .card-top-bar {
+            flex-direction: column;
           }
         }
       `}</style>

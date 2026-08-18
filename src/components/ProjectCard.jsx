@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaArrowRight, FaCode, FaMicrochip, FaRobot, FaCog } from 'react-icons/fa';
+import { FaArrowRight, FaMicrochip, FaPlay } from 'react-icons/fa';
 
 const ProjectCard = ({ project, index, onOpen }) => {
   return (
@@ -11,35 +11,43 @@ const ProjectCard = ({ project, index, onOpen }) => {
       className="project-card"
       onClick={() => onOpen(project)}
     >
-      <div className="card-media-wrapper">
+      {/* Card Thumbnail */}
+      <div className="card-thumb-wrap">
         <img
           src={project.image}
           alt={project.title}
-          className="project-image-cover"
+          className="project-thumb-img"
           loading="lazy"
         />
-        <div className="card-gradient-overlay"></div>
-        <div className="category-pill-floating">{project.category}</div>
+        <div className="card-category-badge">{project.category}</div>
+        {project.videoUrl && (
+          <div className="video-available-indicator" title="Video demonstration available">
+            <FaPlay className="play-mini-icon" /> Video
+          </div>
+        )}
       </div>
 
-      <div className="project-body">
-        <div className="tech-tags-list">
-          {project.tags.slice(0, 3).map((tag) => (
-            <span key={tag} className="tag-badge">
+      {/* Card Body */}
+      <div className="project-card-body">
+        <h3 className="project-card-title">{project.title}</h3>
+        <p className="project-card-desc">{project.description}</p>
+
+        {/* Tags */}
+        <div className="project-tags-row">
+          {project.tags.slice(0, 4).map((tag) => (
+            <span key={tag} className="tag-pill">
               {tag}
             </span>
           ))}
-          {project.tags.length > 3 && (
-            <span className="tag-badge-more">+{project.tags.length - 3}</span>
+          {project.tags.length > 4 && (
+            <span className="tag-pill more">+{project.tags.length - 4}</span>
           )}
         </div>
 
-        <h3 className="project-heading">{project.title}</h3>
-        <p className="project-summary">{project.description}</p>
-
-        <div className="card-footer-action">
-          <span className="btn-detail-link">
-            <span>Détails & Architecture</span>
+        {/* Footer Action */}
+        <div className="project-card-footer">
+          <span className="btn-explore-link">
+            <span>Explore Engineering Specs</span>
             <FaArrowRight className="arrow-icon" />
           </span>
         </div>
@@ -49,134 +57,145 @@ const ProjectCard = ({ project, index, onOpen }) => {
         .project-card {
           background: var(--bg-card);
           border: 1px solid var(--glass-border);
-          border-radius: 18px;
+          border-radius: 20px;
           overflow: hidden;
-          cursor: pointer;
-          transition: var(--transition-smooth);
           display: flex;
           flex-direction: column;
+          cursor: pointer;
+          transition: var(--transition-smooth);
+          backdrop-filter: blur(10px);
           position: relative;
         }
 
         .project-card:hover {
-          transform: translateY(-8px);
-          border-color: rgba(0, 229, 255, 0.4);
           background: var(--bg-card-hover);
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+          border-color: rgba(0, 229, 255, 0.4);
+          transform: translateY(-6px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
         }
 
-        .card-media-wrapper {
+        .card-thumb-wrap {
           position: relative;
           height: 210px;
-          overflow: hidden;
           background: #080c14;
+          overflow: hidden;
         }
 
-        .project-image-cover {
+        .project-thumb-img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center;
           transition: transform 0.6s ease;
         }
 
-        .project-card:hover .project-image-cover {
+        .project-card:hover .project-thumb-img {
           transform: scale(1.06);
         }
 
-        .card-gradient-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            to top,
-            rgba(16, 22, 32, 0.95) 0%,
-            rgba(16, 22, 32, 0.4) 50%,
-            transparent 100%
-          );
-        }
-
-        .category-pill-floating {
+        .card-category-badge {
           position: absolute;
           top: 1rem;
           left: 1rem;
           padding: 0.3rem 0.75rem;
           background: rgba(6, 8, 13, 0.85);
           backdrop-filter: blur(8px);
-          border: 1px solid rgba(0, 229, 255, 0.3);
+          border: 1px solid var(--glass-border);
           border-radius: 100px;
           font-family: var(--font-mono);
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           color: var(--accent-cyan);
-          font-weight: 600;
+          font-weight: 700;
+          letter-spacing: 0.05em;
         }
 
-        .project-body {
-          padding: 1.5rem;
+        .video-available-indicator {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          padding: 0.3rem 0.65rem;
+          background: rgba(239, 68, 68, 0.85);
+          backdrop-filter: blur(8px);
+          border-radius: 100px;
+          font-family: var(--font-mono);
+          font-size: 0.7rem;
+          color: #ffffff;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 0.35rem;
+        }
+
+        .play-mini-icon {
+          font-size: 0.6rem;
+        }
+
+        .project-card-body {
+          padding: 1.75rem;
           display: flex;
           flex-direction: column;
           flex-grow: 1;
         }
 
-        .tech-tags-list {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.45rem;
-          margin-bottom: 0.85rem;
-        }
-
-        .tag-badge {
-          font-size: 0.72rem;
-          padding: 0.2rem 0.6rem;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid var(--glass-border);
-          border-radius: 4px;
-          color: var(--accent-blue);
-          font-family: var(--font-mono);
-          font-weight: 500;
-        }
-
-        .tag-badge-more {
-          font-size: 0.72rem;
-          padding: 0.2rem 0.5rem;
-          background: rgba(255, 255, 255, 0.02);
-          border-radius: 4px;
-          color: var(--text-muted);
-          font-family: var(--font-mono);
-        }
-
-        .project-heading {
-          font-size: 1.18rem;
+        .project-card-title {
+          font-size: 1.15rem;
           font-weight: 700;
-          margin-bottom: 0.6rem;
           color: var(--text-primary);
-          line-height: 1.3;
+          margin-bottom: 0.6rem;
+          line-height: 1.35;
         }
 
-        .project-summary {
+        .project-card-desc {
           font-size: 0.88rem;
           color: var(--text-secondary);
           line-height: 1.55;
-          margin-bottom: 1.5rem;
-          flex-grow: 1;
+          margin-bottom: 1.25rem;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
 
-        .card-footer-action {
+        .project-tags-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.4rem;
+          margin-bottom: 1.5rem;
+          margin-top: auto;
+        }
+
+        .tag-pill {
+          padding: 0.25rem 0.6rem;
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid var(--glass-border);
+          border-radius: 6px;
+          font-size: 0.72rem;
+          font-family: var(--font-mono);
+          color: var(--text-muted);
+        }
+
+        .tag-pill.more {
+          color: var(--accent-cyan);
+          border-color: rgba(0, 229, 255, 0.3);
+        }
+
+        .project-card-footer {
           padding-top: 1rem;
           border-top: 1px solid var(--glass-border);
         }
 
-        .btn-detail-link {
-          display: inline-flex;
+        .btn-explore-link {
+          display: flex;
           align-items: center;
-          gap: 0.5rem;
+          justify-content: space-between;
           font-size: 0.85rem;
           font-weight: 600;
           color: var(--accent-cyan);
-          transition: var(--transition-fast);
+          font-family: var(--font-mono);
         }
 
         .arrow-icon {
-          font-size: 0.75rem;
-          transition: transform 0.3s ease;
+          transition: transform var(--transition-fast);
         }
 
         .project-card:hover .arrow-icon {

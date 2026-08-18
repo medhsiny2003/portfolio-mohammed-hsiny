@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaLinkedin, FaEnvelope, FaWhatsapp, FaBars, FaTimes, FaFileDownload } from 'react-icons/fa';
+import { FaLinkedin, FaWhatsapp, FaBars, FaTimes, FaFileDownload } from 'react-icons/fa';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,11 +15,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Profil', href: '#about' },
-    { name: 'Industrie', href: '#experience' },
-    { name: 'Projets', href: '#projects' },
-    { name: 'Arsenal Technique', href: '#skills' },
-    { name: 'Leadership & Prix', href: '#leadership' },
+    { name: 'About', href: '#about' },
+    { name: 'Industry', href: '#experience' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Technical Arsenal', href: '#skills' },
+    { name: 'Leadership & Awards', href: '#leadership' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -47,7 +47,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="action-icon-btn whatsapp"
-            title="WhatsApp : +212 611 424 571"
+            title="WhatsApp: +212 611 424 571"
           >
             <FaWhatsapp />
           </a>
@@ -56,7 +56,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="action-icon-btn linkedin"
-            title="Profil LinkedIn"
+            title="LinkedIn Profile"
           >
             <FaLinkedin />
           </a>
@@ -106,7 +106,7 @@ const Navbar = () => {
                   download="CV_Mohammed_HSINY.pdf"
                   className="btn-primary-tech full-width"
                 >
-                  <FaFileDownload /> Télécharger CV
+                  <FaFileDownload /> Download CV
                 </a>
                 <a
                   href="https://wa.me/212611424571"
@@ -114,7 +114,7 @@ const Navbar = () => {
                   rel="noopener noreferrer"
                   className="btn-secondary-tech full-width"
                 >
-                  <FaWhatsapp /> WhatsApp direct
+                  <FaWhatsapp /> Direct WhatsApp
                 </a>
               </div>
             </div>
@@ -135,7 +135,7 @@ const Navbar = () => {
 
         .navbar-header.scrolled {
           padding: 0.75rem 0;
-          background: rgba(6, 8, 13, 0.85);
+          background: rgba(6, 8, 13, 0.88);
           backdrop-filter: blur(14px);
           -webkit-backdrop-filter: blur(14px);
           border-bottom: 1px solid var(--glass-border);

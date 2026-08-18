@@ -10,29 +10,29 @@ import profileSummerImg from '../assets/images/profile_mohammed.jpg';
 
 const distinctions = [
   {
-    place: '1er Prix',
+    place: '1st Prize',
     emoji: '🥇',
     title: 'International Summer School',
     orgs: 'ENSEM | ENSAO | FSTM | FSBM Casablanca',
-    highlight: 'Pitch projet d’innovation et présentation devant jury international.',
+    highlight: 'Innovation project pitch and live technical defense before an international jury.',
     image: profileSummerImg,
     color: 'gold',
   },
   {
-    place: '2e Prix',
+    place: '2nd Prize',
     emoji: '🥈',
-    title: 'Compétition Nationale de Robotique',
+    title: 'National Robotics Competition',
     orgs: 'ENSA Khouribga | ENIM Rabat',
-    highlight: 'Performance en robotique mobile autonome & précision de trajectoire.',
+    highlight: 'High dynamic performance in autonomous mobile robotics & precise trajectory tracking.',
     image: awardEnsakhImg,
     color: 'silver',
   },
   {
-    place: '3e Prix',
+    place: '3rd Prize',
     emoji: '🥉',
-    title: 'Compétition Nationale de Robotique',
+    title: 'National Robotics Competition',
     orgs: 'EMI Rabat | ENSA El Jadida',
-    highlight: 'Épreuve technique sur piste et vitesse de traitement embarqué.',
+    highlight: 'Field speed trials, high-frequency PID stability, and embedded sensor processing.',
     image: awardEnsajImg,
     color: 'bronze',
   },
@@ -44,12 +44,12 @@ const Leadership = () => {
       <div className="leadership-container">
         {/* Section Header */}
         <div className="section-header-centered">
-          <span className="section-tag">Engagement & Distinctions</span>
+          <span className="section-tag">Engagement & Awards</span>
           <h2 className="section-title-large">
-            Leadership, Transmission & <span className="highlight-gold">Prix Nationaux</span>
+            Leadership, Community & <span className="highlight-gold">National Awards</span>
           </h2>
           <p className="section-subtitle">
-            Animer des équipes, vulgariser la technologie et porter des projets ambitieux sur les plus hautes marches des compétitions d'ingénierie.
+            Leading engineering teams, democratizing robotics knowledge, and securing podium finishes in high-level national and international competitions.
           </p>
         </div>
 
@@ -66,7 +66,7 @@ const Leadership = () => {
             <div className="card-photo-wrapper">
               <img
                 src={robothingsStageImg}
-                alt="Présentation RoboThings par Mohammed HSINY"
+                alt="Mohammed HSINY presenting RoboThings Club"
                 className="leadership-photo"
               />
               <div className="photo-badge">2024 — 2026</div>
@@ -76,7 +76,7 @@ const Leadership = () => {
               <div className="lead-header">
                 <FaUsers className="lead-icon cyan" />
                 <div>
-                  <h3 className="lead-role">Président — Club RoboThings</h3>
+                  <h3 className="lead-role">President — RoboThings Club</h3>
                   <span className="lead-sub">FST Mohammedia</span>
                 </div>
               </div>
@@ -84,21 +84,21 @@ const Leadership = () => {
               <ul className="lead-list">
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Management & Direction :</strong> Supervision des activités, gestion des pôles et coordination des projets du club.</span>
+                  <span><strong>Team Leadership & Management:</strong> Overseeing strategic vision, delegating technical divisions, and managing cross-disciplinary student teams.</span>
                 </li>
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Encadrement Technique :</strong> Formation des membres sur STM32, Arduino, conception PCB KiCad et modélisation CAO SolidWorks.</span>
+                  <span><strong>Technical Mentorship:</strong> Training students on STM32 microcontrollers, Arduino, KiCad PCB layout, and SolidWorks CAD modeling.</span>
                 </li>
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Ateliers & Projets :</strong> Organisation de workshops pratiques et développement de solutions robotiques collaboratives.</span>
+                  <span><strong>Workshops & Build Nights:</strong> Organizing hands-on hackathons, robotics build sprints, and collaborative hardware initiatives.</span>
                 </li>
               </ul>
             </div>
           </motion.div>
 
-          {/* Compétition RoboDays */}
+          {/* RoboDays National Competition */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -109,33 +109,33 @@ const Leadership = () => {
             <div className="card-photo-wrapper">
               <img
                 src={robodaysEventImg}
-                alt="Événement Compétition RoboDays"
+                alt="RoboDays National Robotics Competition"
                 className="leadership-photo"
               />
-              <div className="photo-badge gold">Événement National</div>
+              <div className="photo-badge gold">National Event</div>
             </div>
 
             <div className="card-content-body">
               <div className="lead-header">
                 <FaLightbulb className="lead-icon gold" />
                 <div>
-                  <h3 className="lead-role">Fondateur & Coordinateur</h3>
-                  <span className="lead-sub">Compétition Nationale RoboDays</span>
+                  <h3 className="lead-role">Founder & Lead Coordinator</h3>
+                  <span className="lead-sub">RoboDays National Robotics Competition</span>
                 </div>
               </div>
 
               <ul className="lead-list">
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Cahiers des Charges :</strong> Rédaction et formalisation technique des épreuves (drones autonomes, suiveurs de ligne, évitement d’obstacles).</span>
+                  <span><strong>Technical Regulations:</strong> Drafted rigorous competition rules and track specifications for autonomous drones, line-followers, and maze navigation.</span>
                 </li>
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Coordination Logistique :</strong> Recherche de partenariats industriels, sponsors, logistique et accueil des équipes participantes.</span>
+                  <span><strong>Logistics & Partnerships:</strong> Secured industrial sponsors, handled venue logistics, and coordinated participating teams from Moroccan engineering schools.</span>
                 </li>
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Jurys d’Évaluation :</strong> Définition des critères d’évaluation technique et animation des jurys de pitch.</span>
+                  <span><strong>Jury & Evaluation:</strong> Defined engineering evaluation rubrics and hosted technical defense panels.</span>
                 </li>
               </ul>
             </div>
@@ -147,8 +147,8 @@ const Leadership = () => {
           <div className="distinctions-header">
             <FaTrophy className="trophy-header-icon" />
             <div>
-              <h3>Podiums & Distinctions en Compétitions Nationales & Internationales</h3>
-              <p>Reconnaissance de la rigueur technique, de l’innovation matérielle et de la qualité des démonstrations en direct.</p>
+              <h3>Podiums & Distinctions in Engineering Competitions</h3>
+              <p>Recognizing technical precision, hardware innovation, and high-pressure live demonstration performance.</p>
             </div>
           </div>
 
