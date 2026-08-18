@@ -9,7 +9,6 @@ import {
   FaCheck,
   FaFileDownload,
   FaArrowRight,
-  FaPaperPlane,
 } from 'react-icons/fa';
 
 const Contact = () => {
@@ -89,7 +88,7 @@ const Contact = () => {
 
             {/* LinkedIn Card */}
             <motion.a
-              href="https://www.linkedin.com/in/mohammed-hsiny"
+              href="https://www.linkedin.com/in/mohammed-hsiny-09885b31a/"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
@@ -103,7 +102,7 @@ const Contact = () => {
               </div>
               <div className="card-info">
                 <span className="card-label">LinkedIn Profile</span>
-                <span className="card-value">linkedin.com/in/mohammed-hsiny</span>
+                <span className="card-value">MOHAMMED HSINY</span>
               </div>
               <span className="card-action-icon">
                 <FaArrowRight />

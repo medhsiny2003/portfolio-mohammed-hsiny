@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaTimes, FaMicrochip, FaCode, FaCheck, FaPlay, FaVideo, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaTimes, FaMicrochip, FaCode, FaCheck, FaPlay, FaVideo } from 'react-icons/fa';
 import ProjectCard from './ProjectCard';
 
 // Real Images uploaded by Mohammed
 import projectHtImg from '../assets/images/project_ht.jpeg';
-import projectDroneFpvImg from '../assets/images/project_drone_fpv.jpg';
+import moiAvecFpvImg from '../assets/images/moi_avec_fpv.jpg';
 import projectAdasImg from '../assets/images/project_adas.jpg';
 import project6dofImg from '../assets/images/project_6dof.jpg';
 import projectSuiveurImg from '../assets/images/project_suiveur.jpg';
@@ -17,10 +17,10 @@ import enim11Img from '../assets/images/enim11.jpg';
 const projectsData = [
   {
     id: 'drone-ht',
-    title: "High Voltage (HV) Inspection Quadcopter Drone (From-Scratch)",
+    title: "High Voltage (HV) Power Line Inspection Quadcopter Drone",
     category: "Drones & Aerospace",
-    description: "Complete design, custom carbon machining, and flight integration of an autonomous drone dedicated to High Voltage power line inspection and AI anomaly detection.",
-    tags: ["ArduPilot", "YOLOv8", "Python", "Vision AI", "MAVLink", "From-Scratch", "Carbon CNC"],
+    description: "Complete design, custom carbon machining, and flight integration of an autonomous quadcopter dedicated to High Voltage power line inspection and real-time AI anomaly detection.",
+    tags: ["ArduPilot", "YOLOv8", "Python", "Vision AI", "MAVLink", "Carbon CNC", "Autonomous Flight"],
     image: projectHtImg,
     hardware: [
       "Custom reinforced carbon-fiber chassis engineered to carry mission payloads and withstand electromagnetic interference",
@@ -37,13 +37,13 @@ const projectsData = [
   },
   {
     id: 'drone-fpv-7',
-    title: "7-Inch Freestyle & Competition FPV Drone (ENSA Oujda)",
+    title: "7-Inch Freestyle & Long-Range FPV Drone",
     category: "Drones & Aerospace",
-    description: "High-performance FPV racing/freestyle drone engineering. Live acrobatic flight demonstrations and national robotics competition trials.",
-    tags: ["Betaflight", "FPV 7\"", "Brushless Motors", "4-in-1 ESC", "High-C LiPo", "Flight Demo"],
-    image: projectDroneFpvImg,
+    description: "High-performance FPV racing/freestyle drone engineering. Custom dynamic PID tuning, high-power propulsion, and live acrobatic flight execution.",
+    tags: ["Betaflight", "FPV 7\"", "Brushless Motors", "4-in-1 ESC", "High-C LiPo", "Acrobatic Flight"],
+    image: moiAvecFpvImg,
     videoUrl: "/videos/fpv_demo_oujda.mp4",
-    videoTitle: "Live FPV Flight Demonstration · ENSA Oujda National Competition",
+    videoTitle: "High-Speed FPV Flight & Aerobatics Demonstration",
     hardware: [
       "Rigid 7-inch carbon-fiber airframe engineered for aerodynamic torque resistance",
       "High-power brushless motors paired with balanced tri-blade propellers",
@@ -79,13 +79,13 @@ const projectsData = [
   },
   {
     id: 'flotte-adas',
-    title: "Multi-Robot Autonomous Fleet & ADAS Platform (ENIM Challenge)",
+    title: "Multi-Robot Autonomous Fleet & ADAS Platform",
     category: "Robotics & ADAS",
-    description: "Autonomous cooperative mobile robot fleet with closed-loop PID control, sub-2ms ESP-NOW mesh networking, and competitive navigation challenges.",
-    tags: ["ESP-NOW", "PID Control", "Obstacle Avoidance", "ENIM Challenge", "ESP32", "Smart Fleet"],
+    description: "Autonomous cooperative mobile robot fleet with closed-loop PID control, sub-2ms ESP-NOW mesh networking, vehicle-to-vehicle telemetry, and obstacle avoidance.",
+    tags: ["ESP-NOW", "PID Control", "Obstacle Avoidance", "ESP32", "Smart Fleet", "V2V Network"],
     image: projectAdasImg,
     videoUrl: "/videos/robot_challenge_enim.mp4",
-    videoTitle: "Arena Driving & Navigation Challenge · ENIM Rabat",
+    videoTitle: "Autonomous Arena Driving & Cooperative Navigation Demo",
     hardware: [
       "Differential drive mobile chassis with dual DC gearmotors and caster wheel",
       "ESP32 master microcontrollers with ultra-low latency mesh radio links",
@@ -97,13 +97,13 @@ const projectsData = [
       "Dual-loop PID speed and heading regulation for synchronous platoon cruising",
       "Active ADAS features: Adaptive Cruise Control (ACC), autonomous emergency braking (AEB), and cooperative convoy obstacle bypass",
     ],
-    impact: "Demonstrated real-time V2V cooperation and obstacle avoidance under tight competitive arena conditions.",
+    impact: "Demonstrated real-time V2V cooperation and autonomous obstacle avoidance under tight dynamic conditions.",
   },
   {
     id: 'bras-6dof',
     title: "6-DOF Articulated Robotic Arm",
     category: "Robotics & ADAS",
-    description: "Mechanical design, analytical inverse kinematics (IK), and real-time embedded control of a 6-axis articulated robot with a Python supervision GUI.",
+    description: "Mechanical design, analytical inverse kinematics (IK), and real-time embedded control of a 6-axis articulated robot with an interactive Python supervision GUI.",
     tags: ["SolidWorks", "STM32", "C++", "Python GUI", "Inverse Kinematics", "PWM"],
     image: project6dofImg,
     hardware: [
@@ -137,7 +137,7 @@ const projectsData = [
       "High-frequency closed-loop PID controller tuned for aggressive 90-degree cornering",
       "Adaptive launch control and intersection crossing detection algorithms",
     ],
-    impact: "Maximized control loop execution speed and high-speed dynamic stability on competitive race tracks.",
+    impact: "Maximized control loop execution speed and high-speed dynamic stability on test tracks.",
   },
   {
     id: 'robot-humanoide',
@@ -227,7 +227,7 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* 1. Projects Cards Grid (DISPLAYED FIRST AS REQUESTED) */}
+        {/* 1. Projects Cards Grid (DISPLAYED FIRST) */}
         <div className="projects-grid">
           {filteredProjects.map((project, index) => (
             <ProjectCard
@@ -239,17 +239,17 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* 2. Video Demonstrations & Competitions Section (DISPLAYED AFTER PROJECTS) */}
+        {/* 2. Video Demonstrations & Field Trials Section (DISPLAYED AFTER PROJECTS) */}
         <div className="video-spotlight-card">
           <div className="spotlight-header">
             <FaVideo className="spotlight-icon" />
             <div>
-              <h3>Live Competition & Flight Demonstrations</h3>
-              <p>Watch full-speed FPV aerobatics and competitive robot driving challenges captured on the field.</p>
+              <h3>Field Demonstrations & Live Trials</h3>
+              <p>Watch full-speed FPV aerobatics and arena robot driving challenges recorded in the field.</p>
             </div>
           </div>
           <div className="video-grid-dual">
-            {/* Video 1: FPV Oujda */}
+            {/* Video 1: FPV Demo */}
             <div className="video-player-box">
               <div className="video-wrapper">
                 <video
@@ -257,19 +257,19 @@ const Projects = () => {
                   preload="metadata"
                   playsInline
                   className="native-video-player"
-                  poster={projectDroneFpvImg}
+                  poster={moiAvecFpvImg}
                 >
                   <source src="/videos/fpv_demo_oujda.mp4" type="video/mp4" />
                   Your browser does not support HTML5 video playback.
                 </video>
               </div>
               <div className="video-caption">
-                <span className="video-tag">ENSA Oujda National Competition</span>
+                <span className="video-tag">Field Flight Trial</span>
                 <h4>High-Speed FPV Flight & Acrobatic Demonstration</h4>
               </div>
             </div>
 
-            {/* Video 2: Challenge ENIM (Fixed H.264 + enim11 thumbnail) */}
+            {/* Video 2: Robot Challenge (Fixed H.264 + enim11 thumbnail) */}
             <div className="video-player-box">
               <div className="video-wrapper">
                 <video
@@ -284,7 +284,7 @@ const Projects = () => {
                 </video>
               </div>
               <div className="video-caption">
-                <span className="video-tag">ENIM Robotics Challenge</span>
+                <span className="video-tag">Arena Navigation Trial</span>
                 <h4>Autonomous Arena Navigation & Driving Challenge</h4>
               </div>
             </div>

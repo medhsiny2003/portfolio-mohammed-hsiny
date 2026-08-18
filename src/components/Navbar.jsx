@@ -52,11 +52,11 @@ const Navbar = () => {
             <FaWhatsapp />
           </a>
           <a
-            href="https://www.linkedin.com/in/mohammed-hsiny"
+            href="https://www.linkedin.com/in/mohammed-hsiny-09885b31a/"
             target="_blank"
             rel="noopener noreferrer"
             className="action-icon-btn linkedin"
-            title="LinkedIn Profile"
+            title="LinkedIn Profile: MOHAMMED HSINY"
           >
             <FaLinkedin />
           </a>

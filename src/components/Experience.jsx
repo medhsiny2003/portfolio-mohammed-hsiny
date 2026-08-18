@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { FaIndustry, FaBolt, FaCheck, FaShieldAlt, FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa';
 
-// Real Logos & Industry Gallery Images uploaded by Mohammed
+// Real Logos & Industry Images uploaded by Mohammed
 import logoOcp from '../assets/images/logo_ocp.png';
 import logoCimar from '../assets/images/logo_cimar.jpg';
 import logoMarsa from '../assets/images/logo_marsa.png';
 import industrie1Img from '../assets/images/industrie1.jpg';
-import industrie2Img from '../assets/images/industrie2.jpg';
+import grue40tImg from '../assets/images/grue40t.jpg';
 
 const experiences = [
   {
@@ -16,9 +16,7 @@ const experiences = [
     period: 'July 2026 — Present',
     role: 'Engineering Intern — SCADA Supervision of Medium Voltage (MV) Substation',
     logo: logoOcp,
-    logoBg: 'white',
-    badgeColor: 'cyan',
-    summary: 'Centralization of control-command architecture and securing critical power supply for seawater pumping stations and chemical units.',
+    summary: 'Centralization of control-command architecture and securing critical power supply for seawater pumping stations and chemical process units.',
     achievements: [
       'Engineered an automated supervision architecture to eliminate communication gaps between the Medium Voltage station and the main control room, safeguarding vital seawater pumping operations.',
       'Designed PLC tele-management architecture to centralize control of 12 MV cubicles (9 pump/motor bays, incomers, busbars).',
@@ -34,8 +32,6 @@ const experiences = [
     period: 'August — September 2025',
     role: 'Technical Intern — Electrical Maintenance & Process Instrumentation',
     logo: logoCimar,
-    logoBg: 'white',
-    badgeColor: 'blue',
     summary: 'Preventive and corrective maintenance of heavy grinding machinery, field instrumentation, and power drive systems.',
     achievements: [
       'Executed preventive and curative maintenance on ball mills, heavy process compressors, and industrial slurry pumps.',
@@ -52,8 +48,6 @@ const experiences = [
     period: 'July 2025',
     role: 'Engineering Intern — Reliability & Automation of Harbor Cranes',
     logo: logoMarsa,
-    logoBg: 'white',
-    badgeColor: 'emerald',
     summary: 'Operational safety study, automated preventive lubrication, and IoT remote monitoring for heavy port infrastructure.',
     achievements: [
       'Conducted an operational dependability study (FMECA / AMDEC) on the G40T harbor crane by analyzing failure logs and tracking MTBF, MTTR, and operational availability rates.',
@@ -105,11 +99,11 @@ const Experience = () => {
           </div>
         </div>
 
-        {/* 2-Photo Industrial Gallery Requested by User */}
+        {/* 2-Photo Industrial Gallery (industrie1 + grue40t) */}
         <div className="industry-gallery-container">
           <div className="gallery-header">
-            <span className="gallery-tag">Field Visuals</span>
-            <h3>Industrial Plants & Substation Facilities</h3>
+            <span className="gallery-tag">Field Facilities</span>
+            <h3>Industrial Plants & Port Infrastructure</h3>
           </div>
           <div className="gallery-grid-dual">
             <motion.div
@@ -121,7 +115,7 @@ const Experience = () => {
             >
               <img
                 src={industrie1Img}
-                alt="Industrial Facility & Substation Overview 1"
+                alt="Industrial Substation & Electrical Facilities"
                 className="gallery-img"
               />
               <div className="gallery-caption">
@@ -137,12 +131,12 @@ const Experience = () => {
               className="gallery-photo-card"
             >
               <img
-                src={industrie2Img}
-                alt="Industrial Facility & Substation Overview 2"
+                src={grue40tImg}
+                alt="Marsa Maroc G40T Harbor Crane"
                 className="gallery-img"
               />
               <div className="gallery-caption">
-                <span>Heavy Process Installations & Power Infrastructure</span>
+                <span>Marsa Maroc — G40T Harbor Crane & IoT Automation</span>
               </div>
             </motion.div>
           </div>

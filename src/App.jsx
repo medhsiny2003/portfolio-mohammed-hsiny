@@ -79,11 +79,11 @@ function App() {
                 <FaWhatsapp />
               </a>
               <a
-                href="https://www.linkedin.com/in/mohammed-hsiny"
+                href="https://www.linkedin.com/in/mohammed-hsiny-09885b31a/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-link"
-                title="LinkedIn"
+                title="LinkedIn Profile: MOHAMMED HSINY"
               >
                 <FaLinkedin />
               </a>

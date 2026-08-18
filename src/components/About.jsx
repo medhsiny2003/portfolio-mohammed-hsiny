@@ -1,27 +1,27 @@
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaQuoteLeft, FaMicrochip, FaBolt, FaTools, FaCheck } from 'react-icons/fa';
-import profileCvImg from '../assets/images/profile_cv.png';
+import profileMohammedImg from '../assets/images/profile_mohammed.jpg';
 
 const educationList = [
   {
     period: '2024 — 2027',
     degree: 'State Engineering Degree in Electrical & Industrial Control Engineering (GECI)',
-    institution: 'Faculty of Sciences and Techniques (FST) — Mohammedia',
-    details: 'Specialization in Embedded Systems, Industrial Automation, SCADA Supervision, Power Electronics, Machine Learning & Robotics.',
+    institution: 'Faculty of Sciences and Techniques (FST) — Mohammedia, Hassan II University',
+    details: 'Comprehensive curriculum in Embedded Systems, Industrial Automation, SCADA Supervision, Power Electronics, Microcontrollers, and Robotics.',
     current: true,
   },
   {
     period: '2022 — 2024',
     degree: 'DEUST in Mathematics, Computer Science, Physics & Chemistry (MIP)',
-    institution: 'Faculty of Sciences and Techniques (FST) — Errachidia',
-    details: 'Intensive foundation in applied mathematics, signal processing, digital electronics, algorithms and physics.',
+    institution: 'Faculty of Sciences and Techniques (FST) — Errachidia, Moulay Ismaïl University',
+    details: 'Intensive foundation in applied mathematics, classical & modern physics, electronic circuits, algorithms, and signal processing.',
     current: false,
   },
   {
     period: '2021 — 2022',
     degree: 'Baccalauréat in Mathematical Sciences A',
     institution: 'Lycée Qualifiant — Errachidia',
-    details: 'Graduated with Honors (Mention Bien). Rigorous analytical training in mathematics and physics.',
+    details: 'Graduated with Honors (Mention Bien). Rigorous analytical training in advanced mathematics and physics.',
     current: false,
   },
 ];
@@ -73,41 +73,41 @@ const About = () => {
             </h3>
             
             <p className="bio-paragraph">
-              Currently in my engineering curriculum in <strong>Electrical Engineering & Industrial Control (GECI)</strong>, 
-              I develop a multidisciplinary approach at the crossroads of <strong>hardware electronics</strong>, 
+              Currently pursuing my engineering degree in <strong>Electrical Engineering & Industrial Control (GECI)</strong>, 
+              I develop a multidisciplinary approach combining <strong>hardware electronics</strong>, 
               <strong>embedded software</strong>, and <strong>industrial automation</strong>.
             </p>
 
             <p className="bio-paragraph">
               My engineering philosophy revolves around <strong>rapid prototyping</strong>, <strong>physical testing</strong>, 
-              and <strong>rigorous field validation</strong>. Whether it is building custom drones from scratch, developing 
-              multi-robot fleets with ADAS capabilities, or programming industrial SCADA systems on Medium Voltage networks, 
-              I design systems built to withstand real-world operational constraints.
+              and <strong>rigorous field validation</strong>. Whether it is building custom autonomous drones, developing 
+              multi-robot fleets with ADAS capabilities, or programming industrial SCADA systems on Medium Voltage substations, 
+              I engineer systems built to withstand real-world operational constraints.
             </p>
 
             <div className="core-competencies-list">
               <div className="comp-item">
                 <FaMicrochip className="comp-icon" />
                 <div>
-                  <strong>Critical Embedded Systems:</strong> Microcontrollers (STM32, ESP32, PIC), FreeRTOS, hardware timers, and communication buses (CAN, SPI, I2C, UART).
+                  <strong>Critical Embedded Systems:</strong> Microcontrollers (STM32, ESP32, PIC, Arduino), FreeRTOS, hardware timers, and communication buses (CAN, SPI, I2C, UART).
                 </div>
               </div>
               <div className="comp-item">
                 <FaBolt className="comp-icon" />
                 <div>
-                  <strong>Industrial Automation & SCADA:</strong> PLCs (Schneider M580/M340, Siemens S7-1200), Modbus TCP/IP, Ignition SCADA, Sepam 80 relays, and MV stations.
+                  <strong>Industrial Automation & SCADA:</strong> PLCs (Schneider Modicon M580/M340, Siemens S7-1200), Modbus TCP/IP, Ignition SCADA, Sepam 80 relays, and MV stations.
                 </div>
               </div>
               <div className="comp-item">
                 <FaTools className="comp-icon" />
                 <div>
-                  <strong>Autonomous Robotics & Drones:</strong> CAD modeling under SolidWorks, custom CNC/carbon assembly, flight controllers (ArduPilot, Betaflight), and vision AI (YOLO).
+                  <strong>Autonomous Robotics & Drones:</strong> CAD modeling under SolidWorks, flight controllers (ArduPilot, Betaflight), and real-time computer vision (YOLOv8, OpenCV).
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Portrait and Quick Info */}
+          {/* Portrait and Quick Info using profile_mohammed */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -117,8 +117,8 @@ const About = () => {
           >
             <div className="portrait-inner-frame">
               <img
-                src={profileCvImg}
-                alt="Mohammed HSINY"
+                src={profileMohammedImg}
+                alt="Mohammed HSINY - Engineering Student at FST Mohammedia"
                 className="about-profile-photo"
               />
               <div className="portrait-details-overlay">

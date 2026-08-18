@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaTrophy, FaUsers, FaLightbulb, FaCheck } from 'react-icons/fa';
+import { FaTrophy, FaUsers, FaLightbulb, FaCheck, FaMedal } from 'react-icons/fa';
 
 // Real Images uploaded by Mohammed
 import robothingsStageImg from '../assets/images/robothings_stage.jpg';
@@ -7,34 +7,48 @@ import robodaysEventImg from '../assets/images/robodays_event.jpg';
 import awardEnsakhImg from '../assets/images/award_ensakh.jpg';
 import awardEnsajImg from '../assets/images/award_ensaj.jpg';
 import profileSummerImg from '../assets/images/profile_mohammed.jpg';
+import challengeRobotImg from '../assets/images/challenge_robot.jpg';
 
 const distinctions = [
   {
     place: '1st Prize',
     emoji: '🥇',
-    title: 'International Summer School',
+    title: 'International Summer School on Innovation & AI',
     orgs: 'ENSEM | ENSAO | FSTM | FSBM Casablanca',
-    highlight: 'Innovation project pitch and live technical defense before an international jury.',
+    theme: 'AI & Technological Innovation',
+    highlight: 'Awarded 1st place following a live technological innovation defense and startup pitch before an international academic and industrial jury.',
     image: profileSummerImg,
     color: 'gold',
   },
   {
     place: '2nd Prize',
     emoji: '🥈',
-    title: 'National Robotics Competition',
+    title: 'National Robotics Hackathons & Autonomous Challenges',
     orgs: 'ENSA Khouribga | ENIM Rabat',
-    highlight: 'High dynamic performance in autonomous mobile robotics & precise trajectory tracking.',
+    theme: 'Autonomous Mobile Robotics & Arena Challenges',
+    highlight: '2nd place award across competitive autonomous mobile robotics trials, fast-response obstacle navigation, and closed-loop PID control performance.',
     image: awardEnsakhImg,
     color: 'silver',
   },
   {
     place: '3rd Prize',
     emoji: '🥉',
-    title: 'National Robotics Competition',
+    title: 'National Robotics & Engineering Competitions',
     orgs: 'EMI Rabat | ENSA El Jadida',
-    highlight: 'Field speed trials, high-frequency PID stability, and embedded sensor processing.',
+    theme: 'Speed Tracking & Embedded Signal Processing',
+    highlight: 'Podium finish in multi-university robotics challenges: high-speed optical line-tracking, real-time sensor filtering, and embedded control agility.',
     image: awardEnsajImg,
     color: 'bronze',
+  },
+  {
+    place: 'Podiums & Finalist',
+    emoji: '🏆',
+    title: 'Multi-University Robotics & Hackathon Challenges',
+    orgs: 'Moroccan Engineering Universities & Hackathons',
+    theme: 'Multi-Thematic Engineering Competitions',
+    highlight: 'Repeated top-tier rankings in diverse national engineering events spanning autonomous drones, mobile robotics fleets, and multidisciplinary innovation sprints.',
+    image: challengeRobotImg,
+    color: 'cyan',
   },
 ];
 
@@ -44,12 +58,12 @@ const Leadership = () => {
       <div className="leadership-container">
         {/* Section Header */}
         <div className="section-header-centered">
-          <span className="section-tag">Engagement & Awards</span>
+          <span className="section-tag">Engagement & Distinctions</span>
           <h2 className="section-title-large">
-            Leadership, Community & <span className="highlight-gold">National Awards</span>
+            Leadership, Community & <span className="highlight-gold">Competition Awards</span>
           </h2>
           <p className="section-subtitle">
-            Leading engineering teams, democratizing robotics knowledge, and securing podium finishes in high-level national and international competitions.
+            Leading multidisciplinary engineering teams, democratizing robotics education, and winning podium finishes across multiple national robotics hackathons, innovation challenges, and engineering summits.
           </p>
         </div>
 
@@ -84,7 +98,7 @@ const Leadership = () => {
               <ul className="lead-list">
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Team Leadership & Management:</strong> Overseeing strategic vision, delegating technical divisions, and managing cross-disciplinary student teams.</span>
+                  <span><strong>Strategic Leadership:</strong> Managing club operations, coordinating technical divisions, and driving collaborative robotics initiatives.</span>
                 </li>
                 <li>
                   <FaCheck className="check-bullet" />
@@ -127,11 +141,11 @@ const Leadership = () => {
               <ul className="lead-list">
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Technical Regulations:</strong> Drafted rigorous competition rules and track specifications for autonomous drones, line-followers, and maze navigation.</span>
+                  <span><strong>Technical Specifications:</strong> Authored competition rulebooks and track challenges for autonomous drones, line-followers, and maze navigation.</span>
                 </li>
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Logistics & Partnerships:</strong> Secured industrial sponsors, handled venue logistics, and coordinated participating teams from Moroccan engineering schools.</span>
+                  <span><strong>Logistics & Partnerships:</strong> Secured industrial sponsors, handled venue logistics, and coordinated participating engineering teams.</span>
                 </li>
                 <li>
                   <FaCheck className="check-bullet" />
@@ -147,8 +161,8 @@ const Leadership = () => {
           <div className="distinctions-header">
             <FaTrophy className="trophy-header-icon" />
             <div>
-              <h3>Podiums & Distinctions in Engineering Competitions</h3>
-              <p>Recognizing technical precision, hardware innovation, and high-pressure live demonstration performance.</p>
+              <h3>Awards & Podiums in National & International Competitions</h3>
+              <p>Multiple victories across diverse themes: Autonomous Robotics, Hackathons, Innovation Pitching, and Speed Challenges.</p>
             </div>
           </div>
 
@@ -173,6 +187,7 @@ const Leadership = () => {
                     <h4 className="award-event">{award.title}</h4>
                   </div>
                   <h5 className="award-orgs">{award.orgs}</h5>
+                  <div className="award-theme-badge">{award.theme}</div>
                   <p className="award-highlight">{award.highlight}</p>
                 </div>
               </motion.div>
@@ -339,7 +354,7 @@ const Leadership = () => {
 
         .awards-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: 1.75rem;
         }
 
@@ -394,29 +409,17 @@ const Leadership = () => {
           flex-grow: 1;
         }
 
-        .award-card.gold {
-          border-color: rgba(245, 158, 11, 0.4);
-        }
-        .award-card.gold .award-rank-pill {
-          color: var(--accent-gold);
-          border-color: rgba(245, 158, 11, 0.5);
-        }
+        .award-card.gold { border-color: rgba(245, 158, 11, 0.4); }
+        .award-card.gold .award-rank-pill { color: var(--accent-gold); border-color: rgba(245, 158, 11, 0.5); }
 
-        .award-card.silver {
-          border-color: rgba(148, 163, 184, 0.4);
-        }
-        .award-card.silver .award-rank-pill {
-          color: #e2e8f0;
-          border-color: rgba(148, 163, 184, 0.5);
-        }
+        .award-card.silver { border-color: rgba(148, 163, 184, 0.4); }
+        .award-card.silver .award-rank-pill { color: #e2e8f0; border-color: rgba(148, 163, 184, 0.5); }
 
-        .award-card.bronze {
-          border-color: rgba(217, 119, 6, 0.4);
-        }
-        .award-card.bronze .award-rank-pill {
-          color: #fb923c;
-          border-color: rgba(217, 119, 6, 0.5);
-        }
+        .award-card.bronze { border-color: rgba(217, 119, 6, 0.4); }
+        .award-card.bronze .award-rank-pill { color: #fb923c; border-color: rgba(217, 119, 6, 0.5); }
+
+        .award-card.cyan { border-color: rgba(0, 229, 255, 0.4); }
+        .award-card.cyan .award-rank-pill { color: var(--accent-cyan); border-color: rgba(0, 229, 255, 0.5); }
 
         .award-top-row {
           display: flex;
@@ -438,12 +441,24 @@ const Leadership = () => {
           font-size: 0.82rem;
           color: var(--accent-cyan);
           font-weight: 600;
+          margin-bottom: 0.4rem;
+        }
+
+        .award-theme-badge {
+          display: inline-block;
+          font-family: var(--font-mono);
+          font-size: 0.72rem;
+          color: var(--text-muted);
+          background: rgba(255, 255, 255, 0.05);
+          padding: 0.2rem 0.5rem;
+          border-radius: 4px;
           margin-bottom: 0.6rem;
+          width: fit-content;
         }
 
         .award-highlight {
           font-size: 0.82rem;
-          color: var(--text-muted);
+          color: var(--text-secondary);
           line-height: 1.45;
         }
 
