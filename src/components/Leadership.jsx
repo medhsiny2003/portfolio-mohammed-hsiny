@@ -4,7 +4,7 @@ import { FaUsers, FaTrophy, FaCalendarCheck, FaMedal } from 'react-icons/fa';
 // Real Images uploaded by Mohammed
 import robothingsStageImg from '../assets/images/robothings_stage.jpg';
 import robodaysEventImg from '../assets/images/robodays_event.jpg';
-import award1stImg from '../assets/images/award_1st_ensakh.jpg';
+import award1stImg from '../assets/images/enim_prix.jpg';
 import award2ndImg from '../assets/images/award_2nd_ensakh.jpg';
 import award3rdImg from '../assets/images/award_3rd_challenges.jpg';
 
