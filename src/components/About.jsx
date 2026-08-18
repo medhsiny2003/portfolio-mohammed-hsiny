@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaQuoteLeft, FaMicrochip, FaBolt, FaTools, FaCheck } from 'react-icons/fa';
+import { FaGraduationCap, FaQuoteLeft, FaMicrochip, FaRobot, FaFighterJet, FaTools } from 'react-icons/fa';
 import profileMohammedImg from '../assets/images/profile_mohammed.jpg';
 
 const educationList = [
@@ -7,21 +7,28 @@ const educationList = [
     period: '2024 — 2027',
     degree: 'State Engineering Degree in Electrical & Industrial Control Engineering (GECI)',
     institution: 'Faculty of Sciences and Techniques (FST) — Mohammedia, Hassan II University',
-    details: 'Comprehensive curriculum in Embedded Systems, Industrial Automation, SCADA Supervision, Power Electronics, Microcontrollers, and Robotics.',
+    details: 'Advanced engineering studies in Embedded Systems, Autonomous Robotics, Power Electronics, Microcontrollers, Signal Processing, and Real-Time Control.',
     current: true,
   },
   {
-    period: '2022 — 2024',
-    degree: 'DEUST in Mathematics, Computer Science, Physics & Chemistry (MIP)',
+    period: '2023 — 2024',
+    degree: 'Licence en Sciences et Techniques (LST) – Industrial Computing & Instrumentation (I3)',
     institution: 'Faculty of Sciences and Techniques (FST) — Errachidia, Moulay Ismaïl University',
-    details: 'Intensive foundation in applied mathematics, classical & modern physics, electronic circuits, algorithms, and signal processing.',
+    details: 'Specialization in embedded computing, sensor instrumentation, digital electronics, automated measurement systems, and microcontrollers.',
     current: false,
   },
   {
-    period: '2021 — 2022',
-    degree: 'Baccalauréat in Mathematical Sciences A',
-    institution: 'Lycée Qualifiant — Errachidia',
-    details: 'Graduated with Honors (Mention Bien). Rigorous analytical training in advanced mathematics and physics.',
+    period: '2021 — 2023',
+    degree: 'DEUST – Mathematics, Computer Science & Physics (MIP)',
+    institution: 'Faculty of Sciences and Techniques (FST) — Errachidia, Moulay Ismaïl University',
+    details: 'Rigorous preparatory foundation in applied mathematics, classical and modern physics, electronics, algorithms, and numerical modeling.',
+    current: false,
+  },
+  {
+    period: '2021',
+    degree: 'Baccalauréat in Physical Sciences',
+    institution: 'Lycée Najib Mahfoud — Safi',
+    details: 'Solid academic grounding in physics, chemistry, and mathematics.',
     current: false,
   },
 ];
@@ -34,10 +41,10 @@ const About = () => {
         <div className="section-header-centered">
           <span className="section-tag">Engineering Mindset & Trajectory</span>
           <h2 className="section-title-large">
-            Bridging Theory & <span className="highlight-cyan">Field Reality</span>
+            Passion, Autonomy & <span className="highlight-cyan">Field Reality</span>
           </h2>
           <p className="section-subtitle">
-            An engineering journey driven by curiosity, systematic debugging, and a relentless focus on reliable physical systems.
+            An engineering journey fueled by passion for critical embedded systems, autonomous drones, defense technologies, and hands-on rapid prototyping.
           </p>
         </div>
 
@@ -74,15 +81,20 @@ const About = () => {
             
             <p className="bio-paragraph">
               Currently pursuing my engineering degree in <strong>Electrical Engineering & Industrial Control (GECI)</strong>, 
-              I develop a multidisciplinary approach combining <strong>hardware electronics</strong>, 
-              <strong>embedded software</strong>, and <strong>industrial automation</strong>.
+              I am actively seeking a <strong>6-month Final Year Internship (PFE) starting January 2027</strong> in 
+              <strong> embedded systems, autonomous robotics, drones & UAVs, or defense and autonomous vehicles</strong>.
             </p>
 
             <p className="bio-paragraph">
-              My engineering philosophy revolves around <strong>rapid prototyping</strong>, <strong>physical testing</strong>, 
-              and <strong>rigorous field validation</strong>. Whether it is building custom autonomous drones, developing 
-              multi-robot fleets with ADAS capabilities, or programming industrial SCADA systems on Medium Voltage substations, 
-              I engineer systems built to withstand real-world operational constraints.
+              Deeply passionate about <strong>defense technologies and mission-critical embedded systems</strong>, 
+              I actively follow cutting-edge industry developments across the drone and autonomous systems ecosystem. 
+              Curious, autonomous, and driven by a strong spirit of initiative, I build personal and competitive engineering projects 
+              seamlessly integrating custom hardware and firmware.
+            </p>
+
+            <p className="bio-paragraph">
+              My podium finishes in multiple national competitions and hackathons reflect my ability to rapidly concept, 
+              prototype, calibrate, and present innovative, reliable engineering solutions under demanding conditions.
             </p>
 
             <div className="core-competencies-list">
@@ -93,15 +105,15 @@ const About = () => {
                 </div>
               </div>
               <div className="comp-item">
-                <FaBolt className="comp-icon" />
+                <FaFighterJet className="comp-icon" />
                 <div>
-                  <strong>Industrial Automation & SCADA:</strong> PLCs (Schneider Modicon M580/M340, Siemens S7-1200), Modbus TCP/IP, Ignition SCADA, Sepam 80 relays, and MV stations.
+                  <strong>Drones & Autonomous UAVs:</strong> Flight controllers (ArduPilot, Pixhawk, Betaflight), MAVLink telemetry, dynamic PID tuning, and mission planning (QGroundControl, Mission Planner).
                 </div>
               </div>
               <div className="comp-item">
-                <FaTools className="comp-icon" />
+                <FaRobot className="comp-icon" />
                 <div>
-                  <strong>Autonomous Robotics & Drones:</strong> CAD modeling under SolidWorks, flight controllers (ArduPilot, Betaflight), and real-time computer vision (YOLOv8, OpenCV).
+                  <strong>Autonomous Robotics & Defense AI:</strong> Closed-loop PID control, multi-robot mesh networks (ESP-NOW), vision AI (YOLOv8, OpenCV), and 3D SolidWorks CAD design.
                 </div>
               </div>
             </div>
@@ -133,8 +145,8 @@ const About = () => {
                 <strong>6-Month PFE Internship Search</strong>
               </div>
               <p>
-                <strong>Availability:</strong> January 2027 – June 2027 (6 months)<br />
-                <strong>Target Fields:</strong> Embedded Systems, Robotics & Autonomous Systems, Drones & UAVs, Industrial Automation / SCADA, Defense & Energy R&D.<br />
+                <strong>Availability:</strong> January 2027 – June / July 2027 (6 months)<br />
+                <strong>Target Sectors:</strong> Embedded Systems, Drones & UAVs, Autonomous Robotics, Defense & Aerospace R&D, Real-Time Navigation.<br />
                 <strong>Mobility:</strong> Morocco & International
               </p>
             </div>

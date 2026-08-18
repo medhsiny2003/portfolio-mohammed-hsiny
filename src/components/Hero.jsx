@@ -22,7 +22,7 @@ const Hero = () => {
     };
     window.addEventListener('resize', handleResize);
 
-    // Particle nodes simulation for cybernetic/industrial electrical grid
+    // Particle nodes simulation for cybernetic/autonomous flight grid
     const numParticles = Math.min(Math.floor((width * height) / 18000), 75);
     const particles = [];
 
@@ -124,7 +124,7 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="hero-role-tag"
             >
-              Engineering Student · FST Mohammedia
+              Electrical & Industrial Control Engineer · FST Mohammedia
             </motion.p>
 
             {/* Main Title */}
@@ -136,7 +136,7 @@ const Hero = () => {
             >
               MOHAMMED <span className="highlight-cyan">HSINY</span>
               <span className="hero-subheading">
-                Electrical & <span className="text-gradient">Industrial Control</span> Engineer
+                Embedded Systems, <span className="text-gradient">Drones & Autonomous Robotics</span>
               </span>
             </motion.h1>
 
@@ -147,9 +147,10 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="hero-description"
             >
-              Passionate about <strong>hardware & software integration</strong>, <strong>critical embedded systems</strong>, 
-              <strong>autonomous robotics</strong>, <strong>drones</strong>, and <strong>SCADA / PLC automation</strong>. 
-              Designing, prototyping, and deploying innovative and reliable engineering solutions.
+              Passionate about <strong>critical embedded systems</strong>, <strong>autonomous drones & UAVs</strong>, 
+              <strong>mobile robotics</strong>, and <strong>defense & aerospace technologies</strong>. 
+              Equipped with a strong initiative spirit and hands-on prototyping mindset to design, build, and deploy 
+              reliable high-performance hardware-software solutions.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -195,14 +196,14 @@ const Hero = () => {
               <div className="portrait-image-wrapper">
                 <img
                   src={profileCvImg}
-                  alt="Mohammed HSINY"
+                  alt="Mohammed HSINY - Embedded Systems & Autonomous Robotics Engineer"
                   className="hero-profile-avatar"
                 />
                 <div className="portrait-ambient-glow"></div>
               </div>
               <div className="portrait-badge-row">
-                <span className="badge-item cyan">Robotics & Embedded</span>
-                <span className="badge-item blue">SCADA & PLC</span>
+                <span className="badge-item cyan">Embedded Systems & UAVs</span>
+                <span className="badge-item blue">Autonomous Robotics & Defense</span>
               </div>
             </div>
           </motion.div>
@@ -217,7 +218,27 @@ const Hero = () => {
         >
           <div className="metric-card">
             <div className="metric-icon-box">
-              <FaIndustry className="icon cyan" />
+              <FaAward className="icon gold" />
+            </div>
+            <div className="metric-info">
+              <span className="metric-value">8+ Awards & Podiums</span>
+              <span className="metric-label">National & International Hackathons & Robotics Podiums</span>
+            </div>
+          </div>
+
+          <div className="metric-card">
+            <div className="metric-icon-box">
+              <FaRobot className="icon cyan" />
+            </div>
+            <div className="metric-info">
+              <span className="metric-value">9+ Projects</span>
+              <span className="metric-label">Autonomous Drones, Tawfir AI, Smart Fleet, 6-DOF Arm</span>
+            </div>
+          </div>
+
+          <div className="metric-card">
+            <div className="metric-icon-box">
+              <FaIndustry className="icon blue" />
             </div>
             <div className="metric-info">
               <span className="metric-value">3+ Internships</span>
@@ -227,31 +248,11 @@ const Hero = () => {
 
           <div className="metric-card">
             <div className="metric-icon-box">
-              <FaRobot className="icon blue" />
-            </div>
-            <div className="metric-info">
-              <span className="metric-value">8+ Projects</span>
-              <span className="metric-label">HV/FPV Drones, ADAS Fleet, 6-DOF Arm</span>
-            </div>
-          </div>
-
-          <div className="metric-card">
-            <div className="metric-icon-box">
-              <FaAward className="icon gold" />
-            </div>
-            <div className="metric-info">
-              <span className="metric-value">3 National Awards</span>
-              <span className="metric-label">Engineering & Robotics Competitions</span>
-            </div>
-          </div>
-
-          <div className="metric-card">
-            <div className="metric-icon-box">
               <FaUsers className="icon emerald" />
             </div>
             <div className="metric-info">
-              <span className="metric-value">President</span>
-              <span className="metric-label">RoboThings Club & Founder of RoboDays</span>
+              <span className="metric-value">President & Founder</span>
+              <span className="metric-label">RoboThings Club & RoboDays National Competition</span>
             </div>
           </div>
         </motion.div>
@@ -349,7 +350,7 @@ const Hero = () => {
 
         .hero-subheading {
           display: block;
-          font-size: clamp(1.4rem, 3.2vw, 2.3rem);
+          font-size: clamp(1.3rem, 2.8vw, 2.1rem);
           font-weight: 600;
           color: var(--text-secondary);
           margin-top: 0.5rem;

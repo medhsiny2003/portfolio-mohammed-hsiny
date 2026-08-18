@@ -1,18 +1,28 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaTimes, FaMicrochip, FaCode, FaCheck, FaPlay, FaVideo } from 'react-icons/fa';
+import { FaTimes, FaMicrochip, FaCode, FaCheck, FaPlay, FaVideo, FaImages } from 'react-icons/fa';
 import ProjectCard from './ProjectCard';
 
 // Real Images uploaded by Mohammed
 import projectHtImg from '../assets/images/project_ht.jpeg';
+import droneHtFrameImg from '../assets/images/drone_ht_frame.jpg';
 import moiAvecFpvImg from '../assets/images/moi_avec_fpv.jpg';
+import projectDroneFpvImg from '../assets/images/project_drone_fpv.jpg';
 import projectAdasImg from '../assets/images/project_adas.jpg';
+import smartCityFleetImg from '../assets/images/smart_city_fleet.jpg';
 import project6dofImg from '../assets/images/project_6dof.jpg';
+import bras6dofRealImg from '../assets/images/bras_6dof_real.jpg';
 import projectSuiveurImg from '../assets/images/project_suiveur.jpg';
+import suiveurLigneRealImg from '../assets/images/suiveur_ligne_real.jpg';
 import skypharmaRealImg from '../assets/images/skypharma_chassis_real.jpg';
+import skypharmaSolidworksImg from '../assets/images/skypharma_solidworks.png';
+import skypharmaScadaImg from '../assets/images/skypharma_scada.png';
 import robotHumanoideRealImg from '../assets/images/robot_humanoide_real.jpg';
 import circuitBistableRealImg from '../assets/images/circuit_bistable_real.jpg';
 import enim11Img from '../assets/images/enim11.jpg';
+import tawfirMainImg from '../assets/images/tawfir_main.jpg';
+import tawfirHardwareImg from '../assets/images/tawfir_hardware.jpg';
+import tawfirPosterImg from '../assets/images/tawfir_poster.jpg';
 
 const projectsData = [
   {
@@ -22,8 +32,12 @@ const projectsData = [
     description: "Complete design, custom carbon machining, and flight integration of an autonomous quadcopter dedicated to High Voltage power line inspection and real-time AI anomaly detection.",
     tags: ["ArduPilot", "YOLOv8", "Python", "Vision AI", "MAVLink", "Carbon CNC", "Autonomous Flight"],
     image: projectHtImg,
+    galleryImages: [
+      { src: projectHtImg, caption: "Completed High Voltage Inspection Quadcopter" },
+      { src: droneHtFrameImg, caption: "Custom CNC Carbon Frame Assembly & Avionics" },
+    ],
     hardware: [
-      "Custom reinforced carbon-fiber chassis engineered to carry mission payloads and withstand electromagnetic interference",
+      "Custom reinforced carbon-fiber chassis engineered to carry mission payloads and withstand high electromagnetic interference",
       "Open-source industrial flight controller with ArduPilot / Pixhawk firmware",
       "High-efficiency brushless propulsion system with dynamic blade balancing",
       "Long-range MAVLink telemetry radio and encrypted high-definition video downlink",
@@ -42,6 +56,10 @@ const projectsData = [
     description: "High-performance FPV racing/freestyle drone engineering. Custom dynamic PID tuning, high-power propulsion, and live acrobatic flight execution.",
     tags: ["Betaflight", "FPV 7\"", "Brushless Motors", "4-in-1 ESC", "High-C LiPo", "Acrobatic Flight"],
     image: moiAvecFpvImg,
+    galleryImages: [
+      { src: moiAvecFpvImg, caption: "7-inch FPV Quadcopter Ready for Flight Trials" },
+      { src: projectDroneFpvImg, caption: "Avionics Stack & Brushless Propulsion Wiring" },
+    ],
     videoUrl: "/videos/fpv_demo_oujda.mp4",
     videoTitle: "High-Speed FPV Flight & Aerobatics Demonstration",
     hardware: [
@@ -58,12 +76,43 @@ const projectsData = [
     impact: "Deep mastery of high-speed flight dynamics, aerodynamics, and emergency manual recovery control.",
   },
   {
+    id: 'tawfir',
+    title: "Project Tawfir – Smart Water Distribution & Invisible Leak Detection",
+    category: "Embedded AI & IoT",
+    description: "Intelligent water management and invisible leak detection solution combining embedded IoT hardware and Machine Learning (Isolation Forest) to monitor real-time consumption and identify pipeline anomalies.",
+    tags: ["ESP32", "Isolation Forest", "Machine Learning", "Flow Sensors", "IoT", "Smart Water"],
+    image: tawfirMainImg,
+    galleryImages: [
+      { src: tawfirMainImg, caption: "Project Tawfir – Embedded Acquisition & AI Processing Unit" },
+      { src: tawfirHardwareImg, caption: "ESP32 Controller & Water Flow Sensor Rig" },
+      { src: tawfirPosterImg, caption: "Project Architecture & Environmental Impact Poster" },
+    ],
+    hardware: [
+      "ESP32 microcontroller serving as the central processing, edge filtering, and wireless telemetry hub",
+      "High-precision pulse water flow sensors measuring instantaneous flow rate and total consumption",
+      "Low-noise signal conditioning interface and protected embedded power stage",
+    ],
+    software: [
+      "Machine Learning anomaly detection models, utilizing Isolation Forest to model user consumption baselines",
+      "Proactive automated detection of micro-leaks, burst pipes, and abnormal consumption patterns",
+      "Real-time wireless telemetry data streaming to a dedicated monitoring dashboard",
+    ],
+    impact: "Mitigates critical water loss, enhances distribution network efficiency, and validated by physical prototypes praised for environmental and socio-economic impact.",
+  },
+  {
     id: 'skypharma',
     title: "SkyPharma – Automated Cartesian Medicine Storage Robot",
     category: "Robotics & ADAS",
     description: "Automated cartesian inventory robot built with H-Bot kinematics, a Python web dashboard, and SQLite database for rapid, error-free pharmaceutical dispensing.",
-    tags: ["H-Bot Kinematics", "GRBL", "SQLite", "Python", "Web HMI", "G-Code"],
+    tags: ["H-Bot Kinematics", "GRBL", "SQLite", "Python", "Web HMI", "SolidWorks"],
     image: skypharmaRealImg,
+    galleryImages: [
+      { src: skypharmaRealImg, caption: "SkyPharma H-Bot Cartesian Mechanical Structure" },
+      { src: skypharmaSolidworksImg, caption: "SolidWorks 3D CAD Assembly & Kinematic Study" },
+      { src: skypharmaScadaImg, caption: "Web SCADA Supervision & Inventory Dashboard" },
+    ],
+    videoUrl: "/videos/skypharma_demo.mp4",
+    videoTitle: "SkyPharma Automated Cartesian Robot Dispensing Demo",
     hardware: [
       "Lightweight H-Bot cartesian kinematic structure built with V-Slot aluminum extrusions and linear rails",
       "High-torque NEMA stepper motors coupled with high-precision micro-stepping drivers",
@@ -84,6 +133,10 @@ const projectsData = [
     description: "Autonomous cooperative mobile robot fleet with closed-loop PID control, sub-2ms ESP-NOW mesh networking, vehicle-to-vehicle telemetry, and obstacle avoidance.",
     tags: ["ESP-NOW", "PID Control", "Obstacle Avoidance", "ESP32", "Smart Fleet", "V2V Network"],
     image: projectAdasImg,
+    galleryImages: [
+      { src: projectAdasImg, caption: "Autonomous Robot Unit with ADAS Sensing Stack" },
+      { src: smartCityFleetImg, caption: "Multi-Robot Communicating Fleet on Smart City Arena" },
+    ],
     videoUrl: "/videos/robot_challenge_enim.mp4",
     videoTitle: "Autonomous Arena Driving & Cooperative Navigation Demo",
     hardware: [
@@ -106,6 +159,10 @@ const projectsData = [
     description: "Mechanical design, analytical inverse kinematics (IK), and real-time embedded control of a 6-axis articulated robot with an interactive Python supervision GUI.",
     tags: ["SolidWorks", "STM32", "C++", "Python GUI", "Inverse Kinematics", "PWM"],
     image: project6dofImg,
+    galleryImages: [
+      { src: project6dofImg, caption: "6-DOF Articulated Arm Joint Prototype" },
+      { src: bras6dofRealImg, caption: "CAD Optimization & Multi-Axis Servo Links" },
+    ],
     hardware: [
       "Full 3D CAD mechanical assembly designed in SolidWorks with mass distribution optimization",
       "High-torque metal-gear digital servos on all 6 rotational axes",
@@ -126,6 +183,10 @@ const projectsData = [
     description: "Speed-optimized mobile robot featuring a high-density optical sensor bar, analog signal conditioning, and high-frequency PID trajectory tracking.",
     tags: ["PID Control", "Optical Sensor Bar", "High Speed", "H-Bridge MOSFET", "Analog Filtering"],
     image: projectSuiveurImg,
+    galleryImages: [
+      { src: projectSuiveurImg, caption: "High-Speed Lightweight Line-Follower Chassis" },
+      { src: suiveurLigneRealImg, caption: "Optical Sensor Array & High-RPM Coreless DC Motors" },
+    ],
     hardware: [
       "Custom multi-sensor phototransistor array with low-impedance signal conditioning circuitry",
       "High-RPM coreless DC motors with micro metal gearboxes",
@@ -146,6 +207,9 @@ const projectsData = [
     description: "Articulated biped robot with multi-servo synchronization, dedicated 5V/10A high-current buck power stage, ultrasonic collision sensing, and dynamic gait planning.",
     tags: ["Servo Coordination", "Biped Locomotion", "Ultrasonic Sensing", "5V/10A DC-DC", "ZMP Stability"],
     image: robotHumanoideRealImg,
+    galleryImages: [
+      { src: robotHumanoideRealImg, caption: "Bipedal Articulated Prototype & High-Current Power Rail" },
+    ],
     hardware: [
       "Multi-joint articulated skeletal structure with precision aluminum servo brackets",
       "LiPo battery pack paired with a high-efficiency 5V/10A step-down DC-DC buck converter",
@@ -162,10 +226,13 @@ const projectsData = [
   {
     id: 'logique-cablee',
     title: "Hardwired Sequential Logic & Automation Testbench",
-    category: "Automation & SCADA",
+    category: "Electronics & Prototyping",
     description: "Physical circuit design and breadboard implementation of bistable multivibrators, JK flip-flops, asynchronous binary counters, and combinational logic for automation sequencing.",
     tags: ["JK Flip-Flops", "Bistable Circuit", "Sequential Logic", "Hardware Testbench", "Electronics"],
     image: circuitBistableRealImg,
+    galleryImages: [
+      { src: circuitBistableRealImg, caption: "Bistable Multivibrator & JK Flip-Flop Test Circuit" },
+    ],
     hardware: [
       "TTL/CMOS IC components: 74LS76 JK flip-flops, 555 timers, NAND/NOR logic gates, and transistor drivers",
       "Variable clock pulse generator with adjustable frequency and duty cycle control",
@@ -185,7 +252,7 @@ const categories = [
   "All",
   "Drones & Aerospace",
   "Robotics & ADAS",
-  "Automation & SCADA",
+  "Embedded AI & IoT",
   "Electronics & Prototyping",
 ];
 
@@ -209,7 +276,7 @@ const Projects = () => {
               Featured <span className="highlight-cyan">Technical Projects</span>
             </h2>
             <p className="section-subtitle">
-              Fully built and field-tested physical systems: autonomous drones, mobile robot fleets, cartesian kinematics, and custom electronic circuits.
+              Fully built and field-tested physical systems: autonomous drones, smart water IoT AI, mobile robot fleets, cartesian kinematics, and custom electronic circuits.
             </p>
           </div>
 
@@ -239,17 +306,17 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* 2. Video Demonstrations & Field Trials Section (DISPLAYED AFTER PROJECTS) */}
+        {/* 2. Video Demonstrations Section (3 Videos: FPV, ENIM Hackathon, SkyPharma) */}
         <div className="video-spotlight-card">
           <div className="spotlight-header">
             <FaVideo className="spotlight-icon" />
             <div>
               <h3>Field Demonstrations & Live Trials</h3>
-              <p>Watch full-speed FPV aerobatics and arena robot driving challenges recorded in the field.</p>
+              <p>Watch full-speed FPV flight tests, robotics hackathon challenges, and cartesian automated dispensing demos.</p>
             </div>
           </div>
-          <div className="video-grid-dual">
-            {/* Video 1: FPV Demo */}
+          <div className="video-grid-tri">
+            {/* Video 1: FPV Flight Test */}
             <div className="video-player-box">
               <div className="video-wrapper">
                 <video
@@ -264,12 +331,12 @@ const Projects = () => {
                 </video>
               </div>
               <div className="video-caption">
-                <span className="video-tag">Field Flight Trial</span>
-                <h4>High-Speed FPV Flight & Acrobatic Demonstration</h4>
+                <span className="video-tag">Flight Test</span>
+                <h4>FPV Flight Test & Acrobatic Demonstration</h4>
               </div>
             </div>
 
-            {/* Video 2: Robot Challenge (Fixed H.264 + enim11 thumbnail) */}
+            {/* Video 2: ENIM Hackathon Challenge */}
             <div className="video-player-box">
               <div className="video-wrapper">
                 <video
@@ -284,15 +351,35 @@ const Projects = () => {
                 </video>
               </div>
               <div className="video-caption">
-                <span className="video-tag">Arena Navigation Trial</span>
-                <h4>Autonomous Arena Navigation & Driving Challenge</h4>
+                <span className="video-tag">Robotics Hackathon Challenge</span>
+                <h4>Robotics Hackathon Challenge · ENIM Rabat</h4>
+              </div>
+            </div>
+
+            {/* Video 3: SkyPharma Cartesian Demo */}
+            <div className="video-player-box">
+              <div className="video-wrapper">
+                <video
+                  controls
+                  preload="metadata"
+                  playsInline
+                  className="native-video-player"
+                  poster={skypharmaRealImg}
+                >
+                  <source src="/videos/skypharma_demo.mp4" type="video/mp4" />
+                  Your browser does not support HTML5 video playback.
+                </video>
+              </div>
+              <div className="video-caption">
+                <span className="video-tag">Automated Dispensing</span>
+                <h4>SkyPharma Cartesian Robot Demonstration</h4>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Modal Dialog for Project Details */}
+      {/* Modal Dialog for Project Details with Multi-Image Gallery */}
       <AnimatePresence>
         {activeModalProject && (
           <motion.div
@@ -325,6 +412,23 @@ const Projects = () => {
               </div>
 
               <div className="modal-body-scroll">
+                {/* Multi-Image Gallery in Modal */}
+                {activeModalProject.galleryImages && activeModalProject.galleryImages.length > 0 && (
+                  <div className="modal-gallery-section">
+                    <h4 className="modal-section-title">
+                      <FaImages className="section-play-icon" /> Visual Gallery & Technical Schematics
+                    </h4>
+                    <div className="modal-gallery-grid">
+                      {activeModalProject.galleryImages.map((img, idx) => (
+                        <div key={idx} className="gallery-item-frame">
+                          <img src={img.src} alt={img.caption} className="gallery-item-img" />
+                          <span className="gallery-item-caption">{img.caption}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Embedded Video in Modal if Available */}
                 {activeModalProject.videoUrl && (
                   <div className="modal-video-container">
@@ -448,7 +552,7 @@ const Projects = () => {
           margin-bottom: 4.5rem;
         }
 
-        /* 2. Video Spotlight Card (DISPLAYED AFTER PROJECTS) */
+        /* 2. Video Spotlight Card (3 Videos) */
         .video-spotlight-card {
           background: var(--bg-card);
           border: 1px solid var(--glass-border);
@@ -482,10 +586,10 @@ const Projects = () => {
           color: var(--text-muted);
         }
 
-        .video-grid-dual {
+        .video-grid-tri {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 2rem;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 1.75rem;
         }
 
         .video-player-box {
@@ -527,7 +631,7 @@ const Projects = () => {
         }
 
         .video-caption h4 {
-          font-size: 1.02rem;
+          font-size: 1rem;
           color: var(--text-primary);
         }
 
@@ -617,6 +721,43 @@ const Projects = () => {
           display: flex;
           flex-direction: column;
           gap: 1.75rem;
+        }
+
+        /* Modal Multi-Image Gallery */
+        .modal-gallery-section {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .modal-gallery-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 1rem;
+        }
+
+        .gallery-item-frame {
+          border-radius: 12px;
+          overflow: hidden;
+          background: #080c14;
+          border: 1px solid var(--glass-border);
+          display: flex;
+          flex-direction: column;
+        }
+
+        .gallery-item-img {
+          width: 100%;
+          height: 160px;
+          object-fit: cover;
+          background: #050810;
+        }
+
+        .gallery-item-caption {
+          padding: 0.5rem 0.75rem;
+          font-size: 0.75rem;
+          color: var(--text-muted);
+          background: rgba(0, 0, 0, 0.4);
+          line-height: 1.3;
         }
 
         .modal-video-container {
@@ -734,10 +875,13 @@ const Projects = () => {
         }
 
         @media (max-width: 900px) {
-          .video-grid-dual {
+          .video-grid-tri {
             grid-template-columns: 1fr;
           }
           .modal-arch-grid {
+            grid-template-columns: 1fr;
+          }
+          .modal-gallery-grid {
             grid-template-columns: 1fr;
           }
         }

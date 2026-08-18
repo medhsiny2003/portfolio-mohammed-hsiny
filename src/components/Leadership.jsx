@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaTrophy, FaUsers, FaLightbulb, FaCheck, FaMedal } from 'react-icons/fa';
+import { FaUsers, FaTrophy, FaCalendarCheck, FaAward, FaMedal, FaStar } from 'react-icons/fa';
 
 // Real Images uploaded by Mohammed
 import robothingsStageImg from '../assets/images/robothings_stage.jpg';
@@ -9,46 +9,38 @@ import awardEnsajImg from '../assets/images/award_ensaj.jpg';
 import profileSummerImg from '../assets/images/profile_mohammed.jpg';
 import challengeRobotImg from '../assets/images/challenge_robot.jpg';
 
-const distinctions = [
+const flagshipAwards = [
   {
-    place: '1st Prize',
-    emoji: '🥇',
-    title: 'International Summer School on Innovation & AI',
-    orgs: 'ENSEM | ENSAO | FSTM | FSBM Casablanca',
-    theme: 'AI & Technological Innovation',
-    highlight: 'Awarded 1st place following a live technological innovation defense and startup pitch before an international academic and industrial jury.',
+    title: '1st Prize — International Summer School on Innovation & AI',
+    organizers: 'ENSEM · ENSAO · FSTM · FSBM Casablanca',
     image: profileSummerImg,
-    color: 'gold',
+    badge: '1st Prize / Gold',
+    badgeClass: 'gold',
+    description: 'Awarded first prize for the conceptualization and high-level defense of an AI-powered technological innovation, recognized for technical feasibility and socioeconomic impact.',
   },
   {
-    place: '2nd Prize',
-    emoji: '🥈',
-    title: 'National Robotics Hackathons & Autonomous Challenges',
-    orgs: 'ENSA Khouribga | ENIM Rabat',
-    theme: 'Autonomous Mobile Robotics & Arena Challenges',
-    highlight: '2nd place award across competitive autonomous mobile robotics trials, fast-response obstacle navigation, and closed-loop PID control performance.',
+    title: '2nd Prize — National Robotics & Autonomous Navigation Hackathons',
+    organizers: 'ENSA Khouribga · ENIM Rabat',
     image: awardEnsakhImg,
-    color: 'silver',
+    badge: '2nd Prize / Silver',
+    badgeClass: 'silver',
+    description: 'Secured 2nd place on the national podium following intensive 48-hour hardware/software hackathons focused on obstacle-clearing autonomous ground vehicles and real-time control.',
   },
   {
-    place: '3rd Prize',
-    emoji: '🥉',
-    title: 'National Robotics & Engineering Competitions',
-    orgs: 'EMI Rabat | ENSA El Jadida',
-    theme: 'Speed Tracking & Embedded Signal Processing',
-    highlight: 'Podium finish in multi-university robotics challenges: high-speed optical line-tracking, real-time sensor filtering, and embedded control agility.',
+    title: '3rd Prize — National Engineering & Robotics Challenges',
+    organizers: 'EMI Rabat · ENSA El Jadida',
     image: awardEnsajImg,
-    color: 'bronze',
+    badge: '3rd Prize / Bronze',
+    badgeClass: 'bronze',
+    description: 'Earned 3rd place distinctions in multi-round competitive arena trials testing high-speed line tracking, precision sensor calibration, and dynamic PID trajectory response.',
   },
   {
-    place: 'Podiums & Finalist',
-    emoji: '🏆',
-    title: 'Multi-University Robotics & Hackathon Challenges',
-    orgs: 'Moroccan Engineering Universities & Hackathons',
-    theme: 'Multi-Thematic Engineering Competitions',
-    highlight: 'Repeated top-tier rankings in diverse national engineering events spanning autonomous drones, mobile robotics fleets, and multidisciplinary innovation sprints.',
+    title: 'Multiple Podiums & Honors — Inter-University Robotics Challenges',
+    organizers: 'Multi-University Engineering Challenges & Hackathons',
     image: challengeRobotImg,
-    color: 'cyan',
+    badge: '8+ Podiums & Awards',
+    badgeClass: 'gold',
+    description: 'Repeated competitive successes across 8+ national competitions spanning diverse engineering themes: autonomous smart fleet coordination, robot arenas, FPV piloting, and edge AI.',
   },
 ];
 
@@ -58,148 +50,113 @@ const Leadership = () => {
       <div className="leadership-container">
         {/* Section Header */}
         <div className="section-header-centered">
-          <span className="section-tag">Engagement & Distinctions</span>
+          <span className="section-tag">Leadership & Competitive Excellence</span>
           <h2 className="section-title-large">
-            Leadership, Community & <span className="highlight-gold">Competition Awards</span>
+            Presidency & <span className="highlight-cyan">8+ National Awards</span>
           </h2>
           <p className="section-subtitle">
-            Leading multidisciplinary engineering teams, democratizing robotics education, and winning podium finishes across multiple national robotics hackathons, innovation challenges, and engineering summits.
+            Demonstrated leadership managing engineering teams and a track record of 8+ podium finishes (1st, 2nd, and 3rd places) across hackathons, robotics challenges, and innovation summits.
           </p>
         </div>
 
-        {/* Leadership Cards: RoboThings + RoboDays */}
-        <div className="leadership-grid">
-          {/* Club RoboThings */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="leadership-card"
-          >
-            <div className="card-photo-wrapper">
+        {/* Part 1: Club RoboThings & RoboDays */}
+        <div className="leadership-main-card">
+          <div className="leadership-content-side">
+            <div className="role-tag-badge">
+              <FaUsers /> Executive Leadership · FST Mohammedia
+            </div>
+            <h3 className="leadership-title">
+              President of <span className="highlight-cyan">RoboThings Club</span>
+            </h3>
+            <span className="tenure-label">2024 — 2026 · Faculty of Sciences and Techniques Mohammedia</span>
+
+            <p className="leadership-text">
+              Elected President to spearhead technical development, hardware procurement, and competitive robotics strategy 
+              at FST Mohammedia. Overseeing project roadmaps, mentoring student teams in embedded programming and mechanical CAD, 
+              and fostering a culture of fast, reliable prototyping.
+            </p>
+
+            <div className="impact-highlights-list">
+              <div className="impact-point">
+                <FaCalendarCheck className="point-icon" />
+                <div>
+                  <strong>Founder of RoboDays National Competition:</strong> Created and directed a premier national 
+                  robotics event gathering hundreds of engineering students from universities across Morocco.
+                </div>
+              </div>
+              <div className="impact-point">
+                <FaUsers className="point-icon" />
+                <div>
+                  <strong>Technical Team Leadership & Mentoring:</strong> Led multidisciplinary cohorts across mechanical fabrication, 
+                  circuit assembly, firmware architecture, and live field tuning.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="leadership-photos-grid">
+            <div className="photo-card-wrap">
               <img
                 src={robothingsStageImg}
-                alt="Mohammed HSINY presenting RoboThings Club"
+                alt="President Mohammed HSINY presenting Club RoboThings"
                 className="leadership-photo"
               />
-              <div className="photo-badge">2024 — 2026</div>
+              <div className="photo-caption">President Mohammed HSINY leading Club RoboThings</div>
             </div>
-
-            <div className="card-content-body">
-              <div className="lead-header">
-                <FaUsers className="lead-icon cyan" />
-                <div>
-                  <h3 className="lead-role">President — RoboThings Club</h3>
-                  <span className="lead-sub">FST Mohammedia</span>
-                </div>
-              </div>
-
-              <ul className="lead-list">
-                <li>
-                  <FaCheck className="check-bullet" />
-                  <span><strong>Strategic Leadership:</strong> Managing club operations, coordinating technical divisions, and driving collaborative robotics initiatives.</span>
-                </li>
-                <li>
-                  <FaCheck className="check-bullet" />
-                  <span><strong>Technical Mentorship:</strong> Training students on STM32 microcontrollers, Arduino, KiCad PCB layout, and SolidWorks CAD modeling.</span>
-                </li>
-                <li>
-                  <FaCheck className="check-bullet" />
-                  <span><strong>Workshops & Build Nights:</strong> Organizing hands-on hackathons, robotics build sprints, and collaborative hardware initiatives.</span>
-                </li>
-              </ul>
-            </div>
-          </motion.div>
-
-          {/* RoboDays National Competition */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="leadership-card"
-          >
-            <div className="card-photo-wrapper">
+            <div className="photo-card-wrap">
               <img
                 src={robodaysEventImg}
-                alt="RoboDays National Robotics Competition"
+                alt="RoboDays National Robotics Event"
                 className="leadership-photo"
               />
-              <div className="photo-badge gold">National Event</div>
+              <div className="photo-caption">RoboDays National Competition Event</div>
             </div>
-
-            <div className="card-content-body">
-              <div className="lead-header">
-                <FaLightbulb className="lead-icon gold" />
-                <div>
-                  <h3 className="lead-role">Founder & Lead Coordinator</h3>
-                  <span className="lead-sub">RoboDays National Robotics Competition</span>
-                </div>
-              </div>
-
-              <ul className="lead-list">
-                <li>
-                  <FaCheck className="check-bullet" />
-                  <span><strong>Technical Specifications:</strong> Authored competition rulebooks and track challenges for autonomous drones, line-followers, and maze navigation.</span>
-                </li>
-                <li>
-                  <FaCheck className="check-bullet" />
-                  <span><strong>Logistics & Partnerships:</strong> Secured industrial sponsors, handled venue logistics, and coordinated participating engineering teams.</span>
-                </li>
-                <li>
-                  <FaCheck className="check-bullet" />
-                  <span><strong>Jury & Evaluation:</strong> Defined engineering evaluation rubrics and hosted technical defense panels.</span>
-                </li>
-              </ul>
-            </div>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Awards & Distinctions Block */}
-        <div className="distinctions-block">
-          <div className="distinctions-header">
-            <FaTrophy className="trophy-header-icon" />
+        {/* Part 2: 8+ Competition Awards & Flagship Podiums */}
+        <div className="awards-header-block">
+          <div className="awards-title-wrap">
+            <FaTrophy className="awards-icon-gold" />
             <div>
-              <h3>Awards & Podiums in National & International Competitions</h3>
-              <p>Multiple victories across diverse themes: Autonomous Robotics, Hackathons, Innovation Pitching, and Speed Challenges.</p>
+              <h3 className="awards-section-title">8+ Competition Podiums & Distinctions</h3>
+              <p className="awards-section-sub">
+                Winner of multiple 1st, 2nd, and 3rd place prizes across diverse engineering themes (flagship examples below):
+              </p>
             </div>
           </div>
+        </div>
 
-          <div className="awards-grid">
-            {distinctions.map((award, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`award-card ${award.color}`}
-              >
-                <div className="award-photo-thumb">
-                  <img src={award.image} alt={award.title} className="award-img" />
-                  <div className="award-rank-pill">{award.place}</div>
-                </div>
-
-                <div className="award-body">
-                  <div className="award-top-row">
-                    <span className="award-emoji">{award.emoji}</span>
-                    <h4 className="award-event">{award.title}</h4>
-                  </div>
-                  <h5 className="award-orgs">{award.orgs}</h5>
-                  <div className="award-theme-badge">{award.theme}</div>
-                  <p className="award-highlight">{award.highlight}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <div className="flagship-awards-grid">
+          {flagshipAwards.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              className="award-card"
+            >
+              <div className="award-photo-holder">
+                <img src={item.image} alt={item.title} className="award-real-photo" />
+                <span className={`award-badge ${item.badgeClass}`}>
+                  <FaMedal /> {item.badge}
+                </span>
+              </div>
+              <div className="award-body">
+                <h4 className="award-name">{item.title}</h4>
+                <span className="award-organizers">{item.organizers}</span>
+                <p className="award-description">{item.description}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
 
       <style>{`
         .leadership-section {
           padding: 8rem 2rem;
-          background: var(--bg-surface);
+          background: var(--bg-deep);
           position: relative;
         }
 
@@ -208,35 +165,95 @@ const Leadership = () => {
           margin: 0 auto;
         }
 
-        .leadership-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 2.5rem;
-          margin-bottom: 4rem;
-        }
-
-        .leadership-card {
+        /* Club Card */
+        .leadership-main-card {
           background: var(--bg-card);
           border: 1px solid var(--glass-border);
-          border-radius: 20px;
-          overflow: hidden;
+          border-radius: 24px;
+          padding: 3rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3.5rem;
+          align-items: center;
+          margin-bottom: 5rem;
+          backdrop-filter: blur(10px);
+        }
+
+        .role-tag-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.35rem 0.85rem;
+          background: rgba(0, 229, 255, 0.1);
+          border: 1px solid rgba(0, 229, 255, 0.3);
+          border-radius: 100px;
+          color: var(--accent-cyan);
+          font-family: var(--font-mono);
+          font-size: 0.8rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+
+        .leadership-title {
+          font-size: 2rem;
+          margin-bottom: 0.35rem;
+        }
+
+        .tenure-label {
+          display: block;
+          font-family: var(--font-mono);
+          font-size: 0.85rem;
+          color: var(--text-muted);
+          margin-bottom: 1.5rem;
+        }
+
+        .leadership-text {
+          font-size: 0.98rem;
+          color: var(--text-secondary);
+          line-height: 1.7;
+          margin-bottom: 2rem;
+        }
+
+        .impact-highlights-list {
           display: flex;
           flex-direction: column;
-          backdrop-filter: blur(10px);
-          transition: var(--transition-smooth);
+          gap: 1.25rem;
         }
 
-        .leadership-card:hover {
-          background: var(--bg-card-hover);
-          border-color: rgba(245, 158, 11, 0.35);
-          transform: translateY(-5px);
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+        .impact-point {
+          display: flex;
+          align-items: flex-start;
+          gap: 1rem;
+          font-size: 0.9rem;
+          color: var(--text-secondary);
+          line-height: 1.55;
         }
 
-        .card-photo-wrapper {
+        .impact-point strong {
+          color: var(--text-primary);
+          display: inline;
+        }
+
+        .point-icon {
+          font-size: 1.2rem;
+          color: var(--accent-cyan);
+          flex-shrink: 0;
+          margin-top: 0.2rem;
+        }
+
+        .leadership-photos-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.25rem;
+        }
+
+        .photo-card-wrap {
           position: relative;
-          height: 250px;
+          height: 280px;
+          border-radius: 18px;
+          overflow: hidden;
           background: #080c14;
+          border: 1px solid var(--glass-border);
         }
 
         .leadership-photo {
@@ -244,162 +261,127 @@ const Leadership = () => {
           height: 100%;
           object-fit: cover;
           object-position: center;
+          transition: transform 0.6s ease;
         }
 
-        .photo-badge {
+        .photo-card-wrap:hover .leadership-photo {
+          transform: scale(1.05);
+        }
+
+        .photo-caption {
           position: absolute;
-          bottom: 1rem;
-          right: 1rem;
-          padding: 0.35rem 0.9rem;
-          background: rgba(6, 8, 13, 0.85);
-          backdrop-filter: blur(8px);
-          border: 1px solid var(--glass-border);
-          border-radius: 100px;
-          font-family: var(--font-mono);
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 0.75rem 1rem;
+          background: linear-gradient(to top, rgba(6, 8, 13, 0.95) 0%, transparent 100%);
           font-size: 0.75rem;
-          color: var(--accent-cyan);
-          font-weight: 700;
+          color: #f1f5f9;
+          font-weight: 500;
         }
 
-        .photo-badge.gold {
-          color: var(--accent-gold);
-          border-color: rgba(245, 158, 11, 0.4);
+        /* Awards Block */
+        .awards-header-block {
+          margin-bottom: 2.5rem;
         }
 
-        .card-content-body {
-          padding: 2rem;
-          display: flex;
-          flex-direction: column;
-          flex-grow: 1;
-        }
-
-        .lead-header {
+        .awards-title-wrap {
           display: flex;
           align-items: center;
           gap: 1rem;
-          margin-bottom: 1.5rem;
-          padding-bottom: 1rem;
-          border-bottom: 1px solid var(--glass-border);
         }
 
-        .lead-icon {
-          font-size: 1.8rem;
+        .awards-icon-gold {
+          font-size: 2.2rem;
+          color: var(--accent-gold);
           flex-shrink: 0;
         }
-        .lead-icon.cyan { color: var(--accent-cyan); }
-        .lead-icon.gold { color: var(--accent-gold); }
 
-        .lead-role {
-          font-size: 1.2rem;
-          font-weight: 700;
-        }
-
-        .lead-sub {
-          font-size: 0.85rem;
-          color: var(--text-muted);
-        }
-
-        .lead-list {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 0.9rem;
-        }
-
-        .lead-list li {
-          display: flex;
-          align-items: flex-start;
-          gap: 0.65rem;
-          font-size: 0.88rem;
-          color: var(--text-secondary);
-          line-height: 1.5;
-        }
-
-        .lead-list strong {
+        .awards-section-title {
+          font-size: 1.6rem;
           color: var(--text-primary);
+          margin-bottom: 0.2rem;
         }
 
-        /* Distinctions Block */
-        .distinctions-block {
-          background: var(--bg-card);
-          border: 1px solid var(--glass-border);
-          border-radius: 24px;
-          padding: 2.5rem;
-          backdrop-filter: blur(10px);
+        .awards-section-sub {
+          font-size: 0.95rem;
+          color: var(--text-secondary);
         }
 
-        .distinctions-header {
-          display: flex;
-          align-items: center;
-          gap: 1.25rem;
-          margin-bottom: 2.5rem;
-          padding-bottom: 1.5rem;
-          border-bottom: 1px solid var(--glass-border);
-        }
-
-        .trophy-header-icon {
-          font-size: 2.4rem;
-          color: var(--accent-gold);
-        }
-
-        .distinctions-header h3 {
-          font-size: 1.4rem;
-          margin-bottom: 0.25rem;
-        }
-
-        .distinctions-header p {
-          font-size: 0.9rem;
-          color: var(--text-muted);
-        }
-
-        .awards-grid {
+        .flagship-awards-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: 1.75rem;
         }
 
         .award-card {
-          background: rgba(255, 255, 255, 0.02);
+          background: var(--bg-card);
           border: 1px solid var(--glass-border);
-          border-radius: 18px;
+          border-radius: 20px;
           overflow: hidden;
+          backdrop-filter: blur(10px);
+          transition: var(--transition-smooth);
           display: flex;
           flex-direction: column;
-          transition: var(--transition-fast);
-          position: relative;
         }
 
         .award-card:hover {
+          background: var(--bg-card-hover);
+          border-color: rgba(245, 158, 11, 0.4);
           transform: translateY(-5px);
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
         }
 
-        .award-photo-thumb {
+        .award-photo-holder {
           position: relative;
           height: 190px;
           background: #080c14;
+          overflow: hidden;
         }
 
-        .award-img {
+        .award-real-photo {
           width: 100%;
           height: 100%;
           object-fit: cover;
           object-position: center;
+          transition: transform 0.6s ease;
         }
 
-        .award-rank-pill {
+        .award-card:hover .award-real-photo {
+          transform: scale(1.05);
+        }
+
+        .award-badge {
           position: absolute;
-          top: 0.85rem;
-          left: 0.85rem;
-          padding: 0.25rem 0.75rem;
-          background: rgba(6, 8, 13, 0.85);
-          backdrop-filter: blur(8px);
-          border: 1px solid var(--glass-border);
+          top: 1rem;
+          right: 1rem;
+          padding: 0.35rem 0.8rem;
           border-radius: 100px;
-          font-family: var(--font-heading);
-          font-size: 0.85rem;
-          font-weight: 800;
-          color: #fff;
+          font-family: var(--font-mono);
+          font-size: 0.72rem;
+          font-weight: 700;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+          backdrop-filter: blur(8px);
+        }
+
+        .award-badge.gold {
+          background: rgba(245, 158, 11, 0.2);
+          border: 1px solid #f59e0b;
+          color: #fbbf24;
+        }
+
+        .award-badge.silver {
+          background: rgba(148, 163, 184, 0.2);
+          border: 1px solid #94a3b8;
+          color: #e2e8f0;
+        }
+
+        .award-badge.bronze {
+          background: rgba(217, 119, 6, 0.2);
+          border: 1px solid #d97706;
+          color: #fcd34d;
         }
 
         .award-body {
@@ -409,61 +391,39 @@ const Leadership = () => {
           flex-grow: 1;
         }
 
-        .award-card.gold { border-color: rgba(245, 158, 11, 0.4); }
-        .award-card.gold .award-rank-pill { color: var(--accent-gold); border-color: rgba(245, 158, 11, 0.5); }
-
-        .award-card.silver { border-color: rgba(148, 163, 184, 0.4); }
-        .award-card.silver .award-rank-pill { color: #e2e8f0; border-color: rgba(148, 163, 184, 0.5); }
-
-        .award-card.bronze { border-color: rgba(217, 119, 6, 0.4); }
-        .award-card.bronze .award-rank-pill { color: #fb923c; border-color: rgba(217, 119, 6, 0.5); }
-
-        .award-card.cyan { border-color: rgba(0, 229, 255, 0.4); }
-        .award-card.cyan .award-rank-pill { color: var(--accent-cyan); border-color: rgba(0, 229, 255, 0.5); }
-
-        .award-top-row {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          margin-bottom: 0.4rem;
-        }
-
-        .award-emoji {
-          font-size: 1.4rem;
-        }
-
-        .award-event {
+        .award-name {
           font-size: 1.05rem;
           font-weight: 700;
+          color: var(--text-primary);
+          margin-bottom: 0.35rem;
+          line-height: 1.4;
         }
 
-        .award-orgs {
-          font-size: 0.82rem;
-          color: var(--accent-cyan);
-          font-weight: 600;
-          margin-bottom: 0.4rem;
-        }
-
-        .award-theme-badge {
-          display: inline-block;
+        .award-organizers {
           font-family: var(--font-mono);
-          font-size: 0.72rem;
-          color: var(--text-muted);
-          background: rgba(255, 255, 255, 0.05);
-          padding: 0.2rem 0.5rem;
-          border-radius: 4px;
-          margin-bottom: 0.6rem;
-          width: fit-content;
+          font-size: 0.78rem;
+          color: var(--accent-cyan);
+          margin-bottom: 0.85rem;
+          display: block;
         }
 
-        .award-highlight {
-          font-size: 0.82rem;
+        .award-description {
+          font-size: 0.86rem;
           color: var(--text-secondary);
-          line-height: 1.45;
+          line-height: 1.55;
         }
 
         @media (max-width: 1024px) {
-          .leadership-grid {
+          .leadership-main-card {
+            grid-template-columns: 1fr;
+          }
+          .leadership-photos-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .leadership-photos-grid {
             grid-template-columns: 1fr;
           }
         }

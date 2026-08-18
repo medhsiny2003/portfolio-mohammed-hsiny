@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaArrowRight, FaMicrochip, FaPlay } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 
 const ProjectCard = ({ project, index, onOpen }) => {
   return (
@@ -20,11 +20,6 @@ const ProjectCard = ({ project, index, onOpen }) => {
           loading="lazy"
         />
         <div className="card-category-badge">{project.category}</div>
-        {project.videoUrl && (
-          <div className="video-available-indicator" title="Video demonstration available">
-            <FaPlay className="play-mini-icon" /> Video
-          </div>
-        )}
       </div>
 
       {/* Card Body */}
@@ -107,27 +102,6 @@ const ProjectCard = ({ project, index, onOpen }) => {
           color: var(--accent-cyan);
           font-weight: 700;
           letter-spacing: 0.05em;
-        }
-
-        .video-available-indicator {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          padding: 0.3rem 0.65rem;
-          background: rgba(239, 68, 68, 0.85);
-          backdrop-filter: blur(8px);
-          border-radius: 100px;
-          font-family: var(--font-mono);
-          font-size: 0.7rem;
-          color: #ffffff;
-          font-weight: 700;
-          display: flex;
-          align-items: center;
-          gap: 0.35rem;
-        }
-
-        .play-mini-icon {
-          font-size: 0.6rem;
         }
 
         .project-card-body {

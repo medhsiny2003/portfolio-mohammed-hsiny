@@ -16,6 +16,8 @@ const experiences = [
     period: 'July 2026 — Present',
     role: 'Engineering Intern — SCADA Supervision of Medium Voltage (MV) Substation',
     logo: logoOcp,
+    image: industrie1Img,
+    imageCaption: 'Substation Architecture & Electrical Power Switchgear',
     summary: 'Centralization of control-command architecture and securing critical power supply for seawater pumping stations and chemical process units.',
     achievements: [
       'Engineered an automated supervision architecture to eliminate communication gaps between the Medium Voltage station and the main control room, safeguarding vital seawater pumping operations.',
@@ -32,6 +34,8 @@ const experiences = [
     period: 'August — September 2025',
     role: 'Technical Intern — Electrical Maintenance & Process Instrumentation',
     logo: logoCimar,
+    image: industrie1Img,
+    imageCaption: 'Heavy Grinding Machinery & Instrumentation Process',
     summary: 'Preventive and corrective maintenance of heavy grinding machinery, field instrumentation, and power drive systems.',
     achievements: [
       'Executed preventive and curative maintenance on ball mills, heavy process compressors, and industrial slurry pumps.',
@@ -48,6 +52,8 @@ const experiences = [
     period: 'July 2025',
     role: 'Engineering Intern — Reliability & Automation of Harbor Cranes',
     logo: logoMarsa,
+    image: grue40tImg,
+    imageCaption: 'Marsa Maroc — G40T Harbor Crane & IoT Automation',
     summary: 'Operational safety study, automated preventive lubrication, and IoT remote monitoring for heavy port infrastructure.',
     achievements: [
       'Conducted an operational dependability study (FMECA / AMDEC) on the G40T harbor crane by analyzing failure logs and tracking MTBF, MTTR, and operational availability rates.',
@@ -99,50 +105,7 @@ const Experience = () => {
           </div>
         </div>
 
-        {/* 2-Photo Industrial Gallery (industrie1 + grue40t) */}
-        <div className="industry-gallery-container">
-          <div className="gallery-header">
-            <span className="gallery-tag">Field Facilities</span>
-            <h3>Industrial Plants & Port Infrastructure</h3>
-          </div>
-          <div className="gallery-grid-dual">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="gallery-photo-card"
-            >
-              <img
-                src={industrie1Img}
-                alt="Industrial Substation & Electrical Facilities"
-                className="gallery-img"
-              />
-              <div className="gallery-caption">
-                <span>Substation Architecture & Electrical Switchgear</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="gallery-photo-card"
-            >
-              <img
-                src={grue40tImg}
-                alt="Marsa Maroc G40T Harbor Crane"
-                className="gallery-img"
-              />
-              <div className="gallery-caption">
-                <span>Marsa Maroc — G40T Harbor Crane & IoT Automation</span>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Experience Cards Stack with Company Logos */}
+        {/* Experience Cards Stack with 2-Column Layout (Image on Right) */}
         <div className="experience-cards-stack">
           {experiences.map((exp, index) => (
             <motion.div
@@ -153,46 +116,65 @@ const Experience = () => {
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="experience-card"
             >
-              <div className="card-top-bar">
-                <div className="company-meta">
-                  {/* Real Company Logo */}
-                  <div className="company-logo-container">
-                    <img
-                      src={exp.logo}
-                      alt={exp.company}
-                      className="company-logo-img"
-                    />
+              <div className="card-two-col-layout">
+                {/* Left Side: Content */}
+                <div className="card-main-content">
+                  <div className="card-top-bar">
+                    <div className="company-meta">
+                      {/* Real Company Logo */}
+                      <div className="company-logo-container">
+                        <img
+                          src={exp.logo}
+                          alt={exp.company}
+                          className="company-logo-img"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="company-name">{exp.company}</h3>
+                        <span className="company-location">
+                          <FaMapMarkerAlt className="map-pin-icon" /> {exp.location}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="period-pill">
+                      <FaCalendarAlt className="cal-icon" /> {exp.period}
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="company-name">{exp.company}</h3>
-                    <span className="company-location">
-                      <FaMapMarkerAlt className="map-pin-icon" /> {exp.location}
-                    </span>
+
+                  <h4 className="role-title">{exp.role}</h4>
+                  <p className="summary-text">{exp.summary}</p>
+
+                  <div className="achievements-list">
+                    {exp.achievements.map((item, i) => (
+                      <div key={i} className="achievement-row">
+                        <FaCheck className="check-bullet" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="tags-wrapper">
+                    {exp.tags.map((tag) => (
+                      <span key={tag} className="tech-badge">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <div className="period-pill">
-                  <FaCalendarAlt className="cal-icon" /> {exp.period}
-                </div>
-              </div>
 
-              <h4 className="role-title">{exp.role}</h4>
-              <p className="summary-text">{exp.summary}</p>
-
-              <div className="achievements-list">
-                {exp.achievements.map((item, i) => (
-                  <div key={i} className="achievement-row">
-                    <FaCheck className="check-bullet" />
-                    <span>{item}</span>
+                {/* Right Side: Image Panel */}
+                <div className="card-photo-panel">
+                  <img
+                    src={exp.image}
+                    alt={exp.company}
+                    className="stage-real-img"
+                    loading="lazy"
+                  />
+                  <div className="photo-panel-overlay"></div>
+                  <div className="panel-caption-badge">
+                    <span>{exp.imageCaption}</span>
                   </div>
-                ))}
-              </div>
-
-              <div className="tags-wrapper">
-                {exp.tags.map((tag) => (
-                  <span key={tag} className="tech-badge">
-                    {tag}
-                  </span>
-                ))}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -249,89 +231,18 @@ const Experience = () => {
           line-height: 1.4;
         }
 
-        /* 2-Photo Industrial Gallery */
-        .industry-gallery-container {
-          background: var(--bg-card);
-          border: 1px solid var(--glass-border);
-          border-radius: 20px;
-          padding: 2rem;
-          margin-bottom: 3.5rem;
-          backdrop-filter: blur(10px);
-        }
-
-        .gallery-header {
-          margin-bottom: 1.5rem;
-          padding-bottom: 0.75rem;
-          border-bottom: 1px solid var(--glass-border);
-        }
-
-        .gallery-tag {
-          font-family: var(--font-mono);
-          font-size: 0.75rem;
-          color: var(--accent-cyan);
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          font-weight: 700;
-          display: block;
-          margin-bottom: 0.25rem;
-        }
-
-        .gallery-header h3 {
-          font-size: 1.25rem;
-          color: var(--text-primary);
-        }
-
-        .gallery-grid-dual {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 1.75rem;
-        }
-
-        .gallery-photo-card {
-          position: relative;
-          border-radius: 14px;
-          overflow: hidden;
-          background: #080c14;
-          border: 1px solid var(--glass-border);
-          height: 260px;
-        }
-
-        .gallery-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center;
-          transition: transform 0.6s ease;
-        }
-
-        .gallery-photo-card:hover .gallery-img {
-          transform: scale(1.04);
-        }
-
-        .gallery-caption {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          padding: 0.75rem 1.25rem;
-          background: linear-gradient(to top, rgba(6, 8, 13, 0.9) 0%, transparent 100%);
-          font-size: 0.82rem;
-          color: #f1f5f9;
-          font-weight: 500;
-        }
-
-        /* Experience Cards */
+        /* Experience Cards Stack */
         .experience-cards-stack {
           display: flex;
           flex-direction: column;
-          gap: 2rem;
+          gap: 2.5rem;
         }
 
         .experience-card {
           background: var(--bg-card);
           border: 1px solid var(--glass-border);
-          border-radius: 20px;
-          padding: 2.5rem;
+          border-radius: 24px;
+          overflow: hidden;
           backdrop-filter: blur(10px);
           transition: var(--transition-smooth);
         }
@@ -339,8 +250,63 @@ const Experience = () => {
         .experience-card:hover {
           background: var(--bg-card-hover);
           border-color: rgba(0, 229, 255, 0.35);
-          transform: translateY(-3px);
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+          transform: translateY(-4px);
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-two-col-layout {
+          display: grid;
+          grid-template-columns: 1fr 360px;
+        }
+
+        .card-main-content {
+          padding: 2.5rem;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .card-photo-panel {
+          position: relative;
+          background: #080c14;
+          overflow: hidden;
+          min-height: 300px;
+        }
+
+        .stage-real-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          transition: transform 0.6s ease;
+        }
+
+        .experience-card:hover .stage-real-img {
+          transform: scale(1.05);
+        }
+
+        .photo-panel-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to right,
+            rgba(16, 22, 32, 0.7) 0%,
+            transparent 45%
+          );
+        }
+
+        .panel-caption-badge {
+          position: absolute;
+          bottom: 1rem;
+          left: 1rem;
+          right: 1rem;
+          padding: 0.5rem 0.85rem;
+          background: rgba(6, 8, 13, 0.85);
+          backdrop-filter: blur(8px);
+          border: 1px solid var(--glass-border);
+          border-radius: 8px;
+          font-size: 0.75rem;
+          color: #f1f5f9;
+          font-weight: 500;
         }
 
         .card-top-bar {
@@ -349,23 +315,21 @@ const Experience = () => {
           align-items: flex-start;
           flex-wrap: wrap;
           gap: 1rem;
-          margin-bottom: 1.5rem;
-          padding-bottom: 1.25rem;
-          border-bottom: 1px solid var(--glass-border);
+          margin-bottom: 1.25rem;
         }
 
         .company-meta {
           display: flex;
           align-items: center;
-          gap: 1.25rem;
+          gap: 1rem;
         }
 
         .company-logo-container {
-          width: 64px;
-          height: 64px;
+          width: 58px;
+          height: 58px;
           border-radius: 12px;
           background: #ffffff;
-          padding: 0.4rem;
+          padding: 0.35rem;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -404,11 +368,11 @@ const Experience = () => {
           display: inline-flex;
           align-items: center;
           gap: 0.4rem;
-          padding: 0.4rem 1rem;
+          padding: 0.35rem 0.9rem;
           background: rgba(255, 255, 255, 0.05);
           border: 1px solid var(--glass-border);
           border-radius: 100px;
-          font-size: 0.82rem;
+          font-size: 0.8rem;
           font-family: var(--font-mono);
           color: var(--accent-cyan);
           font-weight: 600;
@@ -436,7 +400,7 @@ const Experience = () => {
         .achievements-list {
           display: flex;
           flex-direction: column;
-          gap: 0.8rem;
+          gap: 0.75rem;
           margin-bottom: 1.75rem;
         }
 
@@ -474,15 +438,20 @@ const Experience = () => {
           color: var(--text-primary);
         }
 
-        @media (max-width: 900px) {
-          .gallery-grid-dual {
+        @media (max-width: 1024px) {
+          .card-two-col-layout {
             grid-template-columns: 1fr;
           }
-          .gallery-photo-card {
-            height: 220px;
+          .card-photo-panel {
+            height: 240px;
+            min-height: unset;
           }
-          .card-top-bar {
-            flex-direction: column;
+          .photo-panel-overlay {
+            background: linear-gradient(
+              to top,
+              rgba(16, 22, 32, 0.85) 0%,
+              transparent 50%
+            );
           }
         }
       `}</style>
