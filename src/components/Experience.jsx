@@ -1,5 +1,10 @@
 import { motion } from 'framer-motion';
-import { FaIndustry, FaBolt, FaWrench, FaShip, FaCheck, FaShieldAlt } from 'react-icons/fa';
+import { FaIndustry, FaBolt, FaWrench, FaShip, FaCheck, FaShieldAlt, FaMapMarkerAlt } from 'react-icons/fa';
+
+// Real Images uploaded by Mohammed
+import stageOcpImg from '../assets/images/stage_ocp_real.jpg';
+import stageCimarImg from '../assets/images/stage_cimar_real.jpg';
+import stageMarsaImg from '../assets/images/stage_marsa_real.jpg';
 
 const experiences = [
   {
@@ -8,6 +13,7 @@ const experiences = [
     location: 'Plateforme Industrielle de Safi',
     period: 'Juillet 2026 — Présent',
     role: 'Stage Ingénieur — Supervision SCADA d’une Station Moyenne Tension (MT)',
+    image: stageOcpImg,
     icon: <FaBolt />,
     badgeColor: 'cyan',
     summary: 'Centralisation du contrôle-commande et sécurisation de l’alimentation électrique critique des stations de pompage.',
@@ -25,6 +31,7 @@ const experiences = [
     location: 'Usine de Safi',
     period: 'Août — Septembre 2025',
     role: 'Stage Technique — Maintenance Électrique & Instrumentation',
+    image: stageCimarImg,
     icon: <FaWrench />,
     badgeColor: 'blue',
     summary: 'Maintenance des équipements lourds de broyage, instrumentation de process et analyse des entraînements de puissance.',
@@ -42,6 +49,7 @@ const experiences = [
     location: 'Port de Safi',
     period: 'Juillet 2025',
     role: 'Stagiaire Ingénieur — Fiabilisation d’une Grue Portuaire',
+    image: stageMarsaImg,
     icon: <FaShip />,
     badgeColor: 'emerald',
     summary: 'Étude de sûreté de fonctionnement, automatisation du graissage et monitoring distant IoT/SCADA.',
@@ -106,37 +114,55 @@ const Experience = () => {
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="experience-card"
             >
-              <div className="card-top-bar">
-                <div className="company-meta">
-                  <div className={`exp-icon-box ${exp.badgeColor}`}>
-                    {exp.icon}
+              <div className="card-two-col-layout">
+                {/* Left Side: Content */}
+                <div className="card-main-content">
+                  <div className="card-top-bar">
+                    <div className="company-meta">
+                      <div className={`exp-icon-box ${exp.badgeColor}`}>
+                        {exp.icon}
+                      </div>
+                      <div>
+                        <h3 className="company-name">{exp.company}</h3>
+                        <span className="company-location">
+                          <FaMapMarkerAlt className="map-pin-icon" /> {exp.location}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="period-pill">{exp.period}</div>
                   </div>
-                  <div>
-                    <h3 className="company-name">{exp.company}</h3>
-                    <span className="company-location">{exp.location}</span>
+
+                  <h4 className="role-title">{exp.role}</h4>
+                  <p className="summary-text">{exp.summary}</p>
+
+                  <div className="achievements-list">
+                    {exp.achievements.map((item, i) => (
+                      <div key={i} className="achievement-row">
+                        <FaCheck className="check-bullet" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="tags-wrapper">
+                    {exp.tags.map((tag) => (
+                      <span key={tag} className="tech-badge">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <div className="period-pill">{exp.period}</div>
-              </div>
 
-              <h4 className="role-title">{exp.role}</h4>
-              <p className="summary-text">{exp.summary}</p>
-
-              <div className="achievements-list">
-                {exp.achievements.map((item, i) => (
-                  <div key={i} className="achievement-row">
-                    <FaCheck className="check-bullet" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="tags-wrapper">
-                {exp.tags.map((tag) => (
-                  <span key={tag} className="tech-badge">
-                    {tag}
-                  </span>
-                ))}
+                {/* Right Side: Real Photo */}
+                <div className="card-photo-panel">
+                  <img
+                    src={exp.image}
+                    alt={exp.company}
+                    className="stage-real-img"
+                    loading="lazy"
+                  />
+                  <div className="photo-panel-overlay"></div>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -196,25 +222,63 @@ const Experience = () => {
         .experience-cards-stack {
           display: flex;
           flex-direction: column;
-          gap: 2rem;
+          gap: 2.5rem;
         }
 
         .experience-card {
           background: var(--bg-card);
           border: 1px solid var(--glass-border);
-          border-radius: 20px;
-          padding: 2.25rem;
+          border-radius: 24px;
+          overflow: hidden;
           backdrop-filter: blur(10px);
           transition: var(--transition-smooth);
-          position: relative;
-          overflow: hidden;
         }
 
         .experience-card:hover {
           background: var(--bg-card-hover);
-          border-color: rgba(0, 229, 255, 0.3);
+          border-color: rgba(0, 229, 255, 0.35);
           transform: translateY(-4px);
-          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-two-col-layout {
+          display: grid;
+          grid-template-columns: 1fr 340px;
+        }
+
+        .card-main-content {
+          padding: 2.5rem;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .card-photo-panel {
+          position: relative;
+          background: #080c14;
+          overflow: hidden;
+          min-height: 280px;
+        }
+
+        .stage-real-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          transition: transform 0.6s ease;
+        }
+
+        .experience-card:hover .stage-real-img {
+          transform: scale(1.05);
+        }
+
+        .photo-panel-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to right,
+            rgba(16, 22, 32, 0.7) 0%,
+            transparent 40%
+          );
         }
 
         .card-top-bar {
@@ -240,6 +304,7 @@ const Experience = () => {
           align-items: center;
           justify-content: center;
           font-size: 1.4rem;
+          flex-shrink: 0;
         }
 
         .exp-icon-box.cyan {
@@ -269,7 +334,15 @@ const Experience = () => {
         .company-location {
           font-size: 0.85rem;
           color: var(--text-muted);
-          display: block;
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
+          margin-top: 0.15rem;
+        }
+
+        .map-pin-icon {
+          font-size: 0.75rem;
+          color: var(--accent-cyan);
         }
 
         .period-pill {
@@ -338,12 +411,19 @@ const Experience = () => {
           color: var(--text-primary);
         }
 
-        @media (max-width: 768px) {
-          .card-top-bar {
-            flex-direction: column;
+        @media (max-width: 1024px) {
+          .card-two-col-layout {
+            grid-template-columns: 1fr;
           }
-          .experience-card {
-            padding: 1.5rem;
+          .card-photo-panel {
+            height: 240px;
+          }
+          .photo-panel-overlay {
+            background: linear-gradient(
+              to top,
+              rgba(16, 22, 32, 0.8) 0%,
+              transparent 50%
+            );
           }
         }
       `}</style>

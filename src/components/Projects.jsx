@@ -1,46 +1,69 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaTimes, FaLayerGroup, FaMicrochip, FaCode, FaCheck, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaTimes, FaMicrochip, FaCode, FaCheck, FaPlay, FaVideo } from 'react-icons/fa';
 import ProjectCard from './ProjectCard';
 
-// Images
-import droneFpvImg from '../assets/images/drone_fpv_field.jpg';
-import robothingsImg from '../assets/images/robothings_stage.jpg';
-import atvImg from '../assets/ATV_dynamic.png';
-import explodedImg from '../assets/b9ebb3c8-3181-4bd6-81fb-b93bdfac5105.jpg';
-import cobotImg from '../assets/co-bot.png';
-import borewellImg from '../assets/borewell.jpg';
-import simulationImg from '../assets/simulation.png';
-import autoVehicleImg from '../assets/autonomouse_vehicle.jpg';
+// Real Images uploaded by Mohammed
+import droneFromScratchImg from '../assets/images/drone_fromscratch.jpg';
+import moiAvecFpvImg from '../assets/images/moi_avec_fpv.jpg';
+import skypharmaRealImg from '../assets/images/skypharma_chassis_real.jpg';
+import smartCityRealImg from '../assets/images/smart_city_disposition.jpg';
+import robotHumanoideRealImg from '../assets/images/robot_humanoide_real.jpg';
+import circuitBistableRealImg from '../assets/images/circuit_bistable_real.jpg';
+import droneFieldImg from '../assets/images/drone_fpv_field.jpg';
+import bras6DofRealImg from '../assets/images/bras_6dof_real.jpg';
+import suiveurLigneRealImg from '../assets/images/suiveur_ligne_real.jpg';
 
 const projectsData = [
   {
     id: 'drone-ht',
-    title: "Drone quadricoptère d'inspection des lignes HT",
+    title: "Drone d'inspection des lignes HT & From-Scratch",
     category: "Drones & Aéro",
-    description: "Conception et réalisation d'un drone autonome pour l'inspection des lignes Haute Tension avec détection d'anomalies par IA embarquée.",
-    tags: ["ArduPilot", "YOLO", "Python", "Vision IA", "MAVLink", "Télémétrie"],
-    image: droneFpvImg,
+    description: "Conception, usinage et assemblage complet d'un drone autonome pour l'inspection des lignes Haute Tension avec détection d'anomalies par IA embarquée.",
+    tags: ["ArduPilot", "YOLO", "Python", "Vision IA", "MAVLink", "From-Scratch"],
+    image: droneFromScratchImg,
     hardware: [
+      "Châssis carbone sur-mesure assemblé pour supporter les charges utiles",
       "Contrôleur de vol open-source avec firmware ArduPilot / Pixhawk",
-      "Calculateur embarqué pour inférence temps réel",
-      "Capteur optique haute résolution sur nacelle stabilisée 2 axes",
-      "Système de télémétrie longue portée MAVLink (915 MHz / 433 MHz)",
+      "Calculateur embarqué pour inférence de modèles de vision temps réel",
+      "Système de télémétrie longue portée MAVLink et transmission vidéo sécurisée",
     ],
     software: [
       "Pipeline de détection d'isolateurs et d'anomalies thermiques/mécaniques sous YOLOv8",
-      "Planification de mission et navigation autonome waypoint via QGroundControl / Mission Planner",
+      "Planification de mission et navigation autonome waypoint via QGroundControl",
       "Traitement vidéo embarqué OpenCV et logging télémétrique complet",
     ],
     impact: "Automatisation et sécurisation accrue de l'inspection des infrastructures électriques HT, réduisant les risques humains et les temps d'arrêt.",
   },
   {
+    id: 'drone-fpv-7',
+    title: "Drone FPV Freestyle & Compétition (ENSA Oujda)",
+    category: "Drones & Aéro",
+    description: "Conception et pilotage de drones FPV haute performance. Démonstrations en vol acrobatique et épreuves compétitives nationales.",
+    tags: ["Betaflight", "FPV 7\"", "Brushless", "ESC 4-en-1", "LiPo High-C", "Démonstration Vol"],
+    image: moiAvecFpvImg,
+    videoUrl: "/videos/fpv_demo_oujda.mp4",
+    videoTitle: "Démonstration en Vol FPV · Compétition ENSA Oujda",
+    hardware: [
+      "Châssis carbone 7 pouces renforcé contre les torsions aérodynamiques",
+      "Moteurs brushless haute puissance avec hélices équilibrées dynamiquement",
+      "ESC 4-en-1 haute intensité sous protocole numérique DShot",
+      "Émetteur vidéo analogique/digital faible latence avec lunettes FPV",
+    ],
+    software: [
+      "Configuration et calibration avancée sous configurateur Betaflight",
+      "Réglage des filtres passe-bas dynamiques et notch gyro pour éliminer le bruit mécanique",
+      "Optimisation des courbes de commande RC et des PID rates pour une précision millimétrique",
+    ],
+    impact: "Maîtrise complète de la dynamique de vol rapide, de l'aérodynamique et du pilotage manuel d'urgence.",
+  },
+  {
     id: 'skypharma',
     title: "SkyPharma – Robot cartésien de gestion de stock",
     category: "Robotique & ADAS",
-    description: "Robot cartésien automatisé avec interface web et gestion de stock SQLite pour la dispensation et l'inventaire en temps réel de médicaments.",
+    description: "Robot cartésien automatisé avec cinématique H-Bot, interface web et gestion de stock SQLite pour la dispensation rapide de médicaments.",
     tags: ["H-Bot", "GRBL", "SQLite", "Python", "IHM Web", "G-Code"],
-    image: simulationImg,
+    image: skypharmaRealImg,
     hardware: [
       "Structure mécanique cinématique H-Bot avec profilés aluminium V-Slot",
       "Moteurs pas-à-pas NEMA avec drivers micro-stepping haute précision",
@@ -55,32 +78,14 @@ const projectsData = [
     impact: "Automatisation de la délivrance médicamenteuse avec zéro erreur de picking et inventaire instantané.",
   },
   {
-    id: 'bras-6dof',
-    title: "Bras manipulateur robotisé 6 DOF",
-    category: "Robotique & ADAS",
-    description: "Conception mécanique, cinématique inverse et contrôle-commande embarqué temps réel d'un bras 6 axes avec IHM de supervision.",
-    tags: ["SolidWorks", "STM32", "C++", "Python", "Cinématique Inverse", "FreeRTOS"],
-    image: explodedImg,
-    hardware: [
-      "Modélisation mécanique complète sous SolidWorks avec optimisation des masses",
-      "Servomoteurs numériques haute puissance à pignons métalliques",
-      "Microcontrôleur STM32 (ARM Cortex-M) pour la génération des signaux PWM",
-      "Alimentation de puissance régulée avec protections thermiques et surintensités",
-    ],
-    software: [
-      "Calculs trigonométriques de cinématique directe et inverse (IK) en temps réel en C++",
-      "Algorithme de lissage de trajectoire et limitation d'accélération articulaire",
-      "IHM Python de commande avec modes manuel, coordonné cartésien et Teach & Repeat",
-    ],
-    impact: "Démonstrateur complet de manipulation robotique industrielle polyvalente et programmable.",
-  },
-  {
     id: 'flotte-adas',
-    title: "Plateforme multi-robots avec fonctions ADAS",
+    title: "Plateforme multi-robots ADAS (Challenge ENIM)",
     category: "Robotique & ADAS",
-    description: "Flotte de robots autonomes communicants avec asservissement PID haute précision, protocole ESP-NOW et fonctions de sécurité avancées.",
-    tags: ["ESP-NOW", "PID", "Détection d'obstacles", "Systèmes Autonomes", "ESP32"],
-    image: cobotImg,
+    description: "Flotte de robots autonomes communicants avec asservissement PID haute précision, protocole ESP-NOW et épreuves de pilotage en arène compétitive.",
+    tags: ["ESP-NOW", "PID", "Détection d'obstacles", "Challenge ENIM", "ESP32", "Smart City"],
+    image: smartCityRealImg,
+    videoUrl: "/videos/robot_challenge_enim.mp4",
+    videoTitle: "Épreuve de Conduite & Navigation Robotique · Challenge ENIM",
     hardware: [
       "Châssis différentiel à deux roues motrices et roulette folle",
       "Microcontrôleurs ESP32 avec communication sans fil maillée ultra-rapide",
@@ -92,27 +97,7 @@ const projectsData = [
       "Double régulateur PID pour le maintien d'allure et la synchronisation de vitesse",
       "Fonctions ADAS : Régulateur de vitesse adaptatif (ACC), freinage d'urgence autonome et évitement d'obstacle en convoi",
     ],
-    impact: "Étude et validation des architectures de communication coopératives pour véhicules autonomes communicants.",
-  },
-  {
-    id: 'drone-fpv-7',
-    title: "Drone FPV Freestyle 7 pouces",
-    category: "Drones & Aéro",
-    description: "Conception et assemblage complet d'un drone FPV 7\" longue autonomie avec optimisation de la propulsion brushless et réglage fin des filtres PID sous Betaflight.",
-    tags: ["Betaflight", "FPV 7\"", "Brushless", "ESC 4-en-1", "LiPo High-C", "Filtres PID"],
-    image: droneFpvImg,
-    hardware: [
-      "Châssis carbone 7 pouces renforcé contre les torsions aérodynamiques",
-      "Moteurs brushless dimensionnés pour grand ratio poussée/masse",
-      "ESC 4-en-1 haute intensité sous protocole numérique DShot",
-      "Système de transmission vidéo temps réel avec OSD actif",
-    ],
-    software: [
-      "Configuration et calibration avancée sous configurateur Betaflight",
-      "Réglage des filtres passe-bas dynamiques et notch gyro pour éliminer le bruit mécanique",
-      "Acquisition et analyse des logs boîte noire (Blackbox Explorer) pour réglage PID parfait",
-    ],
-    impact: "Maîtrise complète de la dynamique de vol rapide, de l'aérodynamique et du diagnostic matériel haute puissance.",
+    impact: "Validation sur piste compétitive des temps de réponse et de la coordination coopérative inter-robots.",
   },
   {
     id: 'robot-humanoide',
@@ -120,7 +105,7 @@ const projectsData = [
     category: "Robotique & ADAS",
     description: "Structure articulée bipède avec synchronisation multi-servos, régulation de puissance 5V/10A dédiée, détection d'obstacles et génération de marche.",
     tags: ["Servomoteurs", "Locomotion", "Ultrasons", "Régulation 5V/10A", "Stabilité ZMP"],
-    image: borewellImg,
+    image: robotHumanoideRealImg,
     hardware: [
       "Structure multi-axes articulée à liaison mécanique vissée",
       "Batterie Li-Po associée à un étage d'abaissement DC-DC buck haute intensité (10A)",
@@ -135,12 +120,32 @@ const projectsData = [
     impact: "Exploration des dynamiques d'équilibre et de locomotion bio-inspirée.",
   },
   {
+    id: 'bras-6dof',
+    title: "Bras manipulateur robotisé 6 DOF",
+    category: "Robotique & ADAS",
+    description: "Conception mécanique, cinématique inverse et contrôle-commande embarqué temps réel d'un bras 6 axes avec IHM de supervision.",
+    tags: ["SolidWorks", "STM32", "C++", "Python", "Cinématique Inverse", "FreeRTOS"],
+    image: bras6DofRealImg,
+    hardware: [
+      "Modélisation mécanique complète sous SolidWorks avec optimisation des masses",
+      "Servomoteurs numériques haute puissance à pignons métalliques",
+      "Microcontrôleur STM32 (ARM Cortex-M) pour la génération des signaux PWM",
+      "Alimentation de puissance régulée avec protections thermiques et surintensités",
+    ],
+    software: [
+      "Calculs trigonométriques de cinématique directe et inverse (IK) en temps réel en C++",
+      "Algorithme de lissage de trajectoire et limitation d'accélération articulaire",
+      "IHM Python de commande avec modes manuel, coordonné cartésien et Teach & Repeat",
+    ],
+    impact: "Démonstrateur complet de manipulation robotique industrielle polyvalente et programmable.",
+  },
+  {
     id: 'suiveur-ligne',
     title: "Robot Suiveur de Ligne Rapide",
     category: "Électronique & Prototypage",
     description: "Robot mobile de vitesse avec barrette de capteurs optiques haute sensibilité, filtrage analogique et asservissement PID haute fréquence.",
     tags: ["Régulation PID", "Capteurs Optiques", "Vitesse", "Filtrage Analogique", "Pont en H"],
-    image: autoVehicleImg,
+    image: suiveurLigneRealImg,
     hardware: [
       "Barrette de photodétecteurs avec conditionnement de signal à faible impédance",
       "Moteurs DC haute vitesse avec réducteurs micro-métalliques",
@@ -156,16 +161,16 @@ const projectsData = [
   },
   {
     id: 'logique-cablee',
-    title: "Circuit Automatisme & Logique Câblée",
+    title: "Circuit Automatisme & Logique Séquentielle",
     category: "Automatisme & SCADA",
-    description: "Système séquentiel matériel à base de bascules JK, compteurs asynchrones et portes logiques pour le pilotage d'étapes d'automatisme.",
-    tags: ["Bascules JK", "Logique Séquentielle", "Automatisme", "Bancs de Test", "Électronique"],
-    image: atvImg,
+    description: "Réalisation matérielle de circuits bistables, bascules JK, compteurs asynchrones et portes logiques pour le pilotage d'étapes d'automatisme.",
+    tags: ["Bascules JK", "Bistable", "Logique Séquentielle", "Bancs de Test", "Électronique"],
+    image: circuitBistableRealImg,
     hardware: [
-      "Composants TTL/CMOS : bascules JK, portes logiques NAND/NOR, décodeurs",
-      "Générateur d'horloge à base de NE555 avec réglage de fréquence et de rapport cyclique",
-      "Banc de LEDs d'état et actionneurs relais pour la commande de charges de puissance",
-      "Vérification des chronogrammes et fronts montants/descendants à l'oscilloscope",
+      "Composants TTL/CMOS : bascules JK, circuits bistables, portes logiques NAND/NOR",
+      "Générateur d'horloge avec réglage précis de fréquence et rapport cyclique",
+      "Banc de LEDs d'état et actionneurs relais pour la commande de charges",
+      "Vérification des chronogrammes et fronts d'horloge à l'oscilloscope numérique",
     ],
     software: [
       "Modélisation GRAFCET et diagrammes d'états de transition",
@@ -204,7 +209,7 @@ const Projects = () => {
               Conceptions & <span className="highlight-cyan">Réalisations Techniques</span>
             </h2>
             <p className="section-subtitle">
-              Une sélection de projets hardware et software alliant modélisation CAO, développement embarqué, vision par ordinateur et essais sur le terrain.
+              Des prototypes physiques concrets et testés en conditions réelles et compétitives : drones, robots autonomes, systèmes cinématiques et cartes électroniques.
             </p>
           </div>
 
@@ -219,6 +224,56 @@ const Projects = () => {
                 {cat}
               </button>
             ))}
+          </div>
+        </div>
+
+        {/* Video Highlights Banner */}
+        <div className="video-spotlight-card">
+          <div className="spotlight-header">
+            <FaVideo className="spotlight-icon" />
+            <div>
+              <h3>Démonstrations Vidéo en Compétitions Nationales</h3>
+              <p>Visionnez les démonstrations en vol FPV et les épreuves de navigation robotique en direct.</p>
+            </div>
+          </div>
+          <div className="video-grid-dual">
+            {/* Video 1: FPV Oujda */}
+            <div className="video-player-box">
+              <div className="video-wrapper">
+                <video
+                  controls
+                  preload="metadata"
+                  className="native-video-player"
+                  poster={moiAvecFpvImg}
+                >
+                  <source src="/videos/fpv_demo_oujda.mp4" type="video/mp4" />
+                  Votre navigateur ne supporte pas la lecture de vidéos HTML5.
+                </video>
+              </div>
+              <div className="video-caption">
+                <span className="video-tag">Compétition ENSA Oujda</span>
+                <h4>Démonstration de Vol & Pilotage Drone FPV</h4>
+              </div>
+            </div>
+
+            {/* Video 2: Challenge ENIM */}
+            <div className="video-player-box">
+              <div className="video-wrapper">
+                <video
+                  controls
+                  preload="metadata"
+                  className="native-video-player"
+                  poster={smartCityRealImg}
+                >
+                  <source src="/videos/robot_challenge_enim.mp4" type="video/mp4" />
+                  Votre navigateur ne supporte pas la lecture de vidéos HTML5.
+                </video>
+              </div>
+              <div className="video-caption">
+                <span className="video-tag">Challenge Robotique ENIM</span>
+                <h4>Conduite & Navigation sur Arène Compétitive</h4>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -268,6 +323,19 @@ const Projects = () => {
               </div>
 
               <div className="modal-body-scroll">
+                {/* Embedded Video in Modal if Available */}
+                {activeModalProject.videoUrl && (
+                  <div className="modal-video-container">
+                    <h4 className="modal-section-title">
+                      <FaPlay className="section-play-icon" /> {activeModalProject.videoTitle}
+                    </h4>
+                    <video controls className="modal-video-element">
+                      <source src={activeModalProject.videoUrl} type="video/mp4" />
+                      Votre navigateur ne supporte pas la vidéo HTML5.
+                    </video>
+                  </div>
+                )}
+
                 {/* Tech Badges */}
                 <div className="modal-tags-bar">
                   {activeModalProject.tags.map((tag) => (
@@ -338,7 +406,7 @@ const Projects = () => {
           align-items: flex-end;
           flex-wrap: wrap;
           gap: 2rem;
-          margin-bottom: 4rem;
+          margin-bottom: 3rem;
         }
 
         .category-filter-list {
@@ -370,6 +438,87 @@ const Projects = () => {
           box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
         }
 
+        /* Video Spotlight Card */
+        .video-spotlight-card {
+          background: var(--bg-card);
+          border: 1px solid var(--glass-border);
+          border-radius: 24px;
+          padding: 2rem;
+          margin-bottom: 3.5rem;
+          backdrop-filter: blur(10px);
+        }
+
+        .spotlight-header {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1.75rem;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid var(--glass-border);
+        }
+
+        .spotlight-icon {
+          font-size: 2rem;
+          color: var(--accent-cyan);
+        }
+
+        .spotlight-header h3 {
+          font-size: 1.3rem;
+          margin-bottom: 0.2rem;
+        }
+
+        .spotlight-header p {
+          font-size: 0.85rem;
+          color: var(--text-muted);
+        }
+
+        .video-grid-dual {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
+
+        .video-player-box {
+          background: rgba(0, 0, 0, 0.35);
+          border: 1px solid var(--glass-border);
+          border-radius: 16px;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .video-wrapper {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          background: #000;
+        }
+
+        .native-video-player {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .video-caption {
+          padding: 1.25rem;
+        }
+
+        .video-tag {
+          font-family: var(--font-mono);
+          font-size: 0.72rem;
+          color: var(--accent-cyan);
+          text-transform: uppercase;
+          font-weight: 700;
+          display: block;
+          margin-bottom: 0.35rem;
+        }
+
+        .video-caption h4 {
+          font-size: 1rem;
+          color: var(--text-primary);
+        }
+
         .projects-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -380,9 +529,9 @@ const Projects = () => {
         .modal-backdrop {
           position: fixed;
           inset: 0;
-          background: rgba(4, 6, 10, 0.85);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
+          background: rgba(4, 6, 10, 0.88);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -462,6 +611,34 @@ const Projects = () => {
           display: flex;
           flex-direction: column;
           gap: 1.75rem;
+        }
+
+        .modal-video-container {
+          background: #000;
+          border: 1px solid var(--glass-border);
+          border-radius: 14px;
+          overflow: hidden;
+          padding: 1rem;
+        }
+
+        .modal-section-title {
+          font-size: 0.95rem;
+          color: var(--accent-cyan);
+          margin-bottom: 0.75rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .section-play-icon {
+          font-size: 0.8rem;
+        }
+
+        .modal-video-element {
+          width: 100%;
+          max-height: 350px;
+          border-radius: 8px;
+          background: #000;
         }
 
         .modal-tags-bar {
@@ -550,12 +727,9 @@ const Projects = () => {
           color: #34d399;
         }
 
-        @media (max-width: 768px) {
-          .modal-header {
-            padding: 1.75rem 1.5rem 1rem;
-          }
-          .modal-body-scroll {
-            padding: 1.5rem;
+        @media (max-width: 900px) {
+          .video-grid-dual {
+            grid-template-columns: 1fr;
           }
           .modal-arch-grid {
             grid-template-columns: 1fr;

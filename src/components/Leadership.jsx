@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion';
-import { FaTrophy, FaUsers, FaLightbulb, FaCheck, FaMedal } from 'react-icons/fa';
+import { FaTrophy, FaUsers, FaLightbulb, FaCheck } from 'react-icons/fa';
+
+// Real Images uploaded by Mohammed
 import robothingsStageImg from '../assets/images/robothings_stage.jpg';
+import robodaysEventImg from '../assets/images/robodays_event.jpg';
+import awardEnsakhImg from '../assets/images/award_ensakh.jpg';
+import awardEnsajImg from '../assets/images/award_ensaj.jpg';
+import profileSummerImg from '../assets/images/profile_mohammed.jpg';
 
 const distinctions = [
   {
@@ -8,7 +14,8 @@ const distinctions = [
     emoji: '🥇',
     title: 'International Summer School',
     orgs: 'ENSEM | ENSAO | FSTM | FSBM Casablanca',
-    highlight: 'Projet d’innovation et présentation devant jury international',
+    highlight: 'Pitch projet d’innovation et présentation devant jury international.',
+    image: profileSummerImg,
     color: 'gold',
   },
   {
@@ -16,7 +23,8 @@ const distinctions = [
     emoji: '🥈',
     title: 'Compétition Nationale de Robotique',
     orgs: 'ENSA Khouribga | ENIM Rabat',
-    highlight: 'Performance robotique autonome et vitesse de traitement',
+    highlight: 'Performance en robotique mobile autonome & précision de trajectoire.',
+    image: awardEnsakhImg,
     color: 'silver',
   },
   {
@@ -24,7 +32,8 @@ const distinctions = [
     emoji: '🥉',
     title: 'Compétition Nationale de Robotique',
     orgs: 'EMI Rabat | ENSA El Jadida',
-    highlight: 'Navigation autonome & épreuves techniques sur piste',
+    highlight: 'Épreuve technique sur piste et vitesse de traitement embarqué.',
+    image: awardEnsajImg,
     color: 'bronze',
   },
 ];
@@ -40,7 +49,7 @@ const Leadership = () => {
             Leadership, Transmission & <span className="highlight-gold">Prix Nationaux</span>
           </h2>
           <p className="section-subtitle">
-            Animer des équipes, vulgariser la technologie et relever des défis compétitifs de haut niveau.
+            Animer des équipes, vulgariser la technologie et porter des projets ambitieux sur les plus hautes marches des compétitions d'ingénierie.
           </p>
         </div>
 
@@ -75,11 +84,11 @@ const Leadership = () => {
               <ul className="lead-list">
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Management & Vision :</strong> Supervision et gestion globale des activités, projets et effectifs du club.</span>
+                  <span><strong>Management & Direction :</strong> Supervision des activités, gestion des pôles et coordination des projets du club.</span>
                 </li>
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Encadrement Technique :</strong> Formation des membres sur les systèmes embarqués (STM32, Arduino, conception PCB KiCad, CAO SolidWorks).</span>
+                  <span><strong>Encadrement Technique :</strong> Formation des membres sur STM32, Arduino, conception PCB KiCad et modélisation CAO SolidWorks.</span>
                 </li>
                 <li>
                   <FaCheck className="check-bullet" />
@@ -97,12 +106,13 @@ const Leadership = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="leadership-card"
           >
-            <div className="robodays-banner">
-              <div className="banner-content">
-                <span className="banner-tag">Événement National</span>
-                <h3>Compétition RoboDays</h3>
-                <p>Initiative & pilotage d’une compétition nationale d’innovation réunissant étudiants, ingénieurs et passionnés du Maroc.</p>
-              </div>
+            <div className="card-photo-wrapper">
+              <img
+                src={robodaysEventImg}
+                alt="Événement Compétition RoboDays"
+                className="leadership-photo"
+              />
+              <div className="photo-badge gold">Événement National</div>
             </div>
 
             <div className="card-content-body">
@@ -117,15 +127,15 @@ const Leadership = () => {
               <ul className="lead-list">
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Cahiers des Charges :</strong> Rédaction et formalisation technique des épreuves (drones autonomes, robots suiveurs de ligne, évitement d’obstacles).</span>
+                  <span><strong>Cahiers des Charges :</strong> Rédaction et formalisation technique des épreuves (drones autonomes, suiveurs de ligne, évitement d’obstacles).</span>
                 </li>
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Coordination Logistique :</strong> Gestion des partenariats industriels, sponsors, logistique et accueil des équipes participantes.</span>
+                  <span><strong>Coordination Logistique :</strong> Recherche de partenariats industriels, sponsors, logistique et accueil des équipes participantes.</span>
                 </li>
                 <li>
                   <FaCheck className="check-bullet" />
-                  <span><strong>Jurys d’Évaluation :</strong> Mise en place des barèmes d’évaluation technique et animation des jurys de pitch.</span>
+                  <span><strong>Jurys d’Évaluation :</strong> Définition des critères d’évaluation technique et animation des jurys de pitch.</span>
                 </li>
               </ul>
             </div>
@@ -137,8 +147,8 @@ const Leadership = () => {
           <div className="distinctions-header">
             <FaTrophy className="trophy-header-icon" />
             <div>
-              <h3>Distinctions en Compétitions Nationales & Internationales</h3>
-              <p>Reconnaissance de la rigueur technique, de l’innovation matérielle et de la qualité des présentations.</p>
+              <h3>Podiums & Distinctions en Compétitions Nationales & Internationales</h3>
+              <p>Reconnaissance de la rigueur technique, de l’innovation matérielle et de la qualité des démonstrations en direct.</p>
             </div>
           </div>
 
@@ -152,13 +162,19 @@ const Leadership = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`award-card ${award.color}`}
               >
-                <div className="award-top-row">
-                  <span className="award-emoji">{award.emoji}</span>
-                  <span className="award-rank">{award.place}</span>
+                <div className="award-photo-thumb">
+                  <img src={award.image} alt={award.title} className="award-img" />
+                  <div className="award-rank-pill">{award.place}</div>
                 </div>
-                <h4 className="award-event">{award.title}</h4>
-                <h5 className="award-orgs">{award.orgs}</h5>
-                <p className="award-highlight">{award.highlight}</p>
+
+                <div className="award-body">
+                  <div className="award-top-row">
+                    <span className="award-emoji">{award.emoji}</span>
+                    <h4 className="award-event">{award.title}</h4>
+                  </div>
+                  <h5 className="award-orgs">{award.orgs}</h5>
+                  <p className="award-highlight">{award.highlight}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -204,7 +220,7 @@ const Leadership = () => {
 
         .card-photo-wrapper {
           position: relative;
-          height: 240px;
+          height: 250px;
           background: #080c14;
         }
 
@@ -219,8 +235,9 @@ const Leadership = () => {
           position: absolute;
           bottom: 1rem;
           right: 1rem;
-          padding: 0.3rem 0.8rem;
+          padding: 0.35rem 0.9rem;
           background: rgba(6, 8, 13, 0.85);
+          backdrop-filter: blur(8px);
           border: 1px solid var(--glass-border);
           border-radius: 100px;
           font-family: var(--font-mono);
@@ -229,49 +246,9 @@ const Leadership = () => {
           font-weight: 700;
         }
 
-        .robodays-banner {
-          height: 240px;
-          background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
-          border-bottom: 1px solid var(--glass-border);
-          padding: 2rem;
-          display: flex;
-          align-items: center;
-          position: relative;
-        }
-
-        .robodays-banner::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.15), transparent 70%);
-        }
-
-        .banner-content {
-          position: relative;
-          z-index: 2;
-        }
-
-        .banner-tag {
-          font-family: var(--font-mono);
-          font-size: 0.75rem;
+        .photo-badge.gold {
           color: var(--accent-gold);
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          font-weight: 700;
-          display: block;
-          margin-bottom: 0.5rem;
-        }
-
-        .banner-content h3 {
-          font-size: 1.6rem;
-          margin-bottom: 0.6rem;
-          color: #fff;
-        }
-
-        .banner-content p {
-          font-size: 0.88rem;
-          color: var(--text-secondary);
-          line-height: 1.5;
+          border-color: rgba(245, 158, 11, 0.4);
         }
 
         .card-content-body {
@@ -362,73 +339,112 @@ const Leadership = () => {
 
         .awards-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 1.5rem;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 1.75rem;
         }
 
         .award-card {
           background: rgba(255, 255, 255, 0.02);
           border: 1px solid var(--glass-border);
-          border-radius: 16px;
-          padding: 1.75rem;
+          border-radius: 18px;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
           transition: var(--transition-fast);
           position: relative;
         }
 
         .award-card:hover {
-          transform: translateY(-4px);
+          transform: translateY(-5px);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .award-photo-thumb {
+          position: relative;
+          height: 190px;
+          background: #080c14;
+        }
+
+        .award-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        .award-rank-pill {
+          position: absolute;
+          top: 0.85rem;
+          left: 0.85rem;
+          padding: 0.25rem 0.75rem;
+          background: rgba(6, 8, 13, 0.85);
+          backdrop-filter: blur(8px);
+          border: 1px solid var(--glass-border);
+          border-radius: 100px;
+          font-family: var(--font-heading);
+          font-size: 0.85rem;
+          font-weight: 800;
+          color: #fff;
+        }
+
+        .award-body {
+          padding: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
         }
 
         .award-card.gold {
           border-color: rgba(245, 158, 11, 0.4);
-          background: linear-gradient(135deg, rgba(245, 158, 11, 0.06) 0%, transparent 100%);
+        }
+        .award-card.gold .award-rank-pill {
+          color: var(--accent-gold);
+          border-color: rgba(245, 158, 11, 0.5);
         }
 
         .award-card.silver {
           border-color: rgba(148, 163, 184, 0.4);
-          background: linear-gradient(135deg, rgba(148, 163, 184, 0.06) 0%, transparent 100%);
+        }
+        .award-card.silver .award-rank-pill {
+          color: #e2e8f0;
+          border-color: rgba(148, 163, 184, 0.5);
         }
 
         .award-card.bronze {
           border-color: rgba(217, 119, 6, 0.4);
-          background: linear-gradient(135deg, rgba(217, 119, 6, 0.06) 0%, transparent 100%);
+        }
+        .award-card.bronze .award-rank-pill {
+          color: #fb923c;
+          border-color: rgba(217, 119, 6, 0.5);
         }
 
         .award-top-row {
           display: flex;
           align-items: center;
-          gap: 0.6rem;
-          margin-bottom: 0.75rem;
+          gap: 0.5rem;
+          margin-bottom: 0.4rem;
         }
 
         .award-emoji {
-          font-size: 1.6rem;
-        }
-
-        .award-rank {
-          font-family: var(--font-heading);
-          font-weight: 800;
-          font-size: 1.25rem;
-          color: var(--text-primary);
+          font-size: 1.4rem;
         }
 
         .award-event {
-          font-size: 1.1rem;
+          font-size: 1.05rem;
           font-weight: 700;
-          margin-bottom: 0.35rem;
         }
 
         .award-orgs {
-          font-size: 0.85rem;
+          font-size: 0.82rem;
           color: var(--accent-cyan);
-          font-weight: 500;
-          margin-bottom: 0.75rem;
+          font-weight: 600;
+          margin-bottom: 0.6rem;
         }
 
         .award-highlight {
           font-size: 0.82rem;
           color: var(--text-muted);
-          line-height: 1.4;
+          line-height: 1.45;
         }
 
         @media (max-width: 1024px) {
