@@ -1,46 +1,37 @@
 import { motion } from 'framer-motion';
-import { FaUsers, FaTrophy, FaCalendarCheck, FaAward, FaMedal, FaStar } from 'react-icons/fa';
+import { FaUsers, FaTrophy, FaCalendarCheck, FaMedal } from 'react-icons/fa';
 
 // Real Images uploaded by Mohammed
 import robothingsStageImg from '../assets/images/robothings_stage.jpg';
 import robodaysEventImg from '../assets/images/robodays_event.jpg';
-import awardEnsakhImg from '../assets/images/award_ensakh.jpg';
-import awardEnsajImg from '../assets/images/award_ensaj.jpg';
-import profileSummerImg from '../assets/images/profile_mohammed.jpg';
-import challengeRobotImg from '../assets/images/challenge_robot.jpg';
+import award1stImg from '../assets/images/award_1st_ensakh.jpg';
+import award2ndImg from '../assets/images/award_2nd_ensakh.jpg';
+import award3rdImg from '../assets/images/award_3rd_challenges.jpg';
 
 const flagshipAwards = [
   {
-    title: '1st Prize — International Summer School on Innovation & AI',
-    organizers: 'ENSEM · ENSAO · FSTM · FSBM Casablanca',
-    image: profileSummerImg,
+    title: '1st Prize — Innovation, AI & Engineering Hackathons',
+    organizers: 'ENSEM · ENSAO · FSTM · FSBM Casablanca · ENSA Agadir',
+    image: award1stImg,
     badge: '1st Prize / Gold',
     badgeClass: 'gold',
-    description: 'Awarded first prize for the conceptualization and high-level defense of an AI-powered technological innovation, recognized for technical feasibility and socioeconomic impact.',
+    description: 'First place victories and top distinctions awarded in high-level engineering hackathons, edge AI innovation summits, and rapid technology prototyping defenses across premier engineering universities.',
   },
   {
-    title: '2nd Prize — National Robotics & Autonomous Navigation Hackathons',
-    organizers: 'ENSA Khouribga · ENIM Rabat',
-    image: awardEnsakhImg,
+    title: '2nd Prize — Autonomous Robotics & Navigation Hackathons',
+    organizers: 'ENSA Khouribga · ENIM Rabat · ENSAM Casablanca',
+    image: award2ndImg,
     badge: '2nd Prize / Silver',
     badgeClass: 'silver',
-    description: 'Secured 2nd place on the national podium following intensive 48-hour hardware/software hackathons focused on obstacle-clearing autonomous ground vehicles and real-time control.',
+    description: '2nd place national podium finishes achieved following demanding 48-hour hardware/software hackathons, autonomous mobile obstacle clearing, and real-time embedded control under high pressure.',
   },
   {
-    title: '3rd Prize — National Engineering & Robotics Challenges',
-    organizers: 'EMI Rabat · ENSA El Jadida',
-    image: awardEnsajImg,
+    title: '3rd Prize — National Robotics & Engineering Competitions',
+    organizers: 'EMI Rabat · ENSA El Jadida · ENSA Kénitra',
+    image: award3rdImg,
     badge: '3rd Prize / Bronze',
     badgeClass: 'bronze',
-    description: 'Earned 3rd place distinctions in multi-round competitive arena trials testing high-speed line tracking, precision sensor calibration, and dynamic PID trajectory response.',
-  },
-  {
-    title: 'Multiple Podiums & Honors — Inter-University Robotics Challenges',
-    organizers: 'Multi-University Engineering Challenges & Hackathons',
-    image: challengeRobotImg,
-    badge: '8+ Podiums & Awards',
-    badgeClass: 'gold',
-    description: 'Repeated competitive successes across 8+ national competitions spanning diverse engineering themes: autonomous smart fleet coordination, robot arenas, FPV piloting, and edge AI.',
+    description: '3rd place podium honors across dynamic arena challenges, high-speed line tracking, and multidisciplinary engineering contests, alongside active participation in national technological summits.',
   },
 ];
 
@@ -52,10 +43,10 @@ const Leadership = () => {
         <div className="section-header-centered">
           <span className="section-tag">Leadership & Competitive Excellence</span>
           <h2 className="section-title-large">
-            Presidency & <span className="highlight-cyan">8+ National Awards</span>
+            Presidency & <span className="highlight-cyan">13+ National Awards</span>
           </h2>
           <p className="section-subtitle">
-            Demonstrated leadership managing engineering teams and a track record of 8+ podium finishes (1st, 2nd, and 3rd places) across hackathons, robotics challenges, and innovation summits.
+            Demonstrated executive leadership managing engineering cohorts and a competitive track record of 13+ awards and podium finishes across diverse robotics, AI, and engineering hackathons.
           </p>
         </div>
 
@@ -114,14 +105,14 @@ const Leadership = () => {
           </div>
         </div>
 
-        {/* Part 2: 8+ Competition Awards & Flagship Podiums */}
+        {/* Part 2: 13+ Competition Awards across 3 Tiers (1st, 2nd, 3rd) */}
         <div className="awards-header-block">
           <div className="awards-title-wrap">
             <FaTrophy className="awards-icon-gold" />
             <div>
-              <h3 className="awards-section-title">8+ Competition Podiums & Distinctions</h3>
+              <h3 className="awards-section-title">13+ Competition Awards & Podiums</h3>
               <p className="awards-section-sub">
-                Winner of multiple 1st, 2nd, and 3rd place prizes across diverse engineering themes (flagship examples below):
+                Diverse competitive victories spanning 1st, 2nd, and 3rd place prizes across national and international engineering summits:
               </p>
             </div>
           </div>
@@ -310,7 +301,7 @@ const Leadership = () => {
 
         .flagship-awards-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
           gap: 1.75rem;
         }
 
@@ -334,7 +325,7 @@ const Leadership = () => {
 
         .award-photo-holder {
           position: relative;
-          height: 190px;
+          height: 200px;
           background: #080c14;
           overflow: hidden;
         }
@@ -392,7 +383,7 @@ const Leadership = () => {
         }
 
         .award-name {
-          font-size: 1.05rem;
+          font-size: 1.1rem;
           font-weight: 700;
           color: var(--text-primary);
           margin-bottom: 0.35rem;

@@ -100,9 +100,35 @@ const projectsData = [
     impact: "Mitigates critical water loss, enhances distribution network efficiency, and validated by physical prototypes praised for environmental and socio-economic impact.",
   },
   {
+    id: 'flotte-adas',
+    title: "Multi-Robot Autonomous Fleet & ADAS Platform",
+    category: "Autonomous Systems & ADAS",
+    description: "Autonomous cooperative mobile robot fleet with closed-loop PID control, sub-2ms ESP-NOW mesh networking, vehicle-to-vehicle telemetry, and obstacle avoidance.",
+    tags: ["ESP-NOW", "PID Control", "Obstacle Avoidance", "ESP32", "Smart Fleet", "V2V Network"],
+    image: projectAdasImg,
+    galleryImages: [
+      { src: projectAdasImg, caption: "Autonomous Robot Unit with ADAS Sensing Stack" },
+      { src: smartCityFleetImg, caption: "Multi-Robot Communicating Fleet on Smart City Arena" },
+    ],
+    videoUrl: "/videos/robot_challenge_enim.mp4",
+    videoTitle: "Autonomous Arena Driving & Cooperative Navigation Demo",
+    hardware: [
+      "Differential drive mobile chassis with dual DC gearmotors and caster wheel",
+      "ESP32 master microcontrollers with ultra-low latency mesh radio links",
+      "Array of ultrasonic distance sensors and infrared proximity modules",
+      "Dual quadrature optical encoders mounted on motor drive shafts",
+    ],
+    software: [
+      "Point-to-point ESP-NOW wireless protocol (< 2ms latency) for continuous vehicle-to-vehicle (V2V) state sharing",
+      "Dual-loop PID speed and heading regulation for synchronous platoon cruising",
+      "Active ADAS features: Adaptive Cruise Control (ACC), autonomous emergency braking (AEB), and cooperative convoy obstacle bypass",
+    ],
+    impact: "Demonstrated real-time V2V cooperation and autonomous obstacle avoidance under tight dynamic conditions.",
+  },
+  {
     id: 'skypharma',
     title: "SkyPharma – Automated Cartesian Medicine Storage Robot",
-    category: "Robotics & ADAS",
+    category: "Robotics & Automation",
     description: "Automated cartesian inventory robot built with H-Bot kinematics, a Python web dashboard, and SQLite database for rapid, error-free pharmaceutical dispensing.",
     tags: ["H-Bot Kinematics", "GRBL", "SQLite", "Python", "Web HMI", "SolidWorks"],
     image: skypharmaRealImg,
@@ -127,35 +153,9 @@ const projectsData = [
     impact: "Streamlines pharmacy dispensing workflows with zero picking errors and instant real-time inventory reconciliation.",
   },
   {
-    id: 'flotte-adas',
-    title: "Multi-Robot Autonomous Fleet & ADAS Platform",
-    category: "Robotics & ADAS",
-    description: "Autonomous cooperative mobile robot fleet with closed-loop PID control, sub-2ms ESP-NOW mesh networking, vehicle-to-vehicle telemetry, and obstacle avoidance.",
-    tags: ["ESP-NOW", "PID Control", "Obstacle Avoidance", "ESP32", "Smart Fleet", "V2V Network"],
-    image: projectAdasImg,
-    galleryImages: [
-      { src: projectAdasImg, caption: "Autonomous Robot Unit with ADAS Sensing Stack" },
-      { src: smartCityFleetImg, caption: "Multi-Robot Communicating Fleet on Smart City Arena" },
-    ],
-    videoUrl: "/videos/robot_challenge_enim.mp4",
-    videoTitle: "Autonomous Arena Driving & Cooperative Navigation Demo",
-    hardware: [
-      "Differential drive mobile chassis with dual DC gearmotors and caster wheel",
-      "ESP32 master microcontrollers with ultra-low latency mesh radio links",
-      "Array of ultrasonic distance sensors and infrared proximity modules",
-      "Dual quadrature optical encoders mounted on motor drive shafts",
-    ],
-    software: [
-      "Point-to-point ESP-NOW wireless protocol (< 2ms latency) for continuous vehicle-to-vehicle (V2V) state sharing",
-      "Dual-loop PID speed and heading regulation for synchronous platoon cruising",
-      "Active ADAS features: Adaptive Cruise Control (ACC), autonomous emergency braking (AEB), and cooperative convoy obstacle bypass",
-    ],
-    impact: "Demonstrated real-time V2V cooperation and autonomous obstacle avoidance under tight dynamic conditions.",
-  },
-  {
     id: 'bras-6dof',
     title: "6-DOF Articulated Robotic Arm",
-    category: "Robotics & ADAS",
+    category: "Robotics & Kinematics",
     description: "Mechanical design, analytical inverse kinematics (IK), and real-time embedded control of a 6-axis articulated robot with an interactive Python supervision GUI.",
     tags: ["SolidWorks", "STM32", "C++", "Python GUI", "Inverse Kinematics", "PWM"],
     image: project6dofImg,
@@ -179,7 +179,7 @@ const projectsData = [
   {
     id: 'suiveur-ligne',
     title: "High-Speed Autonomous Line-Follower Robot",
-    category: "Electronics & Prototyping",
+    category: "Robotics & Embedded Control",
     description: "Speed-optimized mobile robot featuring a high-density optical sensor bar, analog signal conditioning, and high-frequency PID trajectory tracking.",
     tags: ["PID Control", "Optical Sensor Bar", "High Speed", "H-Bridge MOSFET", "Analog Filtering"],
     image: projectSuiveurImg,
@@ -203,7 +203,7 @@ const projectsData = [
   {
     id: 'robot-humanoide',
     title: "Bipedal Humanoid Robot Prototype",
-    category: "Robotics & ADAS",
+    category: "Bipedal Robotics",
     description: "Articulated biped robot with multi-servo synchronization, dedicated 5V/10A high-current buck power stage, ultrasonic collision sensing, and dynamic gait planning.",
     tags: ["Servo Coordination", "Biped Locomotion", "Ultrasonic Sensing", "5V/10A DC-DC", "ZMP Stability"],
     image: robotHumanoideRealImg,
@@ -226,7 +226,7 @@ const projectsData = [
   {
     id: 'logique-cablee',
     title: "Hardwired Sequential Logic & Automation Testbench",
-    category: "Electronics & Prototyping",
+    category: "Electronics & Circuit Design",
     description: "Physical circuit design and breadboard implementation of bistable multivibrators, JK flip-flops, asynchronous binary counters, and combinational logic for automation sequencing.",
     tags: ["JK Flip-Flops", "Bistable Circuit", "Sequential Logic", "Hardware Testbench", "Electronics"],
     image: circuitBistableRealImg,
@@ -251,9 +251,11 @@ const projectsData = [
 const categories = [
   "All",
   "Drones & Aerospace",
-  "Robotics & ADAS",
+  "Autonomous Systems & ADAS",
+  "Robotics & Automation",
+  "Bipedal Robotics",
   "Embedded AI & IoT",
-  "Electronics & Prototyping",
+  "Electronics & Circuit Design",
 ];
 
 const Projects = () => {

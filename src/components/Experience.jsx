@@ -5,6 +5,7 @@ import { FaIndustry, FaBolt, FaCheck, FaShieldAlt, FaMapMarkerAlt, FaCalendarAlt
 import logoOcp from '../assets/images/logo_ocp.png';
 import logoCimar from '../assets/images/logo_cimar.jpg';
 import logoMarsa from '../assets/images/logo_marsa.png';
+import salleMtImg from '../assets/images/salle_mt.jpg';
 import industrie1Img from '../assets/images/industrie1.jpg';
 import grue40tImg from '../assets/images/grue40t.jpg';
 
@@ -16,11 +17,11 @@ const experiences = [
     period: 'July 2026 — Present',
     role: 'Engineering Intern — SCADA Supervision of Medium Voltage (MV) Substation',
     logo: logoOcp,
-    image: industrie1Img,
-    imageCaption: 'Substation Architecture & Electrical Power Switchgear',
+    image: salleMtImg,
+    imageCaption: 'OCP MV Substation (Salle MT) & Automated Switchgear Control',
     summary: 'Centralization of control-command architecture and securing critical power supply for seawater pumping stations and chemical process units.',
     achievements: [
-      'Engineered an automated supervision architecture to eliminate communication gaps between the Medium Voltage station and the main control room, safeguarding vital seawater pumping operations.',
+      'Engineered an automated supervision architecture to eliminate communication gaps between the Medium Voltage station (Salle MT) and the main control room, safeguarding vital seawater pumping operations.',
       'Designed PLC tele-management architecture to centralize control of 12 MV cubicles (9 pump/motor bays, incomers, busbars).',
       'Configured Sepam Series 80 digital protection relays and programmed Modbus TCP/IP communication on Schneider Modicon M580 PLC.',
       'Developed real-time SCADA supervision under Ignition: live fault alarming, secure remote tele-controls, and active electrical parameter monitoring (I / U / P / cos φ).',
@@ -35,7 +36,7 @@ const experiences = [
     role: 'Technical Intern — Electrical Maintenance & Process Instrumentation',
     logo: logoCimar,
     image: industrie1Img,
-    imageCaption: 'Heavy Grinding Machinery & Instrumentation Process',
+    imageCaption: 'Heavy Grinding Machinery & Industrial Process Instrumentation',
     summary: 'Preventive and corrective maintenance of heavy grinding machinery, field instrumentation, and power drive systems.',
     achievements: [
       'Executed preventive and curative maintenance on ball mills, heavy process compressors, and industrial slurry pumps.',

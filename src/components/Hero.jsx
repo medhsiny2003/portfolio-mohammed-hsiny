@@ -221,7 +221,7 @@ const Hero = () => {
               <FaAward className="icon gold" />
             </div>
             <div className="metric-info">
-              <span className="metric-value">8+ Awards & Podiums</span>
+              <span className="metric-value">13+ Awards & Podiums</span>
               <span className="metric-label">National & International Hackathons & Robotics Podiums</span>
             </div>
           </div>
